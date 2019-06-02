@@ -1,0 +1,11 @@
+docker_images:
+  - dockerfile: docker/node/Dockerfile
+    path: ../
+    name: survivorbat/portfolio-node
+
+docker_tag: latest
+add_latest_tag: yes
+publish_images: no
+docker_username: ""
+docker_password: ""
+docker_email: ""

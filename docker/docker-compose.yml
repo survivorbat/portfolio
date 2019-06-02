@@ -1,0 +1,27 @@
+version: '3.5'
+
+networks:
+  nginx: ~
+
+services:
+  node:
+    restart: always
+    expose:
+      - 3000
+    networks:
+      - nginx
+    environment:
+      - GITHUB_URL=https://api.github.com/users/survivorbat/repos
+      - PORT=3000
+  nginx:
+    image: nginx:1.15.12-alpine
+    restart: always
+    networks:
+      - nginx
+    ports:
+      - 80:8080
+      - 443:8443
+    command: ["/bin/sh", "-c", "rm -rf /var/cache/nginx/*
+          && rm -rfv /etc/nginx/conf.d/*
+          && for i in $$(find /etc/nginx/temp/ | grep -F .conf); do awk '{while(match($$0,\"[$$]{[^}]*}\")) {var=substr($$0,RSTART+2,RLENGTH -3);gsub(\"[$$]{\"var\"}\",ENVIRON[var])}}1' < \"$$i\" > $$(echo $${i/temp//}); done
+          && nginx"]

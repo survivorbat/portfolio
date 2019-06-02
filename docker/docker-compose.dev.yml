@@ -1,0 +1,28 @@
+version: '3.5'
+
+volumes:
+  development_ssl:
+
+services:
+  nginx:
+    environment:
+      - server_name=localhost
+      - hsts_max_time=0m
+    volumes:
+      - development_ssl:/etc/letsencrypt/live/localhost
+      - ./nginx:/etc/nginx/temp
+  node:
+    build:
+      context: ../
+      dockerfile: docker/node/Dockerfile
+    volumes:
+      - ../src:/app
+    user: "1000"
+    command: ["/bin/sh", "-c", "npm install && node -r esm /app/node_modules/nodemon/bin/nodemon.js --ext js,twig,scss --legacy-watch server.js"]
+    environment:
+      - NODE_ENV=dev
+  ssl:
+    build:
+      context: ssl-dev
+    volumes:
+      - development_ssl:/ssl

@@ -1,0 +1,32 @@
+{
+  "name": "maarten-van-der-heijden-portfolio",
+  "version": "1.0.0",
+  "description": "My personaly portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/survivorbat/portfolio.git"
+  },
+  "author": "Maarten van der Heijden <survivorbat>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/survivorbat/portfolio/issues"
+  },
+  "homepage": "https://github.com/survivorbat/portfolio#readme",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "node-sass-middleware": "^0.11.0",
+    "twig": "^1.13.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.17.1"
+  }
+}
