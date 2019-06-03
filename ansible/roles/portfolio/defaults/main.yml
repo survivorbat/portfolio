@@ -16,7 +16,7 @@ default_group: root
 nginx_config_dir: /etc/maarten.dev/nginx
 nginx_files:
   - { src: "{{ base_dir }}/docker/nginx/nginx.conf", dest: "{{ nginx_config_dir }}/nginx.conf" }
-  - { src: "{{ base_dir }}/docker/nginx/conf.d", dest: "{{ nginx_config_dir }}/conf.d" }
+  - { src: "{{ base_dir }}/docker/nginx/conf.d", dest: "{{ nginx_config_dir }}" }
 
 nginx_static_dir: /etc/maarten.dev/static
 nginx_static_files: []
