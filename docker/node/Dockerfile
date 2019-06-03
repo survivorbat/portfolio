@@ -15,6 +15,7 @@ COPY --from=build --chown=node:node /app/node_modules /app/node_modules
 COPY --chown=node:node src/ /app/
 
 #RUN npm run test
+RUN npm rebuild node-sass
 
 USER node
 

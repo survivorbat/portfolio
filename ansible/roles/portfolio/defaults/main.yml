@@ -19,6 +19,6 @@ nginx_files:
   - { src: "{{ base_dir }}/docker/nginx/conf.d", dest: "{{ nginx_config_dir }}/conf.d" }
 
 nginx_static_dir: /etc/maarten.dev/static
-nginx_statis_files: []
+nginx_static_files: []
 
 docker_secrets_directory: /run/secrets

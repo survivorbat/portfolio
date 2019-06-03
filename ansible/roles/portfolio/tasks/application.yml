@@ -1,6 +1,7 @@
 ---
 - name: "Clean {{ project_dir }}"
   file:
+    path: "{{ project_dir }}"
     state: absent
 
 - name: "Ensure {{ project_dir }}"
@@ -28,6 +29,12 @@
     group: "{{ default_group }}"
     mode: 0755
   with_items: "{{ nginx_static_files }}"
+
+- name: "Ensure docker login"
+  docker_login:
+    username: "{{ docker_username }}"
+    email: "{{ docker_email }}"
+    password: "{{ docker_password }}"
 
 - name: "Restart Docker containers from {{ project_name }} with files in {{ project_dir }} with tag {{ docker_tag }}"
   environment:
