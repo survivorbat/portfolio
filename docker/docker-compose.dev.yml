@@ -18,7 +18,7 @@ services:
     volumes:
       - ../src:/app
     user: "1000"
-#    command: ["/bin/sh", "-c", "npm install && node -r esm /app/node_modules/nodemon/bin/nodemon.js --ext js,twig,scss --legacy-watch server.js"]
+    command: ["/bin/sh", "-c", "npm install && node -r esm /app/node_modules/nodemon/bin/nodemon.js --ext js,twig,scss --legacy-watch server.js"]
     environment:
       - NODE_ENV=dev
   ssl:
