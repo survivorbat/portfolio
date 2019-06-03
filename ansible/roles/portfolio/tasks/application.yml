@@ -1,4 +1,8 @@
 ---
+- name: "Clean {{ project_dir }}"
+  file:
+    state: absent
+
 - name: "Ensure {{ project_dir }}"
   file:
     state: directory
@@ -25,4 +29,16 @@
     mode: 0755
   with_items: "{{ nginx_static_files }}"
 
-- name: "Restart"
+- name: "Restart Docker containers from {{ project_name }} with files in {{ project_dir }} with tag {{ docker_tag }}"
+  environment:
+    server_name: "{{ inventory_hostname }}"
+    docker_tag: "{{ docker_tag }}"
+    secrets_folder: "{{ docker_secrets_directory }}"
+  docker_service:
+    state: present
+    restarted: yes
+    project_name: "{{ project_name }}"
+    project_src: "{{ project_dir }}"
+    files:
+      - "docker-compose.yml"
+      - "docker-compose.prod.yml"

@@ -20,3 +20,5 @@ nginx_files:
 
 nginx_static_dir: /etc/maarten.dev/static
 nginx_statis_files: []
+
+docker_secrets_directory: /run/secrets

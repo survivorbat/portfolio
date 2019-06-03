@@ -18,7 +18,7 @@
   hosts: localhost
   connection: local
   roles:
-    - { tags: build_images,publish_images, role: frontend-images }
+    - { tags: build_images, publish_images, role: portfolio-images }
 
 - name: Ensure portfolio
   hosts: portfolio
