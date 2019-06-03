@@ -4,8 +4,9 @@ python:
   - "3.6"
 
 install:
-#  - pip install ansible docker
-  - ls -la 
+  - pip install ansible docker
+  - ls -la
+  - pwd
   - ansible-galaxy install -r ansible/requirements.yml
 
 before_script:
