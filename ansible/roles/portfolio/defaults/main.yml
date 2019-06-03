@@ -1,3 +1,22 @@
 digitalocean_token: ""
 nginx_host_letsencrypt_email: example@example.com
 additional_domains: []
+
+base_dir: ../../../..
+project_dir: /srv/app
+project_name: portfolio
+project_dir_files:
+  - { src: "{{ base_dir }}/docker/docker-compose.yml", dest: "{{ project_dir }}"}
+  - { src: "{{ base_dir }}/docker/docker-compose.prod.yml", dest: "{{ project_dir }}"}
+  - { src: "{{ base_dir }}/Makefile", dest: "{{ project_dir }}"}
+
+default_user: root
+default_group: root
+
+nginx_config_dir: /etc/maarten.dev/nginx
+nginx_files:
+  - { src: "{{ base_dir }}/docker/nginx/nginx.conf", dest: "{{ nginx_config_dir }}/nginx.conf" }
+  - { src: "{{ base_dir }}/docker/nginx/conf.d", dest: "{{ nginx_config_dir }}/conf.d" }
+
+nginx_static_dir: /etc/maarten.dev/static
+nginx_statis_files: []

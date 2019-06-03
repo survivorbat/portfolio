@@ -26,6 +26,9 @@ common_users:
     group: "rungroup"
     uid: "30000"
 
+default_user: runuser
+default_group: rungroup
+
 digitalocean_token: !vault |
   $ANSIBLE_VAULT;1.1;AES256
   32333336636362393465313464626362376531633936343038643836636365353165326437656138
