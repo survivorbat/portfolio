@@ -21,4 +21,4 @@ USER node
 
 ENV NODE_ENV=prod
 
-CMD ["node -r esm /app/server.js"]
+CMD ["/bin/sh", "-c", "node -r esm server.js"]
