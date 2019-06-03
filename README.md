@@ -22,5 +22,5 @@ self-signed certificates that were generated when you started the project.
 
 ## Known quirks
 
-* Static files are currently served through the node backend, I prefer to server them
+* Static files are currently served through the node backend, I prefer to serve them
 through the Nginx webserver in order to let Nginx do the heavy lifting with static files
