@@ -37,15 +37,17 @@
                 {% block container %}
                     {% block header %}
                         <header class="row justify-content-around page--header">
-                            <div class="col-md-5">
+                            <div class="col-lg-5">
                                 <h1 class="header--title">{% block pageTitle %}Maarten van der Heijden{% endblock %}</h1>
                             </div>
-                            <div class="col-md-6 header--nav">
+                            <div class="col-lg-6 header--nav">
                                 {% include "nav.twig" %}
                             </div>
                         </header>
                     {% endblock %}
-                    {% block content %}{% endblock %}
+                    <div class="content--container">
+                        {% block content %}{% endblock %}
+                    </div>
                     {% block footer %}
                         <footer class="row page--footer">
                             <div class="col-12">
@@ -55,6 +57,9 @@
                     {% endblock %}
                 {% endblock %}
             </div>
+            {% block javascripts %}
+                <script src="/js/nav.js"></script>
+            {% endblock %}
         {% endblock %}
     </body>
 </html>

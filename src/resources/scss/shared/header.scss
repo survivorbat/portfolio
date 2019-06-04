@@ -6,12 +6,13 @@
   margin-top: 2em;
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(lg) {
   .page--header {
     padding-top: 45vh;
     padding-bottom: 50vh;
   }
   .header--title {
+    transition: 0.5s;
     font-size: 1.6em;
     text-align: center;
   }

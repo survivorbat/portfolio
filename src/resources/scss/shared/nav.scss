@@ -30,7 +30,7 @@
   }
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(lg) {
   .header--nav {
     position: initial;
   }
@@ -40,29 +40,19 @@
     top: 10px;
     left: 10px;
     right: 10px;
+  }
 
-    &:hover {
-      pointer-events: none;
-
-      .nav--list {
-        height: 100vh;
-        visibility: visible;
-      }
-      &::before {
-        transform: rotate(90deg);
-      }
+  .nav--element-active {
+    .nav--list {
+      height: 100vh;
+      visibility: visible;
+    }
+    &::before {
+      transform: rotate(90deg);
     }
   }
 
   .nav--list {
-    background-size: cover;
-    background: linear-gradient(135deg, darken($background-color, $background-darken-amount) 0%, $background-color 50%, lighten($background-color, $background-lighten-amount) 100%) fixed;
-
-    animation-name: background-animation;
-    animation-iteration-count: infinite;
-    animation-duration: $background-animation-duration;
-    animation-timing-function: ease-in-out;
-
     height: 0;
     overflow-y: hidden;
     display: block;

@@ -21,7 +21,7 @@
   }
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(d) {
   .error--title {
     font-size: 2em;
   }

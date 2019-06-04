@@ -14,3 +14,11 @@ html, body {
   75% { filter: hue-rotate(-$background-animation-range);}
   100% { filter: hue-rotate(0);}
 }
+
+.transparent {
+  opacity: 0;
+}
+
+.content--container {
+  transition: 0.5s;
+}
