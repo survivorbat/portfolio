@@ -1,5 +1,5 @@
-@import "vars";
-@import "mixins";
+@import "../partials/vars";
+@import "../partials/mixins";
 
 .nav--list {
   list-style-type: none;
@@ -11,10 +11,6 @@
 
 .nav--item {
   display: inline-block;
-}
-
-.nav--toggle {
-  height: 4em;
 }
 
 .nav--anchor {
@@ -52,7 +48,7 @@
     top: 10px;
     left: 10px;
     right: 10px;
-    height: 2em;
+    height: 4em;
     width: 20vw;
   }
 

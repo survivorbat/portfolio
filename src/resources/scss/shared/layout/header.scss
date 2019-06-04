@@ -1,5 +1,5 @@
-@import "vars";
-@import "mixins";
+@import "../partials/vars";
+@import "../partials/mixins";
 
 .page--header {
   color: $text-color;
