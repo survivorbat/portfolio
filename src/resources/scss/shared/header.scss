@@ -1,0 +1,18 @@
+@import "vars";
+@import "mixins";
+
+.page--header {
+  color: $text-color;
+  margin-top: 2em;
+}
+
+@include media-breakpoint-down(sm) {
+  .page--header {
+    padding-top: 45vh;
+    padding-bottom: 50vh;
+  }
+  .header--title {
+    font-size: 1.6em;
+    text-align: center;
+  }
+}

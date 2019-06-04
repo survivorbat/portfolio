@@ -5,6 +5,7 @@ import twig from "twig";
 import sass from "node-sass-middleware";
 import path from "path";
 import { getPort, isDev } from "./utils/functions";
+import { GLOBAL_vARS } from "./constants/global";
 
 const app = express();
 app.use(logger("combined"));
@@ -17,6 +18,8 @@ app.use(
     prefix: "/css"
   })
 );
+// Global view variables
+app.locals = GLOBAL_vARS;
 
 app.use(express.static(path.join(__dirname, "/public")));
 

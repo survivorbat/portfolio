@@ -1,0 +1,16 @@
+@import "vars";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Raleway', sans-serif;
+}
+
+@keyframes background-animation {
+  0% { filter: hue-rotate(0);}
+  25% { filter: hue-rotate($background-animation-range);}
+  50% { filter: hue-rotate(0);}
+  75% { filter: hue-rotate(-$background-animation-range);}
+  100% { filter: hue-rotate(0);}
+}

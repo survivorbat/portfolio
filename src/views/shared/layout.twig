@@ -1,16 +1,17 @@
-<html>
+<html lang="en">
   <head>
     {% block head %}
-        <title>{% block title %}Maarten van der Heijden Portfolio{% endblock %}</title>
+        <title>{% block title %}{{ layout.title }}{% endblock %}</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-        <meta name="author" content="Maarten van der Heijden">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <meta name="author" content="{{ site.author }}">
         <meta name="description" content="The personal software development portfolio of Maarten van der Heijden. On this website you can find several contact links and a list of github projects.">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <meta property="og:site_name" content="Maarten van der Heijden Software Development">
-        <meta property="og:title" content="Maarten van der Heijden Software Development">
+        <meta property="og:site_name" content="{{ site.name }}">
+        <meta property="og:title" content="{{ site.name }}">
         <meta property="og:description" content="The personal software development portfolio of Maarten van der Heijden. On this website you can find several contact links and a list of github projects.">
         <meta property="og:type" content="website">
+        <meta property="og:author" content="{{ site.author }}">
         <meta property="og:url" content="https://maarten.dev/">
 
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -20,38 +21,33 @@
         <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#2b5797">
         <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-        <link rel="stylesheet" href="/css/main.css">
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/css/home/home.css">
+        {% endblock %}
     {% endblock %}
     </head>
     <body>
         {% block body %}
             {% block background %}
-                <div class="background"></div>
+                <div class="page--background"></div>
             {% endblock %}
-            <div class="container-fluid">
+            <div class="container-fluid page--container">
                 {% block container %}
                     {% block header %}
-                        <header class="row justify-content-around">
-                            <div class="col-5">
-                                <h1>{% block pageTitle %}Maarten van der Heijden{% endblock %}</h1>
+                        <header class="row justify-content-around page--header">
+                            <div class="col-md-5">
+                                <h1 class="header--title">{% block pageTitle %}Maarten van der Heijden{% endblock %}</h1>
                             </div>
-                            <div class="col-6">
-                                {% include "shared/nav.twig" %}
+                            <div class="col-md-6 header--nav">
+                                {% include "nav.twig" %}
                             </div>
                         </header>
                     {% endblock %}
-                    {% block main %}
-                        <main class="row">
-                            <div class="col-12">
-                                <p>Nothing to see here (yet)!</p>
-                            </div>
-                        </main>
-                    {% endblock %}
+                    {% block content %}{% endblock %}
                     {% block footer %}
-                        <footer class="row">
+                        <footer class="row page--footer">
                             <div class="col-12">
                                 <p></p>
                             </div>
@@ -59,12 +55,6 @@
                     {% endblock %}
                 {% endblock %}
             </div>
-
-            {% block scripts %}
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-            {% endblock %}
         {% endblock %}
     </body>
 </html>

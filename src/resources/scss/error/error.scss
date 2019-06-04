@@ -1,0 +1,32 @@
+@import "../shared/vars";
+@import "../shared/default";
+@import "../shared/layout";
+
+.error--title {
+  text-align: center;
+  margin-top: 40vh;
+  margin-bottom: 1em;
+  color: $text-color;
+  font-size: 3em;
+}
+
+.error--anchor {
+  font-weight: bold;
+  font-size: 2em;
+  cursor: pointer;
+
+  &:visited, &:link {
+    color: $text-color;
+    font-weight: bold;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .error--title {
+    font-size: 2em;
+  }
+
+  .error--anchor {
+    font-size: 1.5em;
+  }
+}

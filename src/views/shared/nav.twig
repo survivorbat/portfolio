@@ -1,11 +1,11 @@
 {% block nav %}
-    <nav>
-        <ul class="nav-items">
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
+    <nav class="nav--element">
+        <ul class="nav--list">
+            {% for item in layout.menu.items %}
+                <li class="nav--item">
+                    <a href="{{ item.href }}" class="nav--anchor">{{ item.displayName }}</a>
+                </li>
+            {% endfor %}
         </ul>
     </nav>
 {% endblock %}

@@ -28,7 +28,4 @@ export const catchError = (
  * @param {Object} res
  * @returns {*}
  */
-export const notFound = (req, res) =>
-  res.status(404).json({
-    message: "404 not found"
-  });
+export const notFound = (req, res) => res.status(404).render("error/404.twig");
