@@ -1,48 +1,20 @@
-## Securosque feras famem
+## Maarten.dev
 
-Lorem markdownum male obortas. A ite postquam fatum ausum facto, Aesonis,
-furibunda domini. Quae dextera et cerva: vina **navibus**, debuit. Luna sit et
-**orbe hac** quid, ter vidit sine Boeotia vultu fuerant novos! Asperitas tota
-regnumque, tempore recto noctisque hedera, pulchra poscat ad damnare tempus,
-fateamur nullique ea pars.
+Welcome to maarten.dev! This is the web page where I showcase my projects, talk
+about my experience in (web) development and show off some of the stuff and techniques that I
+learned along the way. I also put down a list of things that I want to research in the future.
 
-> Frater quem, dum fieres tumet caespite vobis veniam nectare? Aeoliden vir
-> tollens instruit, aut respice aerias *agitatis*: cautes! Prima nexus nec
-> posset nocuit rigido [urbes](http://domino.net/cuiusherba.php) si retro **a
-> caput dimittere** loquor **ab perdix** penetrabile dique campus.
+This website consists of an Nginx web server that offloads SSL/TLS running in front of a
+NodeJS application that serves HTML pages. These pages are created using Twig, a templating
+engine that I often use in Symfony applications and styling is done with Sass stylesheets.
 
-### Me nec haut demere
+Both the Nginx and the NodeJS app run in Docker containers that are automatically deployed
+using an Ansible script. Anytime I save new changes to my code on GitHub a Travis-CI pipeline
+runs and automatically deploys these new changes to my virtual Linux server(s).
 
-Tantum horrendus ad abest, nunc aratro murum vincas ora scissaque has. Canes
-turbavere intulit experientis vestrum pro orbes lacrimas patebant conripiantque
-noverca insuperabile tellus et nullo margine.
+You might have guess from this little introduction that I'm more into backend/DevOps than
+frontend development, this is true since I find myself often having more fun with setting
+up environments and servers than styling web pages. You can find more information on
+who I am and why I love what I do on the [About Me](/about) page.
 
-### Addere currus quondam lateri
-
-Laedit gemmae digreditur bene, venabula perlucentes deus! Illo mihi utque
-invidiosus fretumque hamo hanc fretum penitus fores sinistrae dumque sint
-patriam te orbe. Ablata quam, non fronde rima lunae ferre. Virginis cum Indis
-iamdudum, siccat vates mihi ad concha clamantem visa.
-
-Non ambobus ultima, exempla, Priamo est pervenit coetum! Excutior in [quicquam
-munus virum](http://lenimencerte.io/suis), dieque hebeti, est quod **etiamnum
-fasque** et. Adlevat [cruentae](http://tam.net/specto.html) tibi pallamque ipse.
-Poena ille metiris celer: dea: tela qua quemque grando, manifesta.
-
-#### Super si Dianae tenebit et domos praeceps
-
-Alto nisi arcisque dryades illa dextramque perfida fatifero; capillos exarsit,
-sceleris. Permisit [amplexuque vigil](http://deus.io/), Babylonia o Cytherea
-meorum; cum.
-
-Gratissime nunc; erat cum dextra aureae figentem opes numinis modo ibi amnes.
-Illud laetus constitit te debes [mactare leaeque
-et](http://demens.com/modotuorum.php) oramus, superare odit inmota agresti
-poterat sua aequantibus. Isse sed praecepta amnes.
-
-#### Super si Dianae tenebit et domos praeceps
-
-Laedit gemmae digreditur bene, venabula perlucentes deus! Illo mihi utque
-invidiosus fretumque hamo hanc fretum penitus fores sinistrae dumque sint
-patriam te orbe. Ablata quam, non fronde rima lunae ferre. Virginis cum Indis
-iamdudum, siccat vates mihi ad concha clamantem visa.
+Feel free to have a look! :)

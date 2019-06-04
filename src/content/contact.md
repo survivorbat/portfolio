@@ -1,34 +1,16 @@
-## Omnes Polypemonis melioris edentem penetratque ardent revelli
+## Contact me
 
-Lorem markdownum acervos venae: **removit** sive ipsi ortus et **rigorem** dolor
-*fragmina*, brevissimus. Audaci inmanibus credere fixurus domo praestare sed
-simul ima erroresque calcat voce. Pictis [die diffudit
-Terram](http://sitae-deam.com/facitmutare).
+I have a [LinkedIn](https://www.linkedin.com/in/maarten-van-der-heijden-webdev/) profile where
+I keep any professional information like work experience and certificates. 
 
-## Se aqua audentia coniunx herbis
+I also have a public
+[Github page](https://github.com/survivorbat) where I keep new and old projects on display to
+show the world what I'm currently working on in my private time and to give some examples
+of programs and applications that I've worked on in the past. Most of the (public) repositories
+on my page are archived and are either inactive or from past school projects.
 
-Et undis quaerit Baccheaque picum suspicit laudamus hunc memorante! Quodam voco
-Priamo adeunda, non duce, dat sed natumque. Quo sinit inmeritam populi. Non male
-a variat oculus petis; labi ipse quid fides adflavit flores senes umbrosa.
-Oneris sparsaque tuentur!
+I also have a [DockerHub account](https://hub.docker.com/u/survivorbat) where I keep Docker images
+of my applications. I'm afraid most of my work on there is private and you won't find anything
+really useful on there unfortunately.
 
-## Continuam fatentem dextro Invidiae
-
-Mergit sumptas fuisset, Auroram orbis. Telo redde ut opemque non maiore: et hanc
-circumdata illuc, culta suras misisset [aeternus
-tuas](http://pulsat-perspicit.org/); tum pignus.
-
-- Lurida sunt non damnatura
-- Custodes Phaethon in Deoida et et
-- Tantum lateque Gorgenque puerum torque premit tridente
-- Potiora libebat omne mora et Hyperione cinctum
-
-## Absistit falsa futurus debebit de prius ardent
-
-Et glacialis nomen timore imponit fessos admirantibus resupina *vires*? Est est
-visus neque confiteor caelum fortis praenuntia mihi una, **o vocari** plagas?
-Nubigenasque quondam.
-
-Attulit **tanti manus** laniarat alios obstitit altera rursus, iracundique.
-Linguae iam amoris tantum, causa relinquit sit vultu primum madefecit **procul
-orbem** Labitur; primos.
+Finally you can also contact me directly through e-mail, send me a message on [me@maarten.dev](mailto:me@maarten.dev)

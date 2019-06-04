@@ -8,6 +8,7 @@
 
   h2 {
     font-size: $content-title-base-size;
+    margin-bottom: 0.4em;
     &:not(:first-child) {
       margin-top: 1.8em;
     }
@@ -15,18 +16,22 @@
   h3 {
     font-size: $content-title-base-size / 1.5;
     margin-top: 1.6em;
+    margin-bottom: 0.4em;
   }
   h4 {
     font-size: $content-title-base-size / 2;
     margin-top: 1.4em;
+    margin-bottom: 0.4em;
   }
   h5 {
     font-size: $content-title-base-size / 2.5;
     margin-top: 1.2em;
+    margin-bottom: 0.4em;
   }
   h6 {
     font-size: $content-title-base-size / 3;
     margin-top: 1em;
+    margin-bottom: 0.4em;
   }
 }
 
