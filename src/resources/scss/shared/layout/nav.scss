@@ -75,7 +75,6 @@
 
   .nav--item {
     display: block;
-    width: 100vw;
     // TODO: Make this value dynamic
     height: 10vh;
   }
@@ -88,6 +87,6 @@
     font-stretch: expanded;
     transition: 0.5s;
     border-radius: 0.5em;
-    background-color: transparentize(black, 0.2);
+    background-color: transparentize($background-color, 0.25);
   }
 }
