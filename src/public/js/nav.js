@@ -1,11 +1,12 @@
 const nav = document.querySelector("#nav--element");
+const navToggle = document.querySelector(".nav--toggle");
 const contentContainer = document.querySelector(".content--container");
 const pageHeader = document.querySelector(".header--title");
 
 let active = false;
 
 // TODO: Clean this up
-nav.addEventListener("click", () => {
+navToggle.addEventListener("click", () => {
   active = !active;
 
   if (active) {

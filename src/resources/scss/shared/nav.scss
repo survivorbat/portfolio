@@ -42,6 +42,15 @@
     right: 10px;
   }
 
+  .nav--toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 2em;
+    width: 20vw;
+  }
+
   .nav--element-active {
     .nav--list {
       height: 100vh;
