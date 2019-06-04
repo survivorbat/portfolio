@@ -5,7 +5,7 @@ import twig from "twig";
 import sass from "node-sass-middleware";
 import path from "path";
 import { getPort, isDev } from "./utils/functions";
-import { GLOBAL_vARS } from "./constants/global";
+import { GLOBAL_vARS } from "./utils/constants";
 
 const app = express();
 app.use(logger("combined"));

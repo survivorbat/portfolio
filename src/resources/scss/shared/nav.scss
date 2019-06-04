@@ -13,6 +13,10 @@
   display: inline-block;
 }
 
+.nav--toggle {
+  height: 4em;
+}
+
 .nav--anchor {
   color: $text-color;
   font-weight: bolder;
@@ -40,6 +44,7 @@
     top: 10px;
     left: 10px;
     right: 10px;
+    z-index: 5;
   }
 
   .nav--toggle {
@@ -86,6 +91,7 @@
     display: inline-block;
     font-stretch: expanded;
     transition: 0.5s;
-    pointer-events: all;
+    border-radius: 0.5em;
+    background-color: transparentize($background-color, 0.3);
   }
 }

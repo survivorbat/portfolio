@@ -1,5 +1,6 @@
 const SITE_TITLE = "Maarten van der Heijden Portfolio";
 const SITE_AUTHOR = "Maarten van der Heijden";
+const FOOTER_TEXT = "";
 
 const MENU_ITEMS = [
   {
@@ -34,6 +35,9 @@ export const GLOBAL_vARS = {
     title: SITE_TITLE,
     menu: {
       items: MENU_ITEMS
+    },
+    footer: {
+      title: `© Maarten van der Heijden ${new Date().getFullYear()}`
     }
   },
   site: {

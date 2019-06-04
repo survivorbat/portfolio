@@ -8,8 +8,10 @@ $background-darken-amount: 4%;
 
 $star-size: 13pt;
 $star-color: white;
-$star-duration: 30s;
+$star-duration: 35s;
 $star-max-delay: 60;
-$star-count: 40;
+$star-count: 35;
 $star-max-opacity: 0.6;
 $star-elements: '*', '{}', ';', '()', '&&', '||', '*', '<>', '$', '!', '>=', '+=', '==', '\n', '[]', '~/', 'cd', 'ls', '\'', '"', '`';
+
+$content-title-base-size: 3em;

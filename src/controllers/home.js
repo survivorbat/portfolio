@@ -1,3 +1,5 @@
+import { fetchContent } from "../utils/functions";
+
 /**
  * @param {Object} req
  * @param {Object} res
@@ -5,4 +7,6 @@
  * @returns {*|void}
  */
 export const homePage = async (req, res, next) =>
-  res.status(200).render("home/index.twig");
+  res.status(200).render("home/index.twig", {
+    content: await fetchContent("home")
+  });

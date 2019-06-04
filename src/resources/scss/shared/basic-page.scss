@@ -1,0 +1,37 @@
+@import "vars";
+@import "mixins";
+
+.main--text-content {
+  color: $text-color;
+  font-family: sans-serif;
+  margin-top: 6vh;
+
+  h2 {
+    font-size: $content-title-base-size;
+    &:not(:first-child) {
+      margin-top: 1.8em;
+    }
+  }
+  h3 {
+    font-size: $content-title-base-size / 1.5;
+    margin-top: 1.6em;
+  }
+  h4 {
+    font-size: $content-title-base-size / 2;
+    margin-top: 1.4em;
+  }
+  h5 {
+    font-size: $content-title-base-size / 2.5;
+    margin-top: 1.2em;
+  }
+  h6 {
+    font-size: $content-title-base-size / 3;
+    margin-top: 1em;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .main--text-content {
+    margin-top: initial;
+  }
+}

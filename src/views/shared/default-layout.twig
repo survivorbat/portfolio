@@ -1,0 +1,27 @@
+<html lang="en">
+  <head>
+    {% block head %}
+        {% include "layout/metadata.twig" %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/css/home/home.css">
+        {% endblock %}
+    {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            {% include "layout/background.twig" %}
+            <div class="container-fluid page--container">
+                {% block container %}
+                    {% include "layout/header.twig" %}
+                    <div class="content--container">
+                        {% block content %}{% endblock %}
+                    </div>
+                    {% include "layout/footer.twig" %}
+                {% endblock %}
+            </div>
+            {% block javascripts %}
+                <script src="/js/nav.js"></script>
+            {% endblock %}
+        {% endblock %}
+    </body>
+</html>
