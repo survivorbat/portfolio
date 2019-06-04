@@ -6,6 +6,13 @@
   margin-top: 2em;
 }
 
+.header--title {
+  color: $text-color;
+  &:link, &:visited, &:hover {
+    text-decoration: none;
+  }
+}
+
 @include media-breakpoint-down(lg) {
   .page--header {
     padding-top: 45vh;

@@ -31,14 +31,22 @@
     <body>
         {% block body %}
             {% block background %}
-                <div class="page--background"></div>
+                <div class="page--background">
+                    {% for star in range(0, 40) %}
+                        <div class="background--star"></div>
+                    {% endfor %}
+                </div>
             {% endblock %}
             <div class="container-fluid page--container">
                 {% block container %}
                     {% block header %}
                         <header class="row justify-content-around page--header">
                             <div class="col-lg-5">
-                                <h1 class="header--title">{% block pageTitle %}Maarten van der Heijden{% endblock %}</h1>
+                                <a href="/">
+                                    <h1 class="header--title">
+                                        {% block pageTitle %}Maarten van der Heijden{% endblock %}
+                                    </h1>
+                                </a>
                             </div>
                             <div class="col-lg-6 header--nav">
                                 {% include "nav.twig" %}

@@ -1,4 +1,5 @@
 @import "vars";
+@import "mixins";
 @import "../shared/header";
 @import "../shared/nav";
 
@@ -17,6 +18,32 @@
   top: 0;
   width: 100vw;
   height: 100vh;
+}
+
+.background--star {
+  text-shadow: 0 0 1em white;
+  position: absolute;
+  animation: shooting-stars;
+  animation-iteration-count: infinite;
+  animation-duration: $star-duration;
+  animation-timing-function: linear;
+  opacity: 0;
+
+  @for $i from 1 through $star-count {
+    &:nth-child(#{$i}) {
+      $delay: random($star-max-delay * 2) - $star-max-delay  + 0s;
+      top: random(160) - 100;
+      left: random(120) - 20 + 0%;
+      animation-delay: $delay;
+
+      &::before {
+        font-size: $star-size;
+        color: random_element(($star-color, lighten($star-color, $background-lighten-amount), darken($star-color, $background-darken-amount)));
+        animation-delay: $delay;
+        content: random_element($star-elements);
+      }
+    }
+  }
 }
 
 .page--content {

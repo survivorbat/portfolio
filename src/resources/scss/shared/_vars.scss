@@ -1,6 +1,15 @@
-$background-color: #00134c;
+$background-color: #001238;
 $text-color: ghostwhite;
-$background-animation-range: 120deg;
-$background-animation-duration: 15s;
-$background-lighten-amount: 20%;
+
+$background-animation-range: 140deg;
+$background-animation-duration: 25s;
+$background-lighten-amount: 8%;
 $background-darken-amount: 4%;
+
+$star-size: 13pt;
+$star-color: white;
+$star-duration: 30s;
+$star-max-delay: 60;
+$star-count: 40;
+$star-max-opacity: 0.6;
+$star-elements: '*', '{}', ';', '()', '&&', '||', '*', '<>', '$', '!', '>=', '+=', '==', '\n', '[]', '~/', 'cd', 'ls', '\'', '"', '`';

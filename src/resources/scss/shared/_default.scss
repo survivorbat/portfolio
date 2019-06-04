@@ -15,6 +15,24 @@ html, body {
   100% { filter: hue-rotate(0);}
 }
 
+@keyframes shooting-stars {
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 0.4em white;
+    transform: translate(0);
+  }
+  25%,
+  75% {
+    opacity: $star-max-opacity;
+    text-shadow: 0 0 1.5em white;
+  }
+  100% {
+    opacity: 0;
+    text-shadow: 0 0 0.7em white;
+    transform: translate(20vw, 100vh) rotate(180deg);
+  }
+}
+
 .transparent {
   opacity: 0;
 }
