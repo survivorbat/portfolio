@@ -8,5 +8,6 @@ services:
     environment:
       - server_name=${server_name}
       - hsts_max_time=3000000
+      - cache_max_time=60m
   node:
     image: survivorbat/portfolio-node:${docker_tag}

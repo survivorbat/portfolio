@@ -8,6 +8,7 @@ services:
     environment:
       - server_name=localhost
       - hsts_max_time=0m
+      - cache_max_time=1m
     volumes:
       - development_ssl:/etc/letsencrypt/live/localhost
       - ./nginx:/etc/nginx/temp
