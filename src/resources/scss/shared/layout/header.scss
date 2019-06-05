@@ -7,13 +7,14 @@
 }
 
 .header--title {
+  font-size: 1.6em;
   color: $text-color;
   &:link, &:visited, &:hover {
     text-decoration: none;
   }
 }
 
-@include media-breakpoint-down(lg) {
+@include media-breakpoint-down(md) {
   .page--header {
     padding-top: 45vh;
     padding-bottom: 50vh;

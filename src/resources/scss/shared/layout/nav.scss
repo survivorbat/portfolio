@@ -17,7 +17,7 @@
   color: $text-color;
   font-weight: bolder;
   text-transform: uppercase;
-  font-size: 1.5em;
+  font-size: 1.3em;
   cursor: pointer;
   transition: 0.4s;
 
@@ -30,7 +30,7 @@
   }
 }
 
-@include media-breakpoint-down(lg) {
+@include media-breakpoint-down(md) {
   .header--nav {
     position: initial;
   }

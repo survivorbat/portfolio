@@ -8,25 +8,12 @@
   background-size: cover;
   background: linear-gradient(135deg, darken($background-color, $background-darken-amount) 0%, $background-color 50%, lighten($background-color, $background-lighten-amount) 100%) fixed;
 
-  animation-name: background-animation;
-  animation-iteration-count: infinite;
-  animation-duration: $background-animation-duration;
-  animation-timing-function: ease-in-out;
-
   position: fixed;
   z-index: -10;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-}
-
-@keyframes background-animation {
-  0% { filter: hue-rotate(0);}
-  25% { filter: hue-rotate($background-animation-range);}
-  50% { filter: hue-rotate(0);}
-  75% { filter: hue-rotate(-$background-animation-range);}
-  100% { filter: hue-rotate(0);}
 }
 
 .background--star {

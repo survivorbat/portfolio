@@ -1,10 +1,15 @@
 @import "partials/vars";
 @import "partials/mixins";
+@import "partials/animations";
 
 .main--text-content {
   color: $text-color;
   font-family: sans-serif;
   margin-top: 6vh;
+  opacity: 0.1;
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
 
   h2 {
     font-size: $content-title-base-size;
@@ -35,7 +40,7 @@
   }
 }
 
-@include media-breakpoint-down(lg) {
+@include media-breakpoint-down(md) {
   .main--text-content {
     margin-top: initial;
   }
