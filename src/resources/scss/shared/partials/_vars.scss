@@ -4,12 +4,12 @@ $text-color: ghostwhite;
 $background-lighten-amount: 8%;
 $background-darken-amount: 4%;
 
-$star-size: 13pt;
+$star-size: 14pt;
 $star-color: white;
 $star-duration: 35s;
 $star-max-delay: 60;
 $star-count: 45; // TODO: Make this dynamic since this number is also used in a Twig template
-$star-max-opacity: 0.6;
-$star-elements: '{}', ';', '()', '&&', '||', '<>', '$', '!', '>=', '==', 'cd', 'ls', 'pwd', 'sudo', 'cat', 'apt';
+$star-max-opacity: 0.7;
+$star-elements: '{}', '[]', '--', ';', '()', '&&', '||', '<>', '=>', '!', '++', '>=', 'ls', 'sudo', 'apt';
 
-$content-title-base-size: 3em;
+$content-title-base-size: 3.1em;

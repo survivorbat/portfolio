@@ -2,7 +2,6 @@
 @import "../partials/mixins";
 @import "header";
 @import "nav";
-@import "footer";
 
 .page--background {
   background-size: cover;
@@ -17,7 +16,7 @@
 }
 
 .background--star {
-  text-shadow: 0 0 1.5em white;
+  text-shadow: 0 0 1em white;
   position: absolute;
   animation: shooting-stars;
   animation-iteration-count: infinite;
@@ -48,7 +47,7 @@
     transform: translate(0);
   }
   25%,
-  75% {
+  65% {
     opacity: $star-max-opacity;
   }
   100% {

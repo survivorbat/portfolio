@@ -1,1 +1,38 @@
 {% extends "../shared/default-layout.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/projects/projects.css">
+{% endblock %}
+
+{% block content %}
+    <div class="row projects--text-block justify-content-center">
+        <div class="col-md-8 main--text-content">
+            {{- content -}}
+        </div>
+    </div>
+    <div class="row projects--block justify-content-center">
+        <div class="col-md-8">
+            <ul class="projects--list">
+                {% for project in projects %}
+                    <li class="projects--item">
+                        <a href="{{- project.html_url -}}" class="project--anchor">
+                            <h5 class="project--title">
+                                {{- project.name -}}
+                            </h5>
+                            <p class="project--description">
+                                {{- project.description -}}
+                            </p>
+                            <span class="project--language">
+                                {{- project.language -}}
+                            </span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="projects--item">
+                        Nothing's here!
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

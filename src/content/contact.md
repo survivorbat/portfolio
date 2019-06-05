@@ -8,8 +8,8 @@ I also have a public
 show the world what I'm currently working on in my private time. Most of the (public) repositories
 on my page are archived and are either inactive or from past school projects.
 
-I also have a [DockerHub account](https://hub.docker.com/u/survivorbat) where I keep the Docker images
-of my applications. I'm afraid most of my work on there is private however, I don't have many
+I store my Docker images over at [DockerHub](https://hub.docker.com/u/survivorbat). I'm afraid most of my work on there is private however, I don't have many
 public images.
 
-Finally, you can also contact me directly through e-mail, send me a message on [me@maarten.dev](mailto:me@maarten.dev).
+Finally, you can also contact me directly through e-mail, send me a message on [djbatcat@gmail.com](mailto:djbatcat@gmail.com).
+I must note however that this mail address will soon change to me@maarten.dev or something similar.

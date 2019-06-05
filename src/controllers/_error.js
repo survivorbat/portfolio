@@ -10,11 +10,6 @@ export const catchError = (
   res,
   next
 ) => {
-  if (errorName === "ValidationError" || errorName === "CastError") {
-    status = 422;
-    message =
-      "Your request was either malformed or contained invalid input. Please consult the documentation.";
-  }
   res.status(status).json({
     message,
     code,
