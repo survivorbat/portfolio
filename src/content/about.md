@@ -32,7 +32,7 @@ on a server (like this website).
 After finishing my internship with a 9 out of 10 I decided that I wanted to continue working at [Developers.nl](https://developers.nl)
 part-time while in my last years of college so that I could continue to learn backend and 
 DevOps techniques in a professional environment. It was also around this time that I started
-to dual-boot all my computers so that I could use Linux in my development environment. Besides
+to dual-boot all my computers so that I could use Linux in my development environment everywhere. Besides
 this I also upgraded my shared hosting account to a virtual server so that I could figure out
 server management through SSH.
 
