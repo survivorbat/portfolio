@@ -8,7 +8,7 @@ import { getPort, isDev } from "./utils/functions";
 import { GLOBAL_vARS } from "./utils/constants";
 
 const app = express();
-app.use(logger("combined"));
+app.use(logger("dev"));
 app.use(
   sass({
     src: path.join(__dirname, "/resources/scss"),

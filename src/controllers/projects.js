@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { fetchContent } from "../utils/functions";
+import { fetchContent, splitArrayByFilter } from "../utils/functions";
 
 /**
  * @param {Object} req
@@ -16,8 +16,11 @@ export const projectsPage = async (req, res, next) => {
     });
   const content = await fetchContent("projects");
 
+  const sortedProjects = splitArrayByFilter(projects, e => !e.archived);
+
   return res.status(200).render("projects/index.twig", {
-    projects,
+    activeProjects: sortedProjects[0],
+    archivedProjects: sortedProjects[1],
     content
   });
 };

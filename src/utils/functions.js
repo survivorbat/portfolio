@@ -25,3 +25,19 @@ export const fetchContent = async file => {
   const content = await readFile(`./content/${file}.md`, "utf-8");
   return mdParser.makeHtml(content);
 };
+
+/**
+ * @param {Array} array
+ * @param {Function} filterFunction
+ * @returns {Array[]}
+ */
+export const splitArrayByFilter = (array, filterFunction) => {
+  let trueValues = [];
+  let falseValues = [];
+
+  array.forEach(value =>
+    filterFunction(value) ? trueValues.push(value) : falseValues.push(value)
+  );
+
+  return [trueValues, falseValues];
+};
