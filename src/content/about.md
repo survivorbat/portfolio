@@ -9,7 +9,7 @@ for a movie I really liked with a tool that consisted of drag 'n dropping images
 and then uploading the html files through DirectAdmin. Around this time I also started
 fiddling with PHP.
 
-Age 17 and I finally understood how to build websites properly with php, js, html and css. 
+At age 17 I finally understood how to build websites properly with php, js, html and css. 
 I worked on quite a lot of small-scale projects for my friends at school and I also built
 an online math-game called rekengame.nl with the CodeIgniter PHP framework. These apps used
 SQL databases, XML files and ini files to store data. Not because it was the best format
