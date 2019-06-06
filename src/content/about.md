@@ -39,7 +39,7 @@ server management through SSH.
 ### Future plans
 
 Now that I achieved my dream of building a website and hosting it myself, I've set my sights
-on two new goals:
+on these new goals:
 * Try out kubernetes and (perhaps) deploy a website/system with it
 * Build a (small) .io game like [agar.io](http://agar.io) or [slither.io](http://slither.io).
 * Try out Arch Linux
