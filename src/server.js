@@ -4,11 +4,11 @@ import router from "./router";
 import twig from "twig";
 import sass from "node-sass-middleware";
 import path from "path";
-import { getPort, isDev } from "./utils/functions";
+import { getPort, isDev, stripDashes } from "./utils/functions";
 import { GLOBAL_vARS } from "./utils/constants";
 
 const app = express();
-app.use(logger("dev"));
+app.use(logger(isDev() ? "dev" : "combined"));
 app.use(
   sass({
     src: path.join(__dirname, "/resources/scss"),

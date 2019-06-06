@@ -1,7 +1,7 @@
 <li class="projects--item">
     <a href="{{- project.html_url -}}" class="project--anchor">
         <h5 class="project--title">
-            {{- project.name -}}
+            {{- project.name | replace({"-": " "}) -}}
         </h5>
         <p class="project--description">
             {{- project.description -}}
