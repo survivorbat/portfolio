@@ -15,6 +15,6 @@ runs and automatically deploys the new code to my virtual Linux server(s).
 You might have guessed from this introduction that I'm more into backend/DevOps than
 frontend development. This is true, I often find setting
 up environments and servers more fun than styling web pages. You can find more information on
-who I am and why I love what I do on the [about me](/about) page.
+who I am and why I love what I do on the [about me](/about "About me page") page.
 
 Feel free to have a look at what I've made in the past! :)
