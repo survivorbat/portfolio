@@ -24,3 +24,9 @@ self-signed certificates that were generated when you started the project.
 
 * Static files are currently served through the node backend, I prefer to serve them
 through the Nginx webserver in order to let Nginx do the heavy lifting with static files
+
+## Future plans
+
+* Serve static files through Nginx
+* Add more visual content and if possible reduce amount of text
+* Perhaps add a CMS in the background with PHP to show off some PHP code
