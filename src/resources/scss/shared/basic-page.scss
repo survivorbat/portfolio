@@ -44,6 +44,10 @@
     min-width: 30%;
     max-width: 60%;
   }
+  a, a:link, a:hover, a:visited {
+    color: mix($text-color, #0019c4);
+    font-weight: bold;
+  }
 }
 
 @include media-breakpoint-down(md) {
