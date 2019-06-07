@@ -4,7 +4,7 @@ I have a [LinkedIn](https://www.linkedin.com/in/maarten-van-der-heijden-webdev/ 
 I put all my professional information like work experience and certificates. 
 
 I also have a public
-[Github page](https://github.com/survivorbat "My GitHub profile") where I keep both new and old projects on display to
+[GitHub page](https://github.com/survivorbat "My GitHub profile") where I keep both new and old projects on display to
 show the world what I'm currently working on in my private time. Most of the (public) repositories
 on my page are archived and are either inactive or from past school projects.
 
