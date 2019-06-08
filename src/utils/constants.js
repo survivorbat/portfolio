@@ -1,47 +1,11 @@
-const SITE_TITLE = "Maarten van der Heijden Portfolio";
-const SITE_AUTHOR = "Maarten van der Heijden";
-const FOOTER_TEXT = "";
-
-const MENU_ITEMS = [
-  {
-    name: "home",
-    displayName: "Home",
-    href: "/"
-  },
-  {
-    name: "about",
-    displayName: "About me",
-    href: "/about"
-  },
-  {
-    name: "experience",
-    displayName: "Experience",
-    href: "/experience"
-  },
-  {
-    name: "projects",
-    displayName: "Projects",
-    href: "/projects"
-  },
-  {
-    name: "contact",
-    displayName: "Contact",
-    href: "/contact"
-  }
-];
-
 export const GLOBAL_vARS = {
   layout: {
-    title: SITE_TITLE,
-    menu: {
-      items: MENU_ITEMS
-    },
-    footer: {
-      title: `© Maarten van der Heijden ${new Date().getFullYear()}`
-    }
+    title: "Maarten van der Heijden"
   },
   site: {
-    name: SITE_TITLE,
-    author: SITE_AUTHOR
+    name: "Maarten van der Heijden",
+    author: "Maarten van der Heijden",
+    description:
+      "The personal website of Maarten van der Heijden, a Dutch web developer primarily focused on backend and DevOps technologies."
   }
 };

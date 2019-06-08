@@ -1,7 +1,5 @@
 @import "../partials/vars";
 @import "../partials/mixins";
-@import "header";
-@import "nav";
 
 .page--background {
   background-size: cover;
@@ -21,6 +19,7 @@
   animation: shooting-stars;
   animation-iteration-count: infinite;
   animation-duration: $star-duration;
+  font-family: $font-default;
   animation-timing-function: linear;
   opacity: 0;
 

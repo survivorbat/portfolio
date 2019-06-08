@@ -4,11 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: 'Raleway', sans-serif;
-}
-
-.transparent {
-  opacity: 0;
+  font-family: $font-default;
 }
 
 .content--container {
