@@ -1,5 +1,7 @@
 # My portfolio
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d75c12ea668d439aa28819e9cb31b6cf)](https://app.codacy.com/app/survivorbat/portfolio?utm_source=github.com&utm_medium=referral&utm_content=survivorbat/portfolio&utm_campaign=Badge_Grade_Dashboard)
+
 This repository contains the code that is used to display my (new) personal portfolio
 over at [maarten.dev](https://maarten.dev). This website has a simple static frontend
 and a nodejs backend. Html code is compiled from Twig templates and css is generated
