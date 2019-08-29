@@ -23,6 +23,7 @@
         <env name="DATABASE_PASSWORD" value=""/>
         <env name="DATABASE_NAME" value=""/>
         <env name="ABOUT_DOMAIN" value="about.localhost"/>
+        <env name="CONTACT_DOMAIN" value="contact.localhost"/>
         <env name="PROJECTS_DOMAIN" value="projects.localhost"/>
         <env name="MAIN_DOMAIN" value="localhost"/>
         <env name="REDIS_PASSWORD" value="test"/>
