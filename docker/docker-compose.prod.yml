@@ -27,6 +27,7 @@ services:
       REDIS_PASSWORD: <<DOCKER-SECRET:REDIS_PASSWORD>>
       ABOUT_DOMAIN: overmaarten.nl
       PROJECTS_DOMAIN: maartenprojecten.nl
+      CONTACT_DOMAIN: contacteermaarten.nl
       MAIN_DOMAIN: maarten.dev
     volumes:
       - uploads:/app/src/public/uploads

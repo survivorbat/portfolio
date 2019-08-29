@@ -5,3 +5,4 @@ parameters:
   domains.main: '%env(MAIN_DOMAIN)%'
   domains.about: '%env(ABOUT_DOMAIN)%'
   domains.projects: '%env(PROJECTS_DOMAIN)%'
+  domains.contact: '%env(CONTACT_DOMAIN)%'

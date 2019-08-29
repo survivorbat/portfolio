@@ -1,0 +1,3 @@
+contact.index:
+  path: /
+  controller: 'App\Action\Contact\Index\Index'

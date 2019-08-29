@@ -6,5 +6,9 @@ about:
   host: '%domains.about%'
   resource: 'routes/about.yaml'
 
+contact:
+  host: '%domains.contact%'
+  resource: 'routes/contact.yaml'
+
 main:
   resource: 'routes/main.yaml'

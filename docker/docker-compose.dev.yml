@@ -25,6 +25,7 @@ services:
       ADMIN_PASSWORD: admin
       ABOUT_DOMAIN: about.localhost
       PROJECTS_DOMAIN: projects.localhost
+      CONTACT_DOMAIN: contact.localhost
       MAIN_DOMAIN: main.localhost
       APP_ENV: dev
       APP_DEBUG: "true"
