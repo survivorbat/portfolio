@@ -21,15 +21,6 @@
     mode: 0755
   loop: "{{ project_dir_files }}"
 
-- name: "Ensure static files in {{ nginx_static_dir }}"
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: "{{ default_user }}"
-    group: "{{ default_group }}"
-    mode: 0755
-  loop: "{{ nginx_static_files }}"
-
 - name: "Ensure docker login"
   docker_login:
     username: "{{ docker_username }}"
