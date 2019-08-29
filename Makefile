@@ -40,15 +40,6 @@ php.hooks: hooks
 hooks: ## Run hooks like phpstan and php-cs-fixer
 	make php.fix
 	make php.stan
-	make js.fix
-
-node.sh: node.shell
-node.shell: ## Enter the shell of the node container
-	docker exec -itu node portfolio_node_1 sh
-
-js.fix: node.fix
-node.fix: ## Run prettier over the code
-	docker exec -itu node portfolio_node_1 /app/node_modules/prettier/bin-prettier.js fix --write /app/src/**/*
 
 test: ## Run phpunit tests
 	make php.run cmd="/app/src/bin/phpunit"

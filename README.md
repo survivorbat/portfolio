@@ -3,7 +3,8 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d75c12ea668d439aa28819e9cb31b6cf)](https://app.codacy.com/app/survivorbat/portfolio?utm_source=github.com&utm_medium=referral&utm_content=survivorbat/portfolio&utm_campaign=Badge_Grade_Dashboard)
 
 This repository contains the code that is used to display my (new) personal portfolio
-over at [maarten.dev](https://maarten.dev). /** TODO */. This project is deployed using Docker and Ansible.
+over at [maarten.dev](https://maarten.dev). The application consists of a simple PHP Symfony application
+with an admin backend. This project is deployed using Docker and Ansible.
 
 ## Prerequisites
 
