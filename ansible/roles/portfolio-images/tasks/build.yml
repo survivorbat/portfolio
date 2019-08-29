@@ -6,12 +6,12 @@
     name: "{{ item.name }}"
     tag: "{{ docker_tag }}"
     buildargs: "{{ item.buildargs | default(omit) }}"
-  with_items: "{{ docker_images }}"
+  loop: "{{ docker_images }}"
 
 - name: "Add latest tag to built images"
   docker_image:
     name: "{{ item.name }}:{{ docker_tag }}"
     repository: "{{ item.name }}:latest"
     pull: no
-  with_items: "{{ docker_images }}"
+  loop: "{{ docker_images }}"
   when: add_latest_tag

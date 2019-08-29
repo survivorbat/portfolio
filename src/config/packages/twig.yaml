@@ -1,0 +1,9 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    paths:
+        '%kernel.project_dir%/templates/about': 'About'
+        '%kernel.project_dir%/templates/projects': 'Projects'
+        '%kernel.project_dir%/templates/main': 'Main'
+        '%kernel.project_dir%/templates': 'App'

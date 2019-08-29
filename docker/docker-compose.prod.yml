@@ -1,13 +1,62 @@
 version: '3.5'
 
+volumes:
+  uploads: ~
+  bundles: ~
+
 services:
   nginx:
+    image: survivorbat/portfolio-nginx:${docker_tag}
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
-      - /etc/maarten.dev/nginx:/etc/nginx/temp
+      - uploads:/var/www/html/uploads
+      - bundles:/var/www/html/bundles
     environment:
-      - server_name=${server_name}
-      - hsts_max_time=30000000
-      - cache_max_time=60m
-  node:
-    image: survivorbat/portfolio-node:${docker_tag}
+      server_name: ${server_name}
+      hsts_max_time: 30000000
+      cache_max_time: 120m
+      fastcgi_cache_valid: 1m
+
+  php-fpm:
+    image: survivorbat/portfolio-php-fpm:${docker_tag}
+    environment:
+      CORS_ALLOW_ORIGIN: maarten.dev overmaarten.nl maartenprojecten.nl
+      APP_ENV: prod
+      APP_DEBUG: "false"
+      DATABASE_PASSWORD: <<DOCKER-SECRET:DB_PASSWORD>>
+      REDIS_PASSWORD: <<DOCKER-SECRET:REDIS_PASSWORD>>
+      ABOUT_DOMAIN: overmaarten.nl
+      PROJECTS_DOMAIN: maartenprojecten.nl
+      MAIN_DOMAIN: maarten.dev
+    volumes:
+      - uploads:/app/src/public/uploads
+      - bundles:/app/src/public/bundles
+      - /run/secrets/keys:/ssl
+    secrets:
+      - DB_PASSWORD
+      - REDIS_PASSWORD
+
+  mysql:
+    environment:
+      MYSQL_PASSWORD_FILE: /run/secrets/DB_PASSWORD
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/DB_ROOT_PASSWORD
+    ports:
+      - 127.0.0.1:3306:3306 # For SSH tunnels
+    secrets:
+      - DB_PASSWORD
+      - DB_ROOT_PASSWORD
+
+  redis:
+    image: survivorbat/redis:${docker_tag}
+    environment:
+      REDIS_PASSWORD: <<DOCKER-SECRET:REDIS_PASSWORD>>
+    secrets:
+      - REDIS_PASSWORD
+
+secrets:
+  DB_PASSWORD:
+    file: ${secrets_folder}/DB_PASSWORD
+  REDIS_PASSWORD:
+    file: ${secrets_folder}/REDIS_PASSWORD
+  DB_ROOT_PASSWORD:
+    file: ${secrets_folder}/DB_ROOT_PASSWORD

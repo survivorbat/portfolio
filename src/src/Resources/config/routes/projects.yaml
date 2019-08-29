@@ -1,0 +1,3 @@
+projects.index:
+  path: /
+  controller: 'App\Action\Projects\Index\Index'

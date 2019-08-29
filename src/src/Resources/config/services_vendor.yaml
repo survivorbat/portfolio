@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Gedmo\Sortable\SortableListener:
+    class: Gedmo\Sortable\SortableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+
+  App\Admin\ProjectAdmin:
+    arguments:
+      - ~
+      - 'App\Entity\Project'
+      - ~
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: "Content", icon: "<i class='fa fa-book'></i>", label: Projects }

@@ -14,7 +14,7 @@
 - name: "Add extra domains to variable"
   set_fact:
     additional_domain_command: "{{ additional_domain_command }} -d {{ item }} -d *.{{item}}"
-  with_items: "{{ additional_domains }}"
+  loop: "{{ additional_domains }}"
 
 - name: "Run certbot challenges"
   command: "certbot certonly
@@ -35,7 +35,7 @@
     mode: "644"
     owner: root
     group: root
-  with_items:
+  loop:
     - { src: etc/systemd/system/certbot-renewal.service.j2, dest: /etc/systemd/system/certbot-renewal.service }
     - { src: etc/systemd/system/certbot-renewal.timer.j2, dest: /etc/systemd/system/certbot-renewal.timer }
 

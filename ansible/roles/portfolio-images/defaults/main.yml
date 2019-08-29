@@ -1,7 +1,13 @@
 docker_images:
-  - dockerfile: docker/node/Dockerfile
+  - dockerfile: docker/php-fpm/Dockerfile
     path: ../
-    name: survivorbat/portfolio-node
+    name: survivorbat/portfolio-php-fpm
+  - dockerfile: docker/nginx/Dockerfile
+    path: ../
+    name: survivorbat/portfolio-nginx
+  - dockerfile: docker/redis/Dockerfile
+    path: ../
+    name: survivorbat/redis
 
 docker_tag: latest
 add_latest_tag: yes

@@ -1,0 +1,33 @@
+doctrine:
+    dbal:
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
+
+        host: '%env(resolve:DATABASE_HOSTNAME)%'
+        dbname: '%env(resolve:DATABASE_NAME)%'
+        user: '%env(resolve:DATABASE_USER)%'
+        password: '%env(resolve:DATABASE_PASSWORD)%'
+    orm:
+        auto_generate_proxy_classes: true
+        entity_managers:
+            default:
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                auto_mapping: true
+                second_level_cache:
+                    enabled: true
+                metadata_cache_driver:
+                    type: predis
+                    host: redis://%env(REDIS_PASSWORD)%@%env(REDIS_HOST)%/3"
+                query_cache_driver:
+                    type: predis
+                    host: redis://%env(REDIS_PASSWORD)%@%env(REDIS_HOST)%/4"
+                mappings:
+                    App:
+                        is_bundle: false
+                        type: yml
+                        dir: '%kernel.project_dir%/src/Resources/config/doctrine'
+                        prefix: 'App\Entity'

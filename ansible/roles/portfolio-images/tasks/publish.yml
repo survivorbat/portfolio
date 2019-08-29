@@ -11,7 +11,7 @@
     name: "{{ item.name }}"
     tag: "{{ docker_tag }}"
     push: yes
-  with_items: "{{ docker_images }}"
+  loop: "{{ docker_images }}"
   when: publish_images
 
 - name: "Push tagged images to registry with tag latest"
@@ -19,5 +19,5 @@
     name: "{{ item.name }}"
     tag: "latest"
     push: yes
-  with_items: "{{ docker_images }}"
+  loop: "{{ docker_images }}"
   when: add_latest_tag and publish_images

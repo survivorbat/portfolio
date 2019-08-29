@@ -1,0 +1,7 @@
+parameters:
+  uploadDir: "%kernel.project_dir%/public/uploads"
+  publicDir: "/uploads"
+
+  domains.main: '%env(MAIN_DOMAIN)%'
+  domains.about: '%env(ABOUT_DOMAIN)%'
+  domains.projects: '%env(PROJECTS_DOMAIN)%'
