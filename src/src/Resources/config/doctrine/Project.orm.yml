@@ -7,6 +7,21 @@ App\Entity\Project:
       generator:
         strategy: UUID
   fields:
+    name:
+      type: string
+      options:
+        default: ''
+    description:
+      type: text
+      options:
+        default: ''
+    link:
+      type: string
+      nullable: true
+    position:
+      type: integer
+      gedmo:
+        - sortablePosition
     createdAt:
       type: datetime
       nullable: true
@@ -19,3 +34,9 @@ App\Entity\Project:
       gedmo:
         timestampable:
           on: update
+  oneToMany:
+    images:
+      targetEntity: App\Entity\Image
+      mappedBy: project
+      inversedBy: project
+      cascade: [persist, remove]

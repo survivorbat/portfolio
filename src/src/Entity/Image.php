@@ -22,6 +22,8 @@ class Image
     protected $imageUpdated;
     /** @var UploadedFile|null $resource */
     protected $resource;
+    /** @var Image|null $project */
+    protected $project;
 
     /**
      * Image constructor.
@@ -132,6 +134,24 @@ class Image
         }
 
         $this->resource = $resource;
+        return $this;
+    }
+
+    /**
+     * @return Image|null
+     */
+    public function getProject(): ?Image
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param Image|null $project
+     * @return Image
+     */
+    public function setProject(?Image $project): Image
+    {
+        $this->project = $project;
         return $this;
     }
 }

@@ -13,6 +13,6 @@ services:
     arguments:
       - ~
       - 'App\Entity\Project'
-      - ~
+      - 'PixSortableBehaviorBundle:SortableAdmin'
     tags:
       - { name: sonata.admin, manager_type: orm, group: "Content", icon: "<i class='fa fa-book'></i>", label: Projects }
