@@ -2,6 +2,9 @@ docker_images:
   - dockerfile: docker/php-fpm/Dockerfile
     path: ../
     name: survivorbat/portfolio-php-fpm
+    buildargs:
+      USER_ID: 30000
+      GROUP_ID: 20000
   - dockerfile: docker/nginx/Dockerfile
     path: ../
     name: survivorbat/portfolio-nginx

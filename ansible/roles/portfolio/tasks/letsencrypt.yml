@@ -13,7 +13,7 @@
 
 - name: "Add extra domains to variable"
   set_fact:
-    additional_domain_command: "{{ additional_domain_command }} -d {{ item }} -d *.{{item}}"
+    additional_domain_command: "{{ additional_domain_command }} -d {{ item }} -d *.{{ item }}"
   loop: "{{ additional_domains }}"
 
 - name: "Run certbot challenges"
