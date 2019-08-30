@@ -38,8 +38,19 @@ App\Entity\Image:
       gedmo:
         timestampable:
           on: update
+
   manyToOne:
     project:
       targetEntity: App\Entity\Project
       mappedBy: images
       inversedBy: images
+
+  oneToMany:
+    technology:
+      targetEntity: App\Entity\Technology
+      mappedBy: image
+      inversedBy: image
+    statusUpdate:
+      targetEntity: App\Entity\StatusUpdate
+      mappedBy: image
+      inversedBy: image

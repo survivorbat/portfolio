@@ -21,6 +21,8 @@ class Project
     protected $link;
     /** @var int|null $position */
     protected $position;
+    /** @var Technology[]|Collection */
+    protected $technologies;
 
     /**
      * Project constructor.
@@ -28,6 +30,7 @@ class Project
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->technologies = new ArrayCollection();
     }
 
     /**
@@ -69,9 +72,9 @@ class Project
     /**
      * @return Image[]|Collection
      */
-    public function getImages()
+    public function getImages(): array
     {
-        return $this->images;
+        return $this->images->toArray();
     }
 
     /**
@@ -100,7 +103,7 @@ class Project
      * @param Image[]|Collection $images
      * @return Project
      */
-    public function setImages($images)
+    public function setImages(array $images): Project
     {
         $this->images = $images;
         return $this;
@@ -139,6 +142,24 @@ class Project
     public function setPosition(?int $position): Project
     {
         $this->position = $position;
+        return $this;
+    }
+
+    /**
+     * @return Technology[]|Collection
+     */
+    public function getTechnologies(): array
+    {
+        return $this->technologies->toArray();
+    }
+
+    /**
+     * @param Technology[]|Collection $technologies
+     * @return Project
+     */
+    public function setTechnologies(array $technologies): Project
+    {
+        $this->technologies = $technologies;
         return $this;
     }
 }

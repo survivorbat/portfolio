@@ -24,6 +24,10 @@ class Image
     protected $resource;
     /** @var Image|null $project */
     protected $project;
+    /** @var StatusUpdate|null $statusUpdate */
+    protected $statusUpdate;
+    /** @var Technology|null $technology */
+    protected $technology;
 
     /**
      * Image constructor.
@@ -140,18 +144,54 @@ class Image
     /**
      * @return Image|null
      */
-    public function getProject(): ?Image
+    public function getProject(): ?Project
     {
         return $this->project;
     }
 
     /**
-     * @param Image|null $project
+     * @param Project|null $project
      * @return Image
      */
-    public function setProject(?Image $project): Image
+    public function setProject(?Project $project): Image
     {
         $this->project = $project;
+        return $this;
+    }
+
+    /**
+     * @return StatusUpdate|null
+     */
+    public function getStatusUpdate(): ?StatusUpdate
+    {
+        return $this->statusUpdate;
+    }
+
+    /**
+     * @param StatusUpdate|null $statusUpdate
+     * @return Image
+     */
+    public function setStatusUpdate(?StatusUpdate $statusUpdate): Image
+    {
+        $this->statusUpdate = $statusUpdate;
+        return $this;
+    }
+
+    /**
+     * @return Technology|null
+     */
+    public function getTechnology(): ?Technology
+    {
+        return $this->technology;
+    }
+
+    /**
+     * @param Technology|null $technology
+     * @return Image
+     */
+    public function setTechnology(?Technology $technology): Image
+    {
+        $this->technology = $technology;
         return $this;
     }
 }

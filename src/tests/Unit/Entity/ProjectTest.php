@@ -15,4 +15,6 @@ class ProjectTest extends TestCase
 
     /** @var string $class */
     protected $class = Project::class;
+    /** @var array $excludedGetters */
+    protected $excludedGetters = ['getTechnologies', 'getImages'];
 }

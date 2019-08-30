@@ -2,16 +2,19 @@
 
 namespace App\DataFixtures\ORM;
 
-use App\Entity\Project;
+use App\Entity\StatusUpdate;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Generator;
 
-class LoadProjectData extends Fixture implements OrderedFixtureInterface
+/**
+ * @codeCoverageIgnore
+ */
+class LoadStatusUpdateData extends Fixture implements OrderedFixtureInterface
 {
-    public const AMOUNT = 10;
+    public const AMOUNT = 20;
 
     /** @var Generator $faker */
     protected $faker;
@@ -29,38 +32,23 @@ class LoadProjectData extends Fixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $images = $this->getAllImages();
-
         for ($i = 0; $i < self::AMOUNT + 1; $i++) {
-            $project = (new Project())
-                ->setName($this->faker->realText(50))
-                ->setDescription($this->faker->realText(400))
-                ->setLink(
-                    $this->faker->boolean(20) ? $this->faker->url : null
-                )
+            $statusUpdate = (new StatusUpdate())
+                ->setContent($this->faker->realText(400))
+                ->setTitle($this->faker->realText(30))
                 ->setTechnologies([
                     $this->getReference('technology_' . random_int(0, LoadTechnologyData::AMOUNT))
                 ])
-                ->setImages($images);
+                ->setImage(
+                    $this->getReference('image_' . random_int(0, LoadImageData::AMOUNT))
+                );
 
-            $this->setReference("project_$i", $project);
+            $this->setReference("statusUpdate_$i", $statusUpdate);
 
-            $manager->persist($project);
+            $manager->persist($statusUpdate);
         }
 
         $manager->flush();
-    }
-
-    /**
-     * @return array
-     */
-    protected function getAllImages(): array
-    {
-        $images = [];
-        for ($i = 0; $i < LoadImageData::AMOUNT; $i++) {
-            $images[] = $this->getReference("image_$i");
-        }
-        return $images;
     }
 
     /**

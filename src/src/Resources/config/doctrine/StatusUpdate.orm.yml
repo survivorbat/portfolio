@@ -1,4 +1,4 @@
-App\Entity\Project:
+App\Entity\StatusUpdate:
   type: entity
   id:
     id:
@@ -7,21 +7,14 @@ App\Entity\Project:
       generator:
         strategy: UUID
   fields:
-    name:
+    title:
       type: string
       options:
         default: ''
-    description:
+    content:
       type: text
       options:
         default: ''
-    link:
-      type: string
-      nullable: true
-    position:
-      type: integer
-      gedmo:
-        - sortablePosition
     createdAt:
       type: datetime
       nullable: true
@@ -35,14 +28,14 @@ App\Entity\Project:
         timestampable:
           on: update
 
-  oneToMany:
-    images:
-      targetEntity: App\Entity\Image
-      mappedBy: project
-      inversedBy: project
-      cascade: [persist, remove]
-
   manyToMany:
     technologies:
       targetEntity: App\Entity\Technology
-      mappedBy: projects
+      mappedBy: statusUpdates
+
+  manyToOne:
+    image:
+      targetEntity: App\Entity\Image
+      mappedBy: statusUpdate
+      inversedBy: statusUpdate
+      cascade: [persist, remove]

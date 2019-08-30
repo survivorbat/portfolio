@@ -1,4 +1,4 @@
-App\Entity\Project:
+App\Entity\ExperienceTopic:
   type: entity
   id:
     id:
@@ -7,21 +7,12 @@ App\Entity\Project:
       generator:
         strategy: UUID
   fields:
-    name:
-      type: string
-      options:
-        default: ''
-    description:
+    since:
+      type: datetime
+    explanation:
       type: text
       options:
         default: ''
-    link:
-      type: string
-      nullable: true
-    position:
-      type: integer
-      gedmo:
-        - sortablePosition
     createdAt:
       type: datetime
       nullable: true
@@ -35,14 +26,8 @@ App\Entity\Project:
         timestampable:
           on: update
 
-  oneToMany:
-    images:
-      targetEntity: App\Entity\Image
-      mappedBy: project
-      inversedBy: project
-      cascade: [persist, remove]
-
-  manyToMany:
-    technologies:
+  manyToOne:
+    technology:
       targetEntity: App\Entity\Technology
-      mappedBy: projects
+      mappedBy: experienceTopics
+      inversedBy: experienceTopics
