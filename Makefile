@@ -23,6 +23,9 @@ php.restart: ## Restart php container
 php.run: ## Run a command in the php container, requires a 'cmd' argument
 	docker-compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml -p portfolio exec -u php php-fpm ${cmd}
 
+php.run.root: ## Run a command in the php container as root, requires a 'cmd' argument
+	docker-compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml -p portfolio exec -u root php-fpm ${cmd}
+
 php.sh: ## Open the shell of the php container
 	docker exec -u php -it portfolio_php-fpm_1 sh
 
@@ -41,46 +44,74 @@ hooks: ## Run hooks like phpstan and php-cs-fixer
 	make php.fix
 	make php.stan
 
-test: ## Run phpunit tests
-	make php.run cmd="/app/src/bin/phpunit"
+xdebug.disable:
+	make php.run.root cmd='xdebug-disable'
+	@echo '!!! xDebug disabled !!!'
 
-test.clear: ## Clear the cache of the test environment
-	make php.run cmd="bin/console cache:clear --env=test --no-debug"
+xdebug.enable:
+	make php.run.root cmd='xdebug-enable'
+	@echo '!!! xDebug enabled !!!'
+
+test: ## Run phpunit tests
+	make xdebug.disable
+	make php.run cmd="/app/src/bin/phpunit"
+	make xdebug.enable
 
 test.unit: ## Run phpunit unit tests
+	make xdebug.disable
 	make php.run cmd="/app/src/bin/phpunit --testsuite=unit"
+	make xdebug.enable
 
 test.integration: ## Run phpunit integration tests
+	make xdebug.disable
 	make php.run cmd="/app/src/bin/phpunit --testsuite=integration"
+	make xdebug.enable
 
 test.functional: ## Run phpunit functional tests, please beware that this requires the application to be running
+	make xdebug.disable
 	make php.run cmd="/app/src/bin/phpunit --testsuite=functional"
+	make xdebug.enable
 
 test.coverage: ## Run unit tests with PHPunit and create a coverage report in $PWD/PHPunitReport
+	make xdebug.disable
 	make php.run cmd="/app/src/bin/phpunit -c /app/src --coverage-html /app/src/test-coverage"
-	@echo 'Generated a coverage report in src/test-coverage!'
+	@echo 'Generated a coverage report in backend/test-coverage!'
+	make xdebug.enable
 
 composer.install: ## Run composer install in the php container in development
+	make xdebug.disable
 	make php.run cmd="bin/composer install"
+	make xdebug.enable
 
 composer.update: ## Run composer update in the php container in development
+	make xdebug.disable
 	make php.run cmd="bin/composer update"
+	make xdebug.enable
 
 fixtures: ## Throw away the database and fill it with test data (only in development!)
+	make xdebug.disable
 	make php.run cmd="bin/console doctrine:fixtures:load -n"
+	make xdebug.enable
 
 migrations.diff: ## Generate a new migration based on the ORM files
+	make xdebug.disable
 	make php.run cmd="bin/console doctrine:cache:clear-metadata"
 	make php.run cmd="bin/console doctrine:migrations:diff"
+	make xdebug.enable
 
 migrations.migrate: ## Migrate the database
+	make xdebug.disable
 	make php.run cmd="bin/console doctrine:migrations:migrate -n"
+	make xdebug.enable
 
 schema.validate: ## Validate the mapping settings
+	make xdebug.disable
 	make php.run cmd="bin/console doctrine:cache:clear-metadata"
 	make php.run cmd="bin/console doctrine:schema:validate"
+	make xdebug.enable
 
 database.reset: ## Delete and recreate the database, then fill it with fixture data
+	make xdebug.disable
 	echo ""
 	echo "I sincerely hope you know what you're doing..."
 	echo "Deleting database..."
@@ -89,15 +120,18 @@ database.reset: ## Delete and recreate the database, then fill it with fixture d
 	make php.run cmd="bin/console doctrine:database:create"
 	make migrations.migrate
 	make fixtures
+	make xdebug.enable
 
 cache.clear: ## Clear the cache
+	make xdebug.disable
 	make php.run cmd="bin/console cache:clear"
 	make php.run cmd="bin/console doctrine:cache:clear-metadata"
 	make php.run cmd="bin/console doctrine:cache:clear-query"
 	make php.run cmd="bin/console doctrine:cache:clear-result"
+	make xdebug.enable
 
 restart: ## Restart containers
-	docker-compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml -p portfolio restart
+	docker-compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml -p dplanet restart
 
 ansible.vault.password: ## Input the vault password and save it to ../.devnl-backend-vault-password
 	@echo "Please ask one of your fellow developers for the vault password and input it here:"

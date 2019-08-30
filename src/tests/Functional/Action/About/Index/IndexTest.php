@@ -16,6 +16,6 @@ class IndexTest extends FixtureAwareTestCase
         $response = $this->client->getResponse();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertContains('About page', $crawler->text());
+        $this->assertStringContainsString('About page', $crawler->text());
     }
 }
