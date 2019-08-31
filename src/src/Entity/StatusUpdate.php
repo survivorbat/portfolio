@@ -99,4 +99,12 @@ class StatusUpdate
         $this->technologies = $technologies;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->title;
+    }
 }

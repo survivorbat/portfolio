@@ -16,3 +16,11 @@ services:
       - 'PixSortableBehaviorBundle:SortableAdmin'
     tags:
       - { name: sonata.admin, manager_type: orm, group: "Content", icon: "<i class='fa fa-book'></i>", label: Projects }
+
+  App\Admin\TechnologyAdmin:
+    arguments:
+      - ~
+      - 'App\Entity\Technology'
+      - ~
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: "Content", label: Technologies }

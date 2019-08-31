@@ -36,7 +36,7 @@ class LoadProjectData extends Fixture implements OrderedFixtureInterface
                 ->setName($this->faker->realText(50))
                 ->setDescription($this->faker->realText(400))
                 ->setLink(
-                    $this->faker->boolean(20) ? $this->faker->url : null
+                    $this->faker->url
                 )
                 ->setTechnologies([
                     $this->getReference('technology_' . random_int(0, LoadTechnologyData::AMOUNT))

@@ -21,6 +21,7 @@ class FixtureAwareTestCase extends WebTestCase
     {
         StaticDriver::beginTransaction();
         $this->client = parent::createClient();
+        $this->client->followRedirects(true);
 
         self::$container = $this->client->getContainer();
 

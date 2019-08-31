@@ -121,4 +121,12 @@ class Technology
         $this->projects = $projects;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }

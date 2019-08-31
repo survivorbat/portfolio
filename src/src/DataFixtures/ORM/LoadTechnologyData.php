@@ -14,7 +14,12 @@ use Faker\Generator;
  */
 class LoadTechnologyData extends Fixture implements OrderedFixtureInterface
 {
-    public const AMOUNT = 20;
+    /** @var int  */
+    public const AMOUNT = 10;
+    /** @var array  */
+    protected const CONTENT = [
+        'PHP', 'Symfony', 'Docker', 'Ansible', 'PHP7', 'HTML', 'JavaScript', 'HTML', 'CSS', 'MySQL', 'Git'
+    ];
 
     /** @var Generator $faker */
     protected $faker;
@@ -34,7 +39,7 @@ class LoadTechnologyData extends Fixture implements OrderedFixtureInterface
     {
         for ($i = 0; $i < self::AMOUNT + 1; $i++) {
             $technology = (new Technology())
-                ->setName($this->faker->word)
+                ->setName(self::CONTENT[$i])
                 ->setImage(
                     $this->getReference("image_" . random_int(0, LoadImageData::AMOUNT))
                 );

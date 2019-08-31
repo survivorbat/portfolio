@@ -5,7 +5,7 @@ namespace App\Tests\Functional\Admin;
 use App\Tests\Functional\Testcase\FixtureAwareTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProjectTest extends FixtureAwareTestCase
+class TechnologyTest extends FixtureAwareTestCase
 {
     use LoginTrait;
 
@@ -16,15 +16,13 @@ class ProjectTest extends FixtureAwareTestCase
     {
         $this->loginAs('4R0xx5L7aAca61MXAvEXEcm70GXF6T4HuhOvtMvS29UV3Yb6NSgiCUgw8IhERObe4YngFlhDp7ESf', 'admin');
 
-        $this->client->request(Request::METHOD_GET, 'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/app/project/list');
+        $this->client->request(Request::METHOD_GET, 'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/app/technology/list');
         $response = $this->client->getResponse();
 
         $this->assertTrue($response->isSuccessful());
     }
 
     /**
-     * TODO: Add images and technologies
-     *
      * @return void
      */
     public function testIfAddingProjectWorks(): void
@@ -33,10 +31,10 @@ class ProjectTest extends FixtureAwareTestCase
 
         $crawler = $this->client->request(
             Request::METHOD_GET,
-            'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/app/project/create'
+            'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/app/technology/create'
         );
 
-        $formElement = $crawler->filter("[action*='app/project/create?']");
+        $formElement = $crawler->filter("[action*='app/technology/create?']");
         $formAction = $formElement->attr('action');
 
         $uniqId = substr(
@@ -45,9 +43,7 @@ class ProjectTest extends FixtureAwareTestCase
         );
 
         $form = $formElement->form([
-            "{$uniqId}[name]" => 'Test project',
-            "{$uniqId}[description]" => 'Test description',
-            "{$uniqId}[link]" => 'https://developers.nl',
+            "{$uniqId}[name]" => 'Test technology',
         ]);
 
         $this->client->submit($form);
@@ -60,7 +56,6 @@ class ProjectTest extends FixtureAwareTestCase
             ->form();
 
         $values = $editForm->getValues();
-        $this->assertEquals('Test project', $values["{$uniqId}[name]"]);
-        $this->assertEquals('Test description', $values["{$uniqId}[description]"]);
+        $this->assertEquals('Test technology', $values["{$uniqId}[name]"]);
     }
 }
