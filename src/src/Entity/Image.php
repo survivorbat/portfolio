@@ -142,7 +142,7 @@ class Image
     }
 
     /**
-     * @return Image|null
+     * @return Project|null
      */
     public function getProject(): ?Project
     {

@@ -69,7 +69,7 @@ class Technology
     }
 
     /**
-     * @return StatusUpdate[]|Collection
+     * @return StatusUpdate[]
      */
     public function getStatusUpdates(): array
     {
@@ -77,7 +77,7 @@ class Technology
     }
 
     /**
-     * @param StatusUpdate[]|Collection $statusUpdates
+     * @param StatusUpdate[] $statusUpdates
      * @return Technology
      */
     public function setStatusUpdates(array $statusUpdates): Technology
@@ -87,7 +87,7 @@ class Technology
     }
 
     /**
-     * @return ExperienceTopic[]|Collection
+     * @return ExperienceTopic[]
      */
     public function getExperienceTopics(): array
     {
@@ -95,7 +95,7 @@ class Technology
     }
 
     /**
-     * @param ExperienceTopic[]|Collection $experienceTopics
+     * @param ExperienceTopic[] $experienceTopics
      * @return Technology
      */
     public function setExperienceTopics(array $experienceTopics): Technology
@@ -105,7 +105,7 @@ class Technology
     }
 
     /**
-     * @return Project[]|Collection
+     * @return Project[]
      */
     public function getProjects(): array
     {
@@ -113,7 +113,7 @@ class Technology
     }
 
     /**
-     * @param Project[]|Collection $projects
+     * @param Project[] $projects
      * @return Technology
      */
     public function setProjects(array $projects): Technology

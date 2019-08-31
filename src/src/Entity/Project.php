@@ -70,7 +70,7 @@ class Project
     }
 
     /**
-     * @return Image[]|Collection
+     * @return Image[]
      */
     public function getImages(): array
     {
@@ -100,7 +100,7 @@ class Project
     }
 
     /**
-     * @param Image[]|Collection $images
+     * @param Image[] $images
      * @return Project
      */
     public function setImages(array $images): Project
@@ -146,7 +146,7 @@ class Project
     }
 
     /**
-     * @return Technology[]|Collection
+     * @return Technology[]
      */
     public function getTechnologies(): array
     {
@@ -154,7 +154,7 @@ class Project
     }
 
     /**
-     * @param Technology[]|Collection $technologies
+     * @param Technology[] $technologies
      * @return Project
      */
     public function setTechnologies(array $technologies): Project

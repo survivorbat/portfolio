@@ -83,7 +83,7 @@ class StatusUpdate
     }
 
     /**
-     * @return Technology[]|Collection
+     * @return Technology[]
      */
     public function getTechnologies(): array
     {
@@ -91,7 +91,7 @@ class StatusUpdate
     }
 
     /**
-     * @param Technology[]|Collection $technologies
+     * @param Technology[] $technologies
      * @return StatusUpdate
      */
     public function setTechnologies(array $technologies): StatusUpdate
