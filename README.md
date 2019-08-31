@@ -6,6 +6,8 @@ This repository contains the code that is used to display my (new) personal port
 over at [maarten.dev](https://maarten.dev). The application consists of a simple PHP Symfony application
 with an admin backend. This project is deployed using Docker and Ansible.
 
+This branch is currently not in synq with the production website, this will be sresolved in the future.
+
 ## Prerequisites
 
 You have to have docker and docker-compose installed in order to get this project
