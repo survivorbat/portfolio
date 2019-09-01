@@ -14,9 +14,9 @@ class TechnologyTest extends FixtureAwareTestCase
      */
     public function testIfProjectIndexWorks(): void
     {
-        $this->loginAs('4R0xx5L7aAca61MXAvEXEcm70GXF6T4HuhOvtMvS29UV3Yb6NSgiCUgw8IhERObe4YngFlhDp7ESf', 'admin');
+        $this->loginAs('4R0xx5L7aAca61M', 'admin');
 
-        $this->client->request(Request::METHOD_GET, 'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/app/technology/list');
+        $this->client->request(Request::METHOD_GET, 'UqUMbUkG/app/technology/list');
         $response = $this->client->getResponse();
 
         $this->assertTrue($response->isSuccessful());
@@ -27,11 +27,11 @@ class TechnologyTest extends FixtureAwareTestCase
      */
     public function testIfAddingProjectWorks(): void
     {
-        $this->loginAs('4R0xx5L7aAca61MXAvEXEcm70GXF6T4HuhOvtMvS29UV3Yb6NSgiCUgw8IhERObe4YngFlhDp7ESf', 'admin');
+        $this->loginAs('4R0xx5L7aAca61M', 'admin');
 
         $crawler = $this->client->request(
             Request::METHOD_GET,
-            'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/app/technology/create'
+            'UqUMbUkG/app/technology/create'
         );
 
         $formElement = $crawler->filter("[action*='app/technology/create?']");

@@ -14,9 +14,9 @@ class SecurityTest extends FixtureAwareTestCase
      */
     public function testIfLoggingInIsPossible(): void
     {
-        $this->loginAs('4R0xx5L7aAca61MXAvEXEcm70GXF6T4HuhOvtMvS29UV3Yb6NSgiCUgw8IhERObe4YngFlhDp7ESf', 'admin');
+        $this->loginAs('4R0xx5L7aAca61M', 'admin');
 
-        $this->client->request(Request::METHOD_GET, 'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/dashboard');
+        $this->client->request(Request::METHOD_GET, 'UqUMbUkG/dashboard');
         $response = $this->client->getResponse();
 
         $this->assertTrue($response->isSuccessful());
@@ -27,7 +27,7 @@ class SecurityTest extends FixtureAwareTestCase
      */
     public function testIfAdminPageIsProtected(): void
     {
-        $this->client->request(Request::METHOD_GET, 'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/dashboard');
+        $this->client->request(Request::METHOD_GET, 'UqUMbUkG/dashboard');
         $response = $this->client->getResponse();
 
         $this->assertEquals(401, $response->getStatusCode());

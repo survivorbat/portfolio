@@ -3,7 +3,7 @@ security:
         in_memory:
             memory:
                 users:
-                    4R0xx5L7aAca61MXAvEXEcm70GXF6T4HuhOvtMvS29UV3Yb6NSgiCUgw8IhERObe4YngFlhDp7ESf:
+                    maartendev:
                         password: '%env(ADMIN_PASSWORD)%'
                         roles: 'ROLE_SUPER_ADMIN'
 
@@ -16,7 +16,7 @@ security:
             security: false
 
         admin:
-            pattern: ^/UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh
+            pattern: ^/UqUMbUkG
             http_basic: ~
 
         main:
@@ -24,5 +24,5 @@ security:
             security: false
 
     access_control:
-        - { path: ^/UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh, role: ROLE_SUPER_ADMIN }
+        - { path: ^/UqUMbUkG, role: ROLE_SUPER_ADMIN }
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

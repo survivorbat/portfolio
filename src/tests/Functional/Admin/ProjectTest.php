@@ -14,9 +14,9 @@ class ProjectTest extends FixtureAwareTestCase
      */
     public function testIfProjectIndexWorks(): void
     {
-        $this->loginAs('4R0xx5L7aAca61MXAvEXEcm70GXF6T4HuhOvtMvS29UV3Yb6NSgiCUgw8IhERObe4YngFlhDp7ESf', 'admin');
+        $this->loginAs('4R0xx5L7aAca61M', 'admin');
 
-        $this->client->request(Request::METHOD_GET, 'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/app/project/list');
+        $this->client->request(Request::METHOD_GET, 'UqUMbUkG/app/project/list');
         $response = $this->client->getResponse();
 
         $this->assertTrue($response->isSuccessful());
@@ -29,11 +29,11 @@ class ProjectTest extends FixtureAwareTestCase
      */
     public function testIfAddingProjectWorks(): void
     {
-        $this->loginAs('4R0xx5L7aAca61MXAvEXEcm70GXF6T4HuhOvtMvS29UV3Yb6NSgiCUgw8IhERObe4YngFlhDp7ESf', 'admin');
+        $this->loginAs('4R0xx5L7aAca61M', 'admin');
 
         $crawler = $this->client->request(
             Request::METHOD_GET,
-            'UqUMbUkGTKIpayqUqrsZcJktQCfFFtMqLzhbXZjfOjqh/app/project/create'
+            'UqUMbUkG/app/project/create'
         );
 
         $formElement = $crawler->filter("[action*='app/project/create?']");
