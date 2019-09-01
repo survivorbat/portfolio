@@ -24,3 +24,11 @@ services:
       - ~
     tags:
       - { name: sonata.admin, manager_type: orm, group: "Content", label: Technologies }
+
+  App\Admin\ContactOptionAdmin:
+    arguments:
+      - ~
+      - 'App\Entity\ContactOption'
+      - ~
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: "Content", label: 'Contact Options' }

@@ -6,8 +6,6 @@ use App\Entity\Technology;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Faker\Factory;
-use Faker\Generator;
 
 /**
  * @codeCoverageIgnore
@@ -20,17 +18,6 @@ class LoadTechnologyData extends Fixture implements OrderedFixtureInterface
     protected const CONTENT = [
         'PHP', 'Symfony', 'Docker', 'Ansible', 'PHP7', 'HTML', 'JavaScript', 'HTML', 'CSS', 'MySQL', 'Git'
     ];
-
-    /** @var Generator $faker */
-    protected $faker;
-
-    /**
-     * LoadProjectData constructor.
-     */
-    public function __construct()
-    {
-        $this->faker = Factory::create('en');
-    }
 
     /**
      * {@inheritDoc}
