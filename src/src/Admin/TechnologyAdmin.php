@@ -19,7 +19,9 @@ class TechnologyAdmin extends AbstractAdmin
     {
         $list
             ->add('name')
-            ->add('image') # TODO: Image preview
+            ->add('image', 'image', [
+                'width' => "30px"
+            ])
             ->add('_action', null, [
                 'actions' => [
                     'edit' => [],

@@ -200,6 +200,6 @@ class Image
      */
     public function __toString(): string
     {
-        return $this->filename;
+        return $this->publicPath;
     }
 }
