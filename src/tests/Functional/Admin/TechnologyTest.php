@@ -14,7 +14,7 @@ class TechnologyTest extends FixtureAwareTestCase
      */
     public function testIfProjectIndexWorks(): void
     {
-        $this->loginAs('4R0xx5L7aAca61M', 'admin');
+        $this->loginAs('maartendev', 'admin');
 
         $this->client->request(Request::METHOD_GET, 'UqUMbUkG/app/technology/list');
         $response = $this->client->getResponse();
@@ -27,7 +27,7 @@ class TechnologyTest extends FixtureAwareTestCase
      */
     public function testIfAddingProjectWorks(): void
     {
-        $this->loginAs('4R0xx5L7aAca61M', 'admin');
+        $this->loginAs('maartendev', 'admin');
 
         $crawler = $this->client->request(
             Request::METHOD_GET,

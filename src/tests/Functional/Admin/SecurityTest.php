@@ -14,7 +14,7 @@ class SecurityTest extends FixtureAwareTestCase
      */
     public function testIfLoggingInIsPossible(): void
     {
-        $this->loginAs('4R0xx5L7aAca61M', 'admin');
+        $this->loginAs('maartendev', 'admin');
 
         $this->client->request(Request::METHOD_GET, 'UqUMbUkG/dashboard');
         $response = $this->client->getResponse();
