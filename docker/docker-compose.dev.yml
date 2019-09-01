@@ -49,8 +49,7 @@ services:
       cache_max_age: 1
     volumes:
       - development_ssl:/etc/letsencrypt/live/localhost
-      - ../src/public/uploads:/var/www/html/uploads:cached
-      - ../src/public/bundles:/var/www/html/bundles:cached
+      - ../src/public:/var/www/html:cached
       - ./nginx/etc/nginx/temp:/etc/nginx/temp:cached
 
   mysql:
