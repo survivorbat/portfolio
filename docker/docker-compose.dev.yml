@@ -15,10 +15,6 @@ services:
       context: ../
       dockerfile: docker/nginx/Dockerfile
     environment:
-      server_name: localhost
-      hsts_max_time: 0m
       cache_max_time: 1
     volumes:
-      - development_ssl:/etc/letsencrypt/live/localhost
-      - ../src/public:/var/www/html:cached
       - ./nginx/etc/nginx/temp:/etc/nginx/temp:cached

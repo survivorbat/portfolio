@@ -3,6 +3,10 @@ trigger:
     include:
       - master
       - develop
+  paths:
+    include:
+      - ./src/frontend/*
+      - ./docker/nginx/*
 
 variables:
   vmImage: 'ubuntu-latest'
