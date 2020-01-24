@@ -16,5 +16,3 @@ services:
       dockerfile: docker/nginx/Dockerfile
     environment:
       cache_max_time: 1
-    volumes:
-      - ./nginx/etc/nginx/temp:/etc/nginx/temp:cached
