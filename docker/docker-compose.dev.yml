@@ -9,10 +9,3 @@ services:
       context: ssl-dev
     volumes:
       - development_ssl:/ssl
-
-  nginx:
-    build:
-      context: ../
-      dockerfile: docker/nginx/Dockerfile
-    environment:
-      cache_max_time: 1

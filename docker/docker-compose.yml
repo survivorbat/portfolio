@@ -2,7 +2,11 @@ version: '3.5'
 
 services:
   nginx:
-    image: survivorbat/portfolio-nginx:latest
+    build:
+      context: ../
+      dockerfile: docker/nginx/Dockerfile
+    environment:
+      cache_max_time: 1
     restart: always
     ports:
       - 80:8080
