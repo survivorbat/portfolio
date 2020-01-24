@@ -1,3 +1,0 @@
-about.index:
-  path: /
-  controller: 'App\Action\About\Index\Index'

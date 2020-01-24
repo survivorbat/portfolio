@@ -4,34 +4,6 @@ volumes:
   development_ssl: ~
 
 services:
-  php-fpm:
-    build:
-      context: ../
-      dockerfile: docker/php-fpm/Dockerfile
-      target: runtime
-      args:
-        USER_ID: 1000
-        GROUP_ID: 1000
-    volumes:
-      - ../src:/app/src:cached
-      - ./php-fpm/bin/docker-entrypoint:/bin/docker-entrypoint:cached
-      - development_ssl:/ssl
-    networks:
-      - mysql
-    environment:
-      SYMFONY_PHPUNIT_VERSION: 8.0.0
-      DATABASE_PASSWORD: development
-      CORS_ALLOW_ORIGIN: localhost
-      REDIS_PASSWORD: developmentredispassword
-      ADMIN_PASSWORD: admin
-      ABOUT_DOMAIN: about.localhost
-      PROJECTS_DOMAIN: projects.localhost
-      CONTACT_DOMAIN: contact.localhost
-      MAIN_DOMAIN: main.localhost
-      APP_ENV: dev
-      APP_DEBUG: "true"
-      APP_SECRET: thisisasampletokenthatiputhereonlyfordevelopmentproductionhasasecretsecretofcourse
-
   ssl:
     build:
       context: ssl-dev
@@ -45,23 +17,8 @@ services:
     environment:
       server_name: localhost
       hsts_max_time: 0m
-      fastcgi_cache_valid: 1s
-      cache_max_age: 1
+      cache_max_time: 1
     volumes:
       - development_ssl:/etc/letsencrypt/live/localhost
       - ../src/public:/var/www/html:cached
       - ./nginx/etc/nginx/temp:/etc/nginx/temp:cached
-
-  mysql:
-    environment:
-      MYSQL_PASSWORD: development
-      MYSQL_ROOT_PASSWORD: developmentroot
-    ports:
-      - 3306:3306
-
-  redis:
-    build:
-      context: ../
-      dockerfile: docker/redis/Dockerfile
-    environment:
-      REDIS_PASSWORD: developmentredispassword
