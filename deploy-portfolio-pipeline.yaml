@@ -41,4 +41,7 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: 'K8s'
               namespace: 'portfolio'
-              manifests: './manifests/**'
+              manifests: |
+                ./manifests/deployments/*
+                ./manifests/ingress/*
+                ./manifests/services/*
