@@ -3,11 +3,6 @@ trigger:
     include:
       - master
       - develop
-  paths:
-    include:
-      - ./src/frontend/*
-      - ./docker/*
-      - ./deploy-portfolio-pipeline.yaml
 
 variables:
   vmImage: 'ubuntu-latest'
