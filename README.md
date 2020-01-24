@@ -1,8 +1,8 @@
-# My portfolio
+# Personal website and other projects
 
 [![Build Status](https://travis-ci.com/survivorbat/portfolio.svg?branch=master)](https://travis-ci.com/survivorbat/portfolio) 
 
-This repository contains the code that is used to display my portfolio among other projects.
+This repository contains the code that is used to display my portfolio and other projects.
 It runs in a kubernetes cluster for no practical reason and all infrastructure is built using Terraform.
 
 ## Prerequisites
