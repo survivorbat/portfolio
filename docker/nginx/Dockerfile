@@ -4,7 +4,8 @@ WORKDIR /app
 
 COPY src/frontend /app
 
-RUN npm run test:nowatch \
+RUN npm install \
+ && npm run test:nowatch \
  && npm run build
 
 FROM nginx:1.17.8-alpine
