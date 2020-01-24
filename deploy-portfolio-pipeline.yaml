@@ -13,10 +13,11 @@ variables:
   vmImage: 'ubuntu-latest'
 
 stages:
-  - stage: Build
-    displayName: Build container(s)
+  - stage: BuildPublish
+    displayName: Build image(s) and publish them to dockerhub
     jobs:
-      - job: Build
+      - job: BuildPublish
+        displayName: Build and Publish
         steps:
         - task: DockerCompose@0
           inputs:
