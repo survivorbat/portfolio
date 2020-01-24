@@ -22,6 +22,9 @@ down: ## Stop containers
 restart: ## Restart containers
 	docker-compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml -p porfolio restart
 
+terraform.init: ## Init terraform
+	cd terraform && terraform init
+
 terraform.plan: ## Plan the terraform configuration
 	cd terraform && terraform plan
 
