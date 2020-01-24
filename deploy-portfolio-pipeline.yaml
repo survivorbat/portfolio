@@ -6,7 +6,8 @@ trigger:
   paths:
     include:
       - ./src/frontend/*
-      - ./docker/nginx/*
+      - ./docker/*
+      - ./deploy-portfolio-pipeline.yaml
 
 variables:
   vmImage: 'ubuntu-latest'
@@ -33,4 +34,3 @@ stages:
             action: 'Push services'
             includeSourceTags: true
             includeLatestTag: true
-    
