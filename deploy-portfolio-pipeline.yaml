@@ -30,3 +30,15 @@ stages:
             action: 'Push services'
             includeSourceTags: true
             includeLatestTag: true
+  - stage: Deploy
+    displayName: Deploy images to kubernetes
+    jobs:
+      - job: Deploy
+        displayName: deploy
+        steps:
+          - task: KubernetesManifest@0
+            inputs:
+              action: 'deploy'
+              kubernetesServiceConnection: 'K8s'
+              namespace: 'portfolio'
+              manifests: './manifests/**'
