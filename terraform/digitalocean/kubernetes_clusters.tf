@@ -37,8 +37,8 @@ resource "kubernetes_role" "portfolio_role" {
   }
   rule {
     api_groups = ["apps"]
-    resources = ["pods", "services", "deployments", "pvc", "ingress", "pv"]
-    verbs = ["get", "patch", "list", "create", "update", "describe"]
+    resources = ["*"]
+    verbs = ["*"]
   }
 }
 
