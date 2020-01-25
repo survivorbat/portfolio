@@ -6,6 +6,7 @@ trigger:
 
 variables:
   vmImage: 'ubuntu-latest'
+  manifests: ./manifests/portfolio/**/*.yaml
 
 stages:
   - stage: BuildPublish
@@ -41,4 +42,4 @@ stages:
               action: 'deploy'
               kubernetesServiceConnection: 'K8s'
               namespace: 'portfolio'
-              manifests: ./manifests/**/*.yaml
+              manifests: $(manifests)
