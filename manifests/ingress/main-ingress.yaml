@@ -12,8 +12,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - maarten.dev
-        - maartenvanderheijden.dev
+        - "maarten.dev"
+        - "*.maarten.dev"
+        - "maartenvanderheijden.dev"
+        - "*.maartenvanderheijden.dev"
       secretName: maarten_dev-tls
   rules:
     - host: maarten.dev
