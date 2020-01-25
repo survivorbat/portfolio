@@ -32,7 +32,7 @@ resource "kubernetes_role" "portfolio_role" {
     namespace = var.portfolio_namespace_name
   }
   rule {
-    api_groups = ["apps"]
+    api_groups = ["apps", "extensions", ""]
     resources = ["*"]
     verbs = ["*"]
   }
