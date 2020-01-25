@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: portfolio-nginx
-          image: survivorbat/portfolio-nginx:latest
+          image: survivorbat/portfolio-nginx
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
