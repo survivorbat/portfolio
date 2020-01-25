@@ -7,9 +7,7 @@ trigger:
 variables:
   vmImage: 'ubuntu-latest'
   manifests: ./manifests/portfolio/**/*.yaml
-  tags: |
-    latest
-    $(Build.BuildId)
+  tag: $(Build.BuildId)
 
 stages:
   - stage: BuildPublish
@@ -24,14 +22,18 @@ stages:
             dockerRegistryEndpoint: 'DockerHub'
             dockerComposeFile: '**/docker-compose.yml'
             action: 'Build services'
-            tags:
+            tags: |
+              $(tag)
+              latest|
         - task: DockerCompose@0
           inputs:
             containerregistrytype: 'Container Registry'
             dockerRegistryEndpoint: 'DockerHub'
             dockerComposeFile: '**/docker-compose.yml'
             action: 'Push services'
-            tags: $(tags)
+            tags: |
+              $(tag)
+              latest|
   - stage: Deploy
     displayName: Deploy images to kubernetes
     jobs:
@@ -44,4 +46,4 @@ stages:
               kubernetesServiceConnection: 'K8s'
               namespace: 'portfolio'
               manifests: $(manifests)
-              tags: $(tags)
+              tags: $(tag)
