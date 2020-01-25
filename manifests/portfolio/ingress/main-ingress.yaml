@@ -22,6 +22,6 @@ spec:
           - path: /(.*)
             backend:
               serviceName: portfolio-svc
-              servicePort: 80
+              servicePort: 8080
     - host: maartenvanderheijden.dev
       http: *maarten_dev_rules
