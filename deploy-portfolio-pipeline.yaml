@@ -8,6 +8,9 @@ variables:
   vmImage: 'ubuntu-latest'
   manifests: ./manifests/portfolio/**/*.yaml
   tag: $(Build.BuildId)
+  namespace: portfolio
+  containerRegistry: docker.io
+  imageRepository: survivorbat/portfolio-nginx
 
 stages:
   - stage: BuildPublish
@@ -40,6 +43,7 @@ stages:
             inputs:
               action: 'deploy'
               kubernetesServiceConnection: 'K8s'
-              namespace: 'portfolio'
+              namespace: $(namespace)
               manifests: $(manifests)
-              tags: $(tag)
+              containers:
+                $(containerRegistry)/$(imageRepository):$(tag)
