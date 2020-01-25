@@ -27,4 +27,4 @@ spec:
               memory: 20Mi
           env:
             - name: cache_max_time
-              value: 10000000000
+              value: "10000000000"
