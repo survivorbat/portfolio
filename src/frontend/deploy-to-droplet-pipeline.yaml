@@ -6,11 +6,15 @@ trigger:
 
 variables:
   vmImage: 'ubuntu-latest'
-  manifests: ./manifests/portfolio/**/*.yaml
-  tag: $(Build.BuildId)
+
+  kubernetesServiceConnection: K8s
+  manifests: ./manifests/*.yaml
   namespace: portfolio
+
   containerRegistry: docker.io
   imageRepository: survivorbat/portfolio-nginx
+  dockerComposePath: src/docker-compose.yml
+  tag: $(Build.BuildId)
 
 stages:
   - stage: BuildPublish
@@ -21,29 +25,13 @@ stages:
         steps:
         - task: DockerCompose@0
           inputs:
-            containerregistrytype: 'Container Registry'
-            dockerRegistryEndpoint: 'DockerHub'
-            dockerComposeFile: '**/docker-compose.yml'
+            dockerComposeFile: $(dockerComposePath)
             action: 'Build services'
             additionalImageTags: $(tag)
         - task: DockerCompose@0
           inputs:
             containerregistrytype: 'Container Registry'
             dockerRegistryEndpoint: 'DockerHub'
-            dockerComposeFile: '**/docker-compose.yml'
+            dockerComposeFile: $(dockerComposePath)
             action: 'Push services'
             additionalImageTags: $(tag)
-  - stage: Deploy
-    displayName: Deploy images to kubernetes
-    jobs:
-      - job: Deploy
-        displayName: deploy
-        steps:
-          - task: KubernetesManifest@0
-            inputs:
-              action: 'deploy'
-              kubernetesServiceConnection: 'K8s'
-              namespace: $(namespace)
-              manifests: $(manifests)
-              containers:
-                $(containerRegistry)/$(imageRepository):$(tag)

@@ -11,25 +11,25 @@ help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z\._-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 build: ## Build images
-	docker-compose -f docker/docker-compose.yml -p portfolio build
+	docker-compose -f src/docker-compose.yml -p portfolio build
 
 up: ## Start containers in development mode
-	docker-compose -f docker/docker-compose.yml -p portfolio up -d
+	docker-compose -f src/docker-compose.yml -p portfolio up -d
 
 down: ## Stop containers
-	docker-compose -f docker/docker-compose.yml -p portfolio down
+	docker-compose -f src/docker-compose.yml -p portfolio down
 
 restart: ## Restart containers
-	docker-compose -f docker/docker-compose.yml -p porfolio restart
+	docker-compose -f src/docker-compose.yml -p porfolio restart
 
 terraform.init: ## Init terraform
-	cd terraform/digitalocean && terraform init
+	cd common/terraform/digitalocean && terraform init
 
 terraform.plan: ## Plan the terraform configuration
-	cd terraform/digitalocean && terraform plan
+	cd common/terraform/digitalocean && terraform plan
 
 terraform.apply: ## Apply the terraform configuration
-	cd terraform/digitalocean && terraform apply -auto-approve
+	cd common/terraform/digitalocean && terraform apply -auto-approve
 
 terraform.destroy: ## Destroy the terraform configuration
-	cd terraform/digitalocean && terraform destroy
+	cd common/terraform/digitalocean && terraform destroy

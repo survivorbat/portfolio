@@ -4,8 +4,7 @@ services:
   nginx:
     image: survivorbat/portfolio-nginx
     build:
-      context: ../
-      dockerfile: docker/nginx/Dockerfile
+      context: ./frontend
     environment:
       cache_max_time: 1
     restart: always

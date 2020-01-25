@@ -2,7 +2,7 @@ FROM node:13.7.0-alpine AS build
 
 WORKDIR /app
 
-COPY src/frontend /app
+COPY . /app
 
 RUN npm install \
  && npm run test:nowatch \
@@ -15,7 +15,7 @@ RUN apk add --no-cache --update \
  && pip install j2cli \
  && mkdir -p /var/www/html
 
-COPY ./docker/nginx /
+COPY ./nginx /
 COPY --from=build /app/build /var/www/html
 
 ENTRYPOINT /bin/docker-entrypoint
