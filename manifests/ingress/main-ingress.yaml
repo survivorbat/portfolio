@@ -8,15 +8,27 @@ metadata:
     kubernetes.io/tls-acme: "true"
     ingress.kubernetes.io/enable-cors: "false"
     ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
+  tls:
+    - hosts:
+        - maarten.dev
+        - maartenvanderheijden.dev
+      secretName: maarten_dev-tls
   rules:
     - host: maarten.dev
-      http:
+      http: &maarten_dev_rules
         paths:
           - path: /(.*)
             backend:
               serviceName: portfolio-svc
               servicePort: 80
+    - host: maartenvanderheijden.dev
+      http: *maarten_dev_rules
+    - host: "*.maarten.dev"
+      http: *maarten_dev_rules
+    - host: "*.maartenvanderheijden.dev"
+      http: *maarten_dev_rules
     - host: stage.maarten.dev
       http:
         paths:
