@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: portfolio-svc
+  name: portfolio-nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: portfolio-svc
+      app: portfolio-nginx
   template:
     metadata:
       labels:
-        app: portfolio-svc
+        app: portfolio-nginx
     spec:
       containers:
-        - name: portfolio-svc
+        - name: portfolio-nginx
           image: survivorbat/portfolio-nginx:latest
           imagePullPolicy: Always
           ports:

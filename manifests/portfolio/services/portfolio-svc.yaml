@@ -6,4 +6,4 @@ spec:
   ports:
     - port: 80
   selector:
-    app: portfolio-svc
+    app: portfolio-nginx
