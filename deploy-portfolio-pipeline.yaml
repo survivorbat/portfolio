@@ -24,7 +24,7 @@ stages:
             action: 'Build services'
             tags: |
               $(tag)
-              latest|
+              latest
         - task: DockerCompose@0
           inputs:
             containerregistrytype: 'Container Registry'
@@ -33,7 +33,7 @@ stages:
             action: 'Push services'
             tags: |
               $(tag)
-              latest|
+              latest
   - stage: Deploy
     displayName: Deploy images to kubernetes
     jobs:
