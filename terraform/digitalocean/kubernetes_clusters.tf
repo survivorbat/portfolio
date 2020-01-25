@@ -1,10 +1,6 @@
-variable "portfolio_service_account_name" {}
-variable "portfolio_role_name" {}
-variable "portfolio_namespace_name" {}
-
 resource "digitalocean_kubernetes_cluster" "main" {
   name    = "projects"
-  region  = "nyc1"
+  region  = var.region
   version = "1.16.2-do.3"
   tags = ["production"]
   node_pool {
@@ -57,5 +53,34 @@ resource "kubernetes_role_binding" "portfolio_role_binding" {
     kind = "ServiceAccount"
     name = var.portfolio_service_account_name
     namespace = var.portfolio_namespace_name
+  }
+}
+
+resource "kubernetes_service" "ingress-nginx" {
+  metadata {
+    name = "ingress-nginx"
+    namespace = "ingress-nginx"
+    labels = {
+      "app.kubernetes.io/name" = "ingress-nginx",
+      "app.kubernetes.io/part-of" = "ingress-nginx"
+    }
+  }
+  spec {
+    external_traffic_policy = "Local"
+    type = "LoadBalancer"
+    selector = {
+      "app.kubernetes.io/name" = "ingress-nginx",
+      "app.kubernetes.io/part-of" = "ingress-nginx"
+    }
+    port {
+      port = 80
+      name = "http"
+      target_port = "http"
+    }
+    port {
+      port = 443
+      name = "https"
+      target_port = "https"
+    }
   }
 }
