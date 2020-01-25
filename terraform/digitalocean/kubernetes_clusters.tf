@@ -17,23 +17,23 @@ resource "digitalocean_kubernetes_cluster" "main" {
 resource "kubernetes_namespace" "portfolio_namespace" {
   provider = kubernetes
   metadata {
-    name = portfolio_namespace_name
+    name = var.portfolio_namespace_name
   }
 }
 
 resource "kubernetes_service_account" "portfolio_service_account" {
   provider = kubernetes
   metadata {
-    name = portfolio_service_account_name
-    namespace = portfolio_namespace_name
+    name = var.portfolio_service_account_name
+    namespace = var.portfolio_namespace_name
   }
 }
 
 resource "kubernetes_role" "portfolio_role" {
   provider = kubernetes
   metadata {
-    name = portfolio_role_name
-    namespace = portfolio_namespace_name
+    name = var.portfolio_role_name
+    namespace = var.portfolio_namespace_name
   }
   rule {
     api_groups = ["apps"]
@@ -46,16 +46,16 @@ resource "kubernetes_role_binding" "portfolio_role_binding" {
   provider = kubernetes
   metadata {
     name = "portfolio_role_binding"
-    namespace = portfolio_namespace_name
+    namespace = var.portfolio_namespace_name
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
     kind = "Role"
-    name = portfolio_role_name
+    name = var.portfolio_role_name
   }
   subject {
     kind = "ServiceAccount"
-    name = portfolio_service_account_name
-    namespace = portfolio_namespace_name
+    name = var.portfolio_service_account_name
+    namespace = var.portfolio_namespace_name
   }
 }
