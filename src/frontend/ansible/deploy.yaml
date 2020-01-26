@@ -1,0 +1,6 @@
+---
+- name: Ensure portfolio
+  hosts: all
+  tasks:
+    - name: Echo hello
+      command: echo Hello World!

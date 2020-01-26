@@ -24,7 +24,7 @@ resource "digitalocean_droplet" "portfolio_droplet" {
   }
 
   provisioner "local-exec" {
-    working_dir = "../../ansible"
+    working_dir = "ansible"
 
     environment = {
       letsencrypt_email: var.email

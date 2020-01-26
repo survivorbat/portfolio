@@ -11,12 +11,12 @@
 - name: Ensure common roles
   hosts: all
   roles:
-    - { tags: server_install, role: geerlingguy.docker }
-    - { tags: server_install, role: geerlingguy.certbot }
-    - { tags: server_install, role: geerlingguy.pip }
-    - { tags: server_install, role: common }
+    - geerlingguy.docker
+    - geerlingguy.certbot
+    - geerlingguy.pip
+    - common
 
 - name: Ensure portfolio
   hosts: all
   roles:
-    - { tags: server_deploy, role: portfolio }
+    - portfolio

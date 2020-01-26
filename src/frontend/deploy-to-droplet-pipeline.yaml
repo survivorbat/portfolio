@@ -7,6 +7,9 @@ trigger:
 variables:
   vmImage: 'ubuntu-latest'
 
+  playbook: src/frontend/ansible/deploy.yaml
+  host: maarten.dev
+
   containerRegistry: docker.io
   imageRepository: survivorbat/portfolio-nginx
   dockerComposePath: src/docker-compose.yml
@@ -31,3 +34,13 @@ stages:
             dockerComposeFile: $(dockerComposePath)
             action: 'Push services'
             additionalImageTags: $(tag)
+  - stage: Deploy
+    displayName: Deploy
+    jobs:
+      - job: Deploy
+        displayName: Deploy
+        steps:
+          - bash: pip install ansible
+            displayName: Pip install ansible
+          - bash: ansible-playbook -i $(host), $(playbook)
+            displayName: Run ansible playbook
