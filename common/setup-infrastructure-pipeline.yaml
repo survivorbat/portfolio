@@ -5,6 +5,7 @@ trigger:
 
 variables:
   vmImage: 'ubuntu-latest'
+  terraformDirectory: 'common/terraform/digitalocean'
 
 stages:
   - stage: Deploy
@@ -12,8 +13,20 @@ stages:
     jobs:
       - job: Setup
         displayName: Setup infrastructure with Terraform
-        steps: []
+        steps: 
+          - task: TerraformCLI@0
+            inputs:
+              command: 'init'
+              workingDirectory: $(terraformDirectory)
+          - task: TerraformCLI@0
+            inputs:
+              command: 'validate'
+              workingDirectory: $(terraformDirectory)
+          - task: TerraformCLI@0
+            inputs:
+              command: 'apply'
+              workingDirectory: $(terraformDirectory)
 
       - job: Deploy
-        depends_on: Setup
+        dependsOn: Setup
         steps: []
