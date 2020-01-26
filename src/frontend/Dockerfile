@@ -13,9 +13,9 @@ FROM nginx:1.17.8-alpine
 RUN apk add --no-cache --update \
     py-pip \
  && pip install j2cli \
- && mkdir -p /var/www/html
+ && mkdir -p /var/www/html/maarten.dev
 
 COPY ./nginx /
-COPY --from=build /app/build /var/www/html
+COPY --from=build /app/build /var/www/html/maarten.dev
 
 ENTRYPOINT /bin/docker-entrypoint

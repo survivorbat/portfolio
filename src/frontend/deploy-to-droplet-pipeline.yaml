@@ -7,10 +7,6 @@ trigger:
 variables:
   vmImage: 'ubuntu-latest'
 
-  kubernetesServiceConnection: K8s
-  manifests: ./manifests/*.yaml
-  namespace: portfolio
-
   containerRegistry: docker.io
   imageRepository: survivorbat/portfolio-nginx
   dockerComposePath: src/docker-compose.yml

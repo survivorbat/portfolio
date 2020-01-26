@@ -4,7 +4,8 @@ resource "digitalocean_droplet" "portfolio_droplet" {
   region = var.region
   size = "s-1vcpu-2gb"
   ssh_keys = [
-    digitalocean_ssh_key.personal_key.id
+    digitalocean_ssh_key.personal_key.id,
+    digitalocean_ssh_key.portfolio_key.id
   ]
   ipv6 = true
 }

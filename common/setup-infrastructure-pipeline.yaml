@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    include:
+      - master
+
+variables:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Deploy
+    displayName: Setup infrastructure with Terraform
+    jobs:
+      - job: Setup
+        displayName: Setup infrastructure with Terraform
+        steps: []
+
+      - job: Deploy
+        depends_on: Setup
+        steps: []

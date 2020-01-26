@@ -1,5 +1,6 @@
 variable "do_token" {}
-variable "public_key" {}
+variable "personal_public_key" {}
+variable "portfolio_public_key" {}
 variable "region" {
   default = "nyc1"
 }

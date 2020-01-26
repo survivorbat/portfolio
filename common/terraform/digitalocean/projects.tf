@@ -6,7 +6,8 @@ resource "digitalocean_project" "portfolio" {
   resources = [
     digitalocean_domain.maarten_dev.urn,
     digitalocean_domain.maartenvanderheijden_dev.urn,
-    digitalocean_droplet.portfolio_droplet.urn
+    digitalocean_droplet.portfolio_droplet.urn,
+    digitalocean_loadbalancer.portfolio_loadbalancer.urn
   ]
 }
 

@@ -1,17 +1,5 @@
 .idea/
 .vscode/
-src/vendor
-src/var
-/src/public/bundles/
-/src/public/assets
-/src/public/uploads
-/src/var/
-/src/vendor/
-/src/assets/fixtureimages/*.test
-/src/bin/.phpunit
-/src/.phpunit
-src/test-coverage
-/src/.phpunit.result.cache
 *.retry
 *.tmp
 .php_cs
