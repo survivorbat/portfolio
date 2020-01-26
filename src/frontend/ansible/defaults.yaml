@@ -1,0 +1,5 @@
+nginx_config_directory: /etc/maarten.dev/nginx
+files_directory: /var/www/html/files
+
+default_user: runuser
+default_group: rungroup

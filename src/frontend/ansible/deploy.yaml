@@ -2,5 +2,29 @@
 - name: Ensure portfolio
   hosts: all
   tasks:
-    - name: Echo hello
-      command: echo Hello World!
+    - name: "Ensure {{ nginx_config_directory }}"
+      file:
+        state: directory
+        path: "{{ nginx_config_directory }}"
+        owner: "{{ default_user }}"
+        group: "{{ default_group }}"
+
+    - name: "Ensure {{ files_directory }}"
+      file:
+        state: directory
+        path: "{{ files_directory }}"
+        owner: "{{ default_user }}"
+        group: "{{ default_group }}"
+
+    - name: Start container
+      docker_container:
+        auto_remove: true
+        restart_policy: always
+        published_ports:
+          - 80:8080
+        env:
+          cache_max_time: 10000000
+        volumes:
+          - "/etc/letsencrypt:/etc/letsencrypt"
+          - "{{ nginx_config_directory }}/nginx:/etc/niginx/temp"
+          - "{{ files_directory }}:/var/www/html/files"
