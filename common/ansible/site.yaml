@@ -10,16 +10,13 @@
 
 - name: Ensure common roles
   hosts: all
-  vars_files:
-    - shared_vars/vault.yml
   roles:
     - { tags: server_install, role: geerlingguy.docker }
+    - { tags: server_install, role: geerlingguy.certbot }
     - { tags: server_install, role: geerlingguy.pip }
     - { tags: server_install, role: common }
 
 - name: Ensure portfolio
-  hosts: portfolio
-  vars_files:
-    - shared_vars/vault.yml
+  hosts: all
   roles:
     - { tags: server_deploy, role: portfolio }

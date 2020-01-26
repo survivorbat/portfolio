@@ -1,5 +1,2 @@
-project_dir: /srv/app
-project_name: portfolio
-
 default_user: root
 default_group: root
