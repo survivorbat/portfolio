@@ -1,14 +1,17 @@
 variable "do_token" {
   description = "Token to connect to DigitalOcean"
 }
+
 variable "personal_public_key" {
-  description = "Public key for personal reasons"
+  description = "Path to personal public key"
 }
+
 variable "portfolio_public_key" {
-  description = "Public key for the portfolio"
+  description = "Path to portfolio public key"
 }
+
 variable "portfolio_private_key" {
-  description = "Private key used to connect ansible with the droplets"
+  description = "Path to portfolio private key"
 }
 
 variable "region" {
@@ -24,4 +27,9 @@ variable "default_image" {
 variable "default_size" {
   default = "s-1vcpu-1gb"
   description = "Default size of a droplet"
+}
+
+variable "email" {
+  default = "djbatcat@gmail.com"
+  description = "Email"
 }

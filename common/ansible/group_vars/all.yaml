@@ -21,5 +21,14 @@ common_users:
 default_user: runuser
 default_group: rungroup
 
+nginx_host_letsencrypt_email: "{{ lookup('env', 'letsencrypt_email') }}"
 do_token: "{{ lookup('env', 'do_token') }}"
 domains: "{{ lookup('env', 'domains').split(',') }}"
+
+pip_install_packages:
+  - name: setuptools
+  - name: pyopenssl
+    version: 16.2.0
+  - name: certbot-dns-digitalocean
+  - name: docker
+  - name: docker-compose

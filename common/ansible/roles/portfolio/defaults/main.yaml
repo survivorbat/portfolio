@@ -1,2 +1,3 @@
 default_user: root
 default_group: root
+nginx_host_letsencrypt_email: root@example.com
