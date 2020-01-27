@@ -7,7 +7,8 @@ trigger:
 variables:
   vmImage: 'ubuntu-latest'
 
-  playbook: src/frontend/ansible/deploy.yaml
+  ansibleDirectory: src/frontend/ansible
+  playbook: deploy.yaml
   host: maarten.dev
 
   containerRegistry: docker.io
@@ -42,5 +43,10 @@ stages:
         steps:
           - bash: pip install ansible
             displayName: Pip install ansible
+            workdingDirectory: $(ansibleDirectory)
+          - bash: ansible-galaxy install -r requirements.yaml
+            displayName: Install ansible roles
+            workdingDirectory: $(ansibleDirectory)
           - bash: ansible-playbook -i $(host), $(playbook)
             displayName: Run ansible playbook
+            workdingDirectory: $(ansibleDirectory)
