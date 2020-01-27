@@ -17,7 +17,7 @@
         owner: "{{ default_user }}"
         group: "{{ default_group }}"
 
-    - name: Start container
+    - name: Ensure docker container
       docker_container:
         name: "{{ container_name }}"
         image: "{{ container_image }}:{{ tag | default('latest') }}"
