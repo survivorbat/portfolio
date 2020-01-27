@@ -44,6 +44,6 @@ stages:
           - bash: pip install ansible
             displayName: Pip install ansible
             workingDirectory: $(ansibleDirectory)
-          - bash: ansible-playbook -i $(host), $(playbook)
+          - bash: ansible-playbook -i $(host), -e tag=$(tag) $(playbook)
             displayName: Run ansible playbook
             workingDirectory: $(ansibleDirectory)
