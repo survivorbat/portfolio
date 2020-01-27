@@ -43,10 +43,10 @@ stages:
         steps:
           - bash: pip install ansible
             displayName: Pip install ansible
-            workdingDirectory: $(ansibleDirectory)
+            workingDirectory: $(ansibleDirectory)
           - bash: ansible-galaxy install -r requirements.yaml
             displayName: Install ansible roles
-            workdingDirectory: $(ansibleDirectory)
+            workingDirectory: $(ansibleDirectory)
           - bash: ansible-playbook -i $(host), $(playbook)
             displayName: Run ansible playbook
-            workdingDirectory: $(ansibleDirectory)
+            workingDirectory: $(ansibleDirectory)
