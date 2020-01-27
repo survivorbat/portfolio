@@ -3,3 +3,6 @@ files_directory: /var/www/html/files
 
 default_user: runuser
 default_group: rungroup
+
+container_name: nginx-reverse-proxy
+container_image: survivorbat/portfolio-nginx

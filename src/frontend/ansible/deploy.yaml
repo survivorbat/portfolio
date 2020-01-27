@@ -1,5 +1,6 @@
 ---
 - name: Ensure portfolio
+  become: true
   hosts: all
   tasks:
     - name: "Ensure {{ nginx_config_directory }}"
@@ -18,13 +19,14 @@
 
     - name: Start container
       docker_container:
-        auto_remove: true
+        name: "{{ container_name }}"
+        image: "{{ container_image }}:{{ tag | default('latest') }}"
         restart_policy: always
         published_ports:
           - 80:8080
         env:
-          cache_max_time: 10000000
+          cache_max_time: "10000000"
         volumes:
           - "/etc/letsencrypt:/etc/letsencrypt"
-          - "{{ nginx_config_directory }}/nginx:/etc/niginx/temp"
+          - "{{ nginx_config_directory }}/nginx:/etc/nginx/temp"
           - "{{ files_directory }}:/var/www/html/files"
