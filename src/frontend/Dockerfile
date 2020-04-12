@@ -1,4 +1,7 @@
-FROM node:13.7.0-alpine AS build
+ARG node_version=13.7.0
+ARG nginx_jinja_version=1.17.0
+
+FROM node:${node_version}-alpine AS build
 
 WORKDIR /app
 
@@ -8,14 +11,9 @@ RUN npm install \
  && npm run test:nowatch \
  && npm run build
 
-FROM nginx:1.17.8-alpine
+FROM survivorbat/nginx-jinja2:${nginx_jinja_version}-alpine AS run
 
-RUN apk add --no-cache --update \
-    py-pip \
- && pip install j2cli \
- && mkdir -p /var/www/html/maarten.dev
+RUN mkdir -p /var/www/html/maarten.dev
 
 COPY ./nginx /
 COPY --from=build /app/build /var/www/html/maarten.dev
-
-ENTRYPOINT /bin/docker-entrypoint

@@ -11,8 +11,8 @@ common_users:
   - name: "developer"
     group: "developer"
     authorized_key: |
-      {{ lookup('env', 'personal_public_key') }}
-      {{ lookup('env', 'portfolio_public_key') }}
+      {{ lookup('env', 'personalPublicKey') }}
+      {{ lookup('env', 'portfolioPublicKey') }}
     uid: "9000"
   - name: "runuser"
     group: "rungroup"
@@ -21,9 +21,8 @@ common_users:
 default_user: runuser
 default_group: rungroup
 
-nginx_host_letsencrypt_email: "{{ lookup('env', 'letsencrypt_email') }}"
-do_token: "{{ lookup('env', 'do_token') }}"
-domains: "{{ lookup('env', 'domains').split(',') }}"
+nginx_host_letsencrypt_email: "{{ lookup('env', 'letsencryptEmail') }}"
+do_token: "{{ lookup('env', 'doToken') }}"
 
 pip_install_packages:
   - name: setuptools

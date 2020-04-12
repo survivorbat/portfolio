@@ -1,0 +1,59 @@
+trigger:
+  paths:
+    include:
+      - .dockerignore
+      - azure-pipelines.yaml
+      - src
+      - common
+  branches:
+    include:
+      - master
+      - develop
+      - feature/*
+
+variables:
+  vmImage: "ubuntu-latest"
+  sourceDirectory: "$(Build.SourcesDirectory)/src/frontend"
+
+  node_version: "13.7.0"
+  nginx_jinja_version: "1.17.0"
+
+stages:
+  - stage: Build_and_Test
+    displayName: Build and test $(sourceDirectory)
+    jobs:
+      - job: Build
+        displayName: Build and test $(sourceDirectory)
+        pool:
+          vmImage: $(vmImage)
+        steps:
+          - task: Docker@2
+            displayName: Build
+            inputs:
+              command: build
+              repository: $(repository)
+              arguments: --build-arg node_version=$(node_version) --build-arg nginx_jinja_version=$(nginx_jinja_version)
+              tags: |
+                $(sentinel_version)
+  - stage: Deploy
+    displayName: Deploy
+    jobs:
+      - job: Infra_Deploy
+        displayName: Terraform Deploy
+        steps:
+          - task: qetza.replacetokens.replacetokens-task.replacetokens@3
+            displayName: 'Replace tokens in terraform/*.tf'
+            inputs:
+              targetFiles: 'common/terraform/*.tf'
+              tokenPrefix: '__'
+              tokenSuffix: '__'
+          - template: pipeline-templates/terraform-deploy.yaml
+            parameters:
+              rootDirectory: "$(Build.SourcesDirectory)/common/terraform"
+
+      - job: Infra_Configure
+        displayName: Ansible
+        steps:
+          - template: pipeline-templates/ansible-deploy.yaml
+            parameters:
+              rootDirectory: "$(Build.SourcesDirectory)/common/ansible"
