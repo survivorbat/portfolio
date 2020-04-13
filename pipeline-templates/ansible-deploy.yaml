@@ -13,7 +13,7 @@ parameters:
 
 steps:
   - bash: |
-      docker pull ${{ parameters.terraformDockerImage }}
+      docker pull ${{ parameters.ansibleDockerImage }}
     displayName: Pull ${{ parameters.ansibleDockerImage }}
   - bash: |
       echo "docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-lint ${{ parameters.playbookFileName }}"

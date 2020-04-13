@@ -3,6 +3,7 @@ trigger:
     include:
       - .dockerignore
       - azure-pipelines.yaml
+      - pipeline-templates
       - src
       - common
   branches:
@@ -47,6 +48,7 @@ stages:
               targetFiles: 'common/terraform/*.tf'
               tokenPrefix: '__'
               tokenSuffix: '__'
+
           - template: pipeline-templates/terraform-deploy.yaml
             parameters:
               rootDirectory: "$(Build.SourcesDirectory)/common/terraform"
@@ -57,3 +59,7 @@ stages:
           - template: pipeline-templates/ansible-deploy.yaml
             parameters:
               rootDirectory: "$(Build.SourcesDirectory)/common/ansible"
+              ansibleEnvironment:
+                doToken: $(doToken)
+
+
