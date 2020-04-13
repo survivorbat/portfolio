@@ -127,5 +127,4 @@ stages:
               ansibleEnvironment:
                 doToken: $(doToken)
                 letsencryptEmail: $(letsencryptEmail)
-
-
+                privateKey: $(privateKey)
