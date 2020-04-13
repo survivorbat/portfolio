@@ -114,7 +114,6 @@ stages:
               commandOptions: $(Build.SourcesDirectory)/common/terraform
             displayName: Apply $(Build.SourcesDirectory)/common/terraform
 
-
       - job: Infra_Configure
         displayName: Ansible
         dependsOn: Infra_Deploy
@@ -126,4 +125,4 @@ stages:
               ansibleEnvironment:
                 doToken: $(doToken)
                 letsencryptEmail: $(letsencryptEmail)
-              privateKey: $(privateKeyName)
+              privateKeyName: $(privateKeyName)
