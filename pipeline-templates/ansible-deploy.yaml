@@ -7,6 +7,9 @@ parameters:
   - name: playbookFileName
     type: string
     default: site.yaml
+  - name: requirementsFileName
+    type: string
+    default: requirements.yaml
   - name: ansibleEnvironment
     type: object
     default: {}
@@ -19,6 +22,11 @@ steps:
       docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-lint ${{ parameters.playbookFileName }}
     env: ${{ parameters.ansibleEnvironment }}
     displayName: Run ansible-lint
+
+  - bash: |
+      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-galaxy ${{ parameters.requirementsFileName }}
+      env: ${{ parameters.ansibleEnvironment }}
+    displayName: Run ansible-galaxy install
 
   - bash: |
       docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-playbook /app/${{ parameters.playbookFileName }}
