@@ -40,7 +40,8 @@ module "domain_mdev" {
 
 module "droplet" {
   source = "./modules/do_droplet"
-  name = "website"
+  name = "maarten.dev"
+  ssh_keys = [module.do_ssh_key.id, module.personal_ssh_key.id]
 }
 
 module "project" {
