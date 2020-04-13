@@ -103,12 +103,14 @@ stages:
           - task: TerraformCLI@0
             inputs:
               command: 'plan'
+              environmentServiceName: 'ARM'
               commandOptions: $(Build.SourcesDirectory)/common/terraform
             displayName: Apply $(Build.SourcesDirectory)/common/terraform
 
           - task: TerraformCLI@0
             inputs:
               command: 'apply'
+              environmentServiceName: 'ARM'
               commandOptions: $(Build.SourcesDirectory)/common/terraform
             displayName: Apply $(Build.SourcesDirectory)/common/terraform
 
