@@ -74,6 +74,8 @@ stages:
         displayName: Terraform Deploy
         dependsOn: Docker_Publish
         steps:
+          - bash: sudo apt-get install -y --allow-downgrades azure-cli=2.0.54-1~xenial
+            displayName: 'downgrade azure-cli'
           - task: AzureCLI@2
             displayName: Azure CLI
             inputs:
