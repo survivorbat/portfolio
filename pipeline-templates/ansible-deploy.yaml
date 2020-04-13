@@ -22,7 +22,7 @@ steps:
     displayName: Pull ${{ parameters.ansibleDockerImage }}
 
   - bash: |
-      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} -c "\
+      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} /bin/sh -c "\
         ansible-galaxy install -r /app/${{ parameters.requirementsFileName }} && \
         ansible-playbook -i /app/${{ parameters.inventoryFileName }} /app/${{ parameters.playbookFileName }}"
     displayName: Run ansible
