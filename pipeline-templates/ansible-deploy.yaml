@@ -35,4 +35,4 @@ steps:
         "
     env:
       ANSIBLE_HOST_KEY_CHECKING: false
-    displayName: Run ansible
+    displayName: Running ${{ parameters.playbookFileName }} with key ${{ parameters.privateKey }} and inventory ${{ parameters.inventoryFileName }}
