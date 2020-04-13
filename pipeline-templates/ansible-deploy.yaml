@@ -36,8 +36,6 @@ steps:
         -v ${{ parameters.rootDirectory }}:/app \
         ${{ parameters.ansibleDockerImage }} \
         /bin/sh -c "\
-          eval $(ssh-agent -s) && \
-          ssh-add /root/.ssh/id_rsa && \
           ansible-galaxy install -r /app/${{ parameters.requirementsFileName }} && \
           ansible-playbook -u root -i /app/${{ parameters.inventoryFileName }} /app/${{ parameters.playbookFileName }} --private-key /root/.ssh/id_rsa \
         "
