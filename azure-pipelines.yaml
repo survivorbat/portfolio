@@ -71,7 +71,7 @@ stages:
                 latest
       - job: Infra_Deploy
         displayName: Terraform Deploy
-        depends_on: Docker_Publish
+        dependsOn: Docker_Publish
         steps:
           - task: qetza.replacetokens.replacetokens-task.replacetokens@3
             displayName: 'Replace tokens in terraform/*.tf'
@@ -86,7 +86,7 @@ stages:
 
       - job: Infra_Configure
         displayName: Ansible
-        depends_on: Infra_Deploy
+        dependsOn: Infra_Deploy
         steps:
           - template: pipeline-templates/ansible-deploy.yaml
             parameters:
