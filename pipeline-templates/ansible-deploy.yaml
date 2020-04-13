@@ -16,13 +16,11 @@ steps:
       docker pull ${{ parameters.ansibleDockerImage }}
     displayName: Pull ${{ parameters.ansibleDockerImage }}
   - bash: |
-      echo "docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-lint ${{ parameters.playbookFileName }}"
       docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-lint ${{ parameters.playbookFileName }}
     env: ${{ parameters.ansibleEnvironment }}
     displayName: Run ansible-lint
 
   - bash: |
-      echo "docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-playbook ${{ parameters.playbookFileName }}"
-      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-playbook ${{ parameters.playbookFileName }}
+      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-playbook /app/${{ parameters.playbookFileName }}
     env: ${{ parameters.ansibleEnvironment }}
     displayName: Run ansible
