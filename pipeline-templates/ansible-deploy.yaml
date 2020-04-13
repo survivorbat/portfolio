@@ -19,11 +19,11 @@ steps:
       docker pull ${{ parameters.ansibleDockerImage }}
     displayName: Pull ${{ parameters.ansibleDockerImage }}
   - bash: |
-      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-lint ${{ parameters.playbookFileName }}
+      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-lint /app/${{ parameters.playbookFileName }}
     displayName: Run ansible-lint
 
   - bash: |
-      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-galaxy install -r ${{ parameters.requirementsFileName }}
+      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-galaxy install -r /app/${{ parameters.requirementsFileName }}
     displayName: Run ansible-galaxy install
 
   - bash: |

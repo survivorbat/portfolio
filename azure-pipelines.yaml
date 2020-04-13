@@ -125,5 +125,6 @@ stages:
               rootDirectory: "$(Build.SourcesDirectory)/common/ansible"
               ansibleEnvironment:
                 doToken: $(doToken)
+                letsencryptEmail: $(letsencryptEmail)
 
 
