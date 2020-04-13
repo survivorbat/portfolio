@@ -13,20 +13,21 @@ trigger:
       - feature/*
 
 variables:
-  vmImage: "ubuntu-latest"
   sourceDirectory: "$(Build.SourcesDirectory)/src/frontend"
+
+  repository: survivorbat/portfolio
+  serviceConnection: DockerHub
+  tag: nginx-$(Build.SourceBranchName)-$(Build.BuildNr)
 
   node_version: "13.7.0"
   nginx_jinja_version: "1.17.0"
 
 stages:
   - stage: Build_and_Test
-    displayName: Build and test $(sourceDirectory)
+    displayName: Build and test
     jobs:
       - job: Build
-        displayName: Build and test $(sourceDirectory)
-        pool:
-          vmImage: $(vmImage)
+        displayName: Build and test
         steps:
           - task: Docker@2
             displayName: Build
@@ -35,10 +36,32 @@ stages:
               repository: $(repository)
               arguments: --build-arg node_version=$(node_version) --build-arg nginx_jinja_version=$(nginx_jinja_version)
               tags: |
-                $(sentinel_version)
+                $(tag)
+                latest
   - stage: Deploy
     displayName: Deploy
     jobs:
+      - job: Docker_Publish
+        displayName: Build and test
+        steps:
+          - task: Docker@2
+            displayName: Build
+            inputs:
+              command: build
+              repository: $(repository)
+              arguments: --build-arg node_version=$(node_version) --build-arg nginx_jinja_version=$(nginx_jinja_version)
+              tags: |
+                $(tag)
+                latest
+          - task: Docker@2
+            displayName: Publish
+            inputs:
+              command: push
+              repository: $(repository)
+              serviceConnection: $(serviceConnection)
+              tags: |
+                $(tag)
+                latest
       - job: Infra_Deploy
         displayName: Terraform Deploy
         steps:
