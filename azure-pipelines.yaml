@@ -17,7 +17,7 @@ variables:
 
   repository: survivorbat/portfolio
   serviceConnection: DockerHub
-  tag: nginx-$(Build.SourceBranchName)-$(Build.BuildNr)
+  tag: nginx-$(Build.SourceBranchName)-$(Build.BuildNumber)
 
   node_version: "13.7.0"
   nginx_jinja_version: "1.17.0"
