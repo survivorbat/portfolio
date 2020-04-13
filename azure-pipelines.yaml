@@ -76,14 +76,6 @@ stages:
         steps:
           - bash: sudo apt-get install -y --allow-downgrades azure-cli=2.0.54-1~xenial
             displayName: 'downgrade azure-cli'
-          - task: AzureCLI@2
-            displayName: Azure CLI
-            inputs:
-              azureSubscription: $(azureServiceConnection)
-              scriptType: bash
-              scriptLocation: inlineScript
-              inlineScript: |
-                az login
 
           - task: qetza.replacetokens.replacetokens-task.replacetokens@3
             displayName: 'Replace tokens in terraform/*.tf'
