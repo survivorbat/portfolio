@@ -90,6 +90,29 @@ stages:
               tokenPrefix: '__'
               tokenSuffix: '__'
 
+          - task: TerraformCLI@0
+            inputs:
+              command: 'init'
+              backendType: 'azurerm'
+              backendServiceArm: 'ARM'
+              backendAzureRmResourceGroupName: 'Portfolio'
+              backendAzureRmStorageAccountName: $(storageAccountName)
+              backendAzureRmContainerName: $(containerName)
+              backendAzureRmKey: 'prod.terraform.tfstate'
+              commandOptions: terraform
+
+          - task: TerraformCLI@0
+            inputs:
+              command: 'validate'
+              commandOptions: terraform
+
+          - task: TerraformCLI@0
+            inputs:
+              command: 'apply'
+              environmentServiceName: 'ARM'
+              commandOptions: terraform
+
+
       - job: Infra_Configure
         displayName: Ansible
         dependsOn: Infra_Deploy
