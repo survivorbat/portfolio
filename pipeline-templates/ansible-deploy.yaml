@@ -26,12 +26,12 @@ steps:
   - bash: |
       docker run \
         --rm \
-        -v ${{ parameters.privateKey }}:/id_rsa \
+        -v ${{ parameters.privateKey }}:/home/root/.ssh/id_rsa \
         -v ${{ parameters.rootDirectory }}:/app \
         ${{ parameters.ansibleDockerImage }} \
         /bin/sh -c "\
           ansible-galaxy install -r /app/${{ parameters.requirementsFileName }} && \
-          ansible-playbook -u root -i /app/${{ parameters.inventoryFileName }} /app/${{ parameters.playbookFileName }} --private-key /id_rsa \
+          ansible-playbook -u root -i /app/${{ parameters.inventoryFileName }} /app/${{ parameters.playbookFileName }} --private-key /home/root/.ssh/id_rsa \
         "
     env:
       ANSIBLE_HOST_KEY_CHECKING: false
