@@ -47,7 +47,7 @@ module "project" {
   source = "./modules/do_project"
   name = "Production"
   description = "Production files"
-  resources = [module.droplet.droplet_urn, module.domain.domain_urn]
+  resources = [module.droplet.droplet_urn, module.domain_mdev.domain_urn, module.domain_mvdhdev.domain_urn]
 }
 
 module "personal_ssh_key" {
