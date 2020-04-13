@@ -15,10 +15,16 @@ parameters:
     default: {}
   - name: inventoryFileName
     type: string
-  - name: privateKey
+  - name: privateKeyName
     type: string
 
 steps:
+  - task: DownloadSecureFile@1
+    name: privateKey
+    inputs:
+      secureFile: $(privateKeyName)
+    displayName: Download $(privateKeyName)
+
   - bash: |
       docker pull ${{ parameters.ansibleDockerImage }}
     displayName: Pull ${{ parameters.ansibleDockerImage }}
@@ -26,7 +32,7 @@ steps:
   - bash: |
       docker run \
         --rm \
-        -v ${{ parameters.privateKey }}:/root/.ssh/id_rsa \
+        -v $(privateKey.secureFilePath):/root/.ssh/id_rsa \
         -v ${{ parameters.rootDirectory }}:/app \
         ${{ parameters.ansibleDockerImage }} \
         /bin/sh -c "\
