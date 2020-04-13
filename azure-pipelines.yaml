@@ -125,4 +125,4 @@ stages:
               ansibleEnvironment:
                 doToken: $(doToken)
                 letsencryptEmail: $(letsencryptEmail)
-                privateKey: $(privateKey.secureFilePath)
+              privateKey: $(privateKey.secureFilePath)
