@@ -124,7 +124,7 @@ stages:
             parameters:
               rootDirectory: "$(Build.SourcesDirectory)/common/ansible"
               inventoryFileName: "inventories/prod.yaml"
+              privateKey: $(privateKey)
               ansibleEnvironment:
                 doToken: $(doToken)
                 letsencryptEmail: $(letsencryptEmail)
-                privateKey: $(privateKey)
