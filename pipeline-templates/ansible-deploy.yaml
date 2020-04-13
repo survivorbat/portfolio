@@ -20,12 +20,10 @@ steps:
     displayName: Pull ${{ parameters.ansibleDockerImage }}
   - bash: |
       docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-lint ${{ parameters.playbookFileName }}
-    env: ${{ parameters.ansibleEnvironment }}
     displayName: Run ansible-lint
 
   - bash: |
       docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-galaxy ${{ parameters.requirementsFileName }}
-      env: ${{ parameters.ansibleEnvironment }}
     displayName: Run ansible-galaxy install
 
   - bash: |
