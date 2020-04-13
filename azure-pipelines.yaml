@@ -20,7 +20,7 @@ variables:
   tag: nginx-$(Build.SourceBranchName)-$(Build.BuildNumber)
 
   node_version: "13.7.0"
-  nginx_jinja_version: "1.17.0"
+  nginx_jinja_version: "1.17.9"
 
 stages:
   - stage: Build_and_Test
