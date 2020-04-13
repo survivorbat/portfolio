@@ -8,5 +8,5 @@ resource "digitalocean_droplet" "portfolio_droplet" {
   ipv6 = true
   monitoring = true
   backups = var.backups
-  private_networking = true
+  private_networking = var.private_networking
 }
