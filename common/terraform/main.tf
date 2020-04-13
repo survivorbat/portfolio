@@ -53,11 +53,11 @@ module "project" {
 module "personal_ssh_key" {
   source = "./modules/do_key"
   name = "personal_key"
-  public_key = file(var.personal_public_key)
+  public_key = var.personal_public_key
 }
 
 module "do_ssh_key" {
   source = "./modules/do_key"
   name = "do_key"
-  public_key = file(var.portfolio_public_key)
+  public_key = var.portfolio_public_key
 }

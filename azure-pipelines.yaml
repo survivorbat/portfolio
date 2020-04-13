@@ -100,17 +100,20 @@ stages:
               backendAzureRmContainerName: $(containerName)
               backendAzureRmKey: 'prod.terraform.tfstate'
               commandOptions: $(Build.SourcesDirectory)/common/terraform
+            displayName: Init $(Build.SourcesDirectory)/common/terraform
 
           - task: TerraformCLI@0
             inputs:
               command: 'validate'
               commandOptions: $(Build.SourcesDirectory)/common/terraform
+            displayName: Validate $(Build.SourcesDirectory)/common/terraform
 
           - task: TerraformCLI@0
             inputs:
               command: 'apply'
               environmentServiceName: 'ARM'
               commandOptions: $(Build.SourcesDirectory)/common/terraform
+            displayName: Apply $(Build.SourcesDirectory)/common/terraform
 
 
       - job: Infra_Configure
