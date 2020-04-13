@@ -11,7 +11,7 @@ RUN npm install \
  && npm run test:nowatch \
  && npm run build
 
-FROM survivorbat/nginx-jinja2:${nginx_jinja_version}-alpine AS run
+FROM survivorbat/nginx-jinja2:${nginx_jinja_version} AS run
 
 RUN mkdir -p /var/www/html/maarten.dev
 
