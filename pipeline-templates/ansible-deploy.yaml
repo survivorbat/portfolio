@@ -23,7 +23,7 @@ steps:
     displayName: Run ansible-lint
 
   - bash: |
-      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-galaxy ${{ parameters.requirementsFileName }}
+      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-galaxy install -r ${{ parameters.requirementsFileName }}
     displayName: Run ansible-galaxy install
 
   - bash: |
