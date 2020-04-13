@@ -2,10 +2,8 @@ provider "digitalocean" {
   token = var.do_token
 }
 
-module "domain" {
-  source = "./modules/do_domain"
-  domain = "maartenvanderheijden.dev"
-  records = [
+locals {
+  domain_records = [
     {
       name = "@"
       type = "A"
@@ -26,6 +24,18 @@ module "domain" {
       value = module.droplet.ipv6
     }
   ]
+}
+
+module "domain" {
+  source = "./modules/do_domain"
+  domain = "maartenvanderheijden.dev"
+  records = local.domain_records
+}
+
+module "domain" {
+  source = "./modules/do_domain"
+  domain = "maarten.dev"
+  records = local.domain_records
 }
 
 module "droplet" {

@@ -46,10 +46,16 @@ stages:
         displayName: Build and test
         steps:
           - task: Docker@2
+            displayName: Login to ACR
+            inputs:
+              command: login
+              containerRegistry: $(serviceConnection)
+          - task: Docker@2
             displayName: Build
             inputs:
               command: build
               repository: $(repository)
+              containerRegistry: $(serviceConnection)
               arguments: --build-arg node_version=$(node_version) --build-arg nginx_jinja_version=$(nginx_jinja_version)
               tags: |
                 $(tag)
@@ -59,12 +65,13 @@ stages:
             inputs:
               command: push
               repository: $(repository)
-              serviceConnection: $(serviceConnection)
+              containerRegistry: $(serviceConnection)
               tags: |
                 $(tag)
                 latest
       - job: Infra_Deploy
         displayName: Terraform Deploy
+        depends_on: Docker_Publish
         steps:
           - task: qetza.replacetokens.replacetokens-task.replacetokens@3
             displayName: 'Replace tokens in terraform/*.tf'
@@ -79,6 +86,7 @@ stages:
 
       - job: Infra_Configure
         displayName: Ansible
+        depends_on: Infra_Deploy
         steps:
           - template: pipeline-templates/ansible-deploy.yaml
             parameters:
