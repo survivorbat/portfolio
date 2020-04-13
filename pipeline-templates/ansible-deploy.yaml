@@ -13,6 +13,8 @@ parameters:
   - name: ansibleEnvironment
     type: object
     default: {}
+  - name: inventoryFileName
+    type: string
 
 steps:
   - bash: |
@@ -24,6 +26,6 @@ steps:
     displayName: Run ansible-galaxy install
 
   - bash: |
-      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-playbook /app/${{ parameters.playbookFileName }}
+      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} ansible-playbook -i /app/${{ inventoryFileName }} /app/${{ parameters.playbookFileName }}
     env: ${{ parameters.ansibleEnvironment }}
     displayName: Run ansible

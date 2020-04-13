@@ -123,6 +123,7 @@ stages:
           - template: pipeline-templates/ansible-deploy.yaml
             parameters:
               rootDirectory: "$(Build.SourcesDirectory)/common/ansible"
+              inventoryFileName: "inventories/prod.yaml"
               ansibleEnvironment:
                 doToken: $(doToken)
                 letsencryptEmail: $(letsencryptEmail)
