@@ -78,10 +78,10 @@ stages:
             displayName: Azure CLI
             inputs:
               azureSubscription: $(azureServiceConnection)
-              scriptType: ps
+              scriptType: bash
               scriptLocation: inlineScript
               inlineScript: |
-                az --version
+                az login
 
           - task: qetza.replacetokens.replacetokens-task.replacetokens@3
             displayName: 'Replace tokens in terraform/*.tf'
