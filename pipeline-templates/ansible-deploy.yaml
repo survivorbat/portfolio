@@ -22,8 +22,8 @@ steps:
   - task: DownloadSecureFile@1
     name: privateKey
     inputs:
-      secureFile: $(privateKeyName)
-    displayName: Download $(privateKeyName)
+      secureFile: ${{ parameters.privateKeyName }}
+    displayName: ${{ parameters.privateKeyName }}
 
   - bash: |
       docker pull ${{ parameters.ansibleDockerImage }}
