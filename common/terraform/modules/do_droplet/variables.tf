@@ -22,3 +22,9 @@ variable "ssh_keys" {
   default = []
   description = "List of ssh keys"
 }
+
+variable "backups" {
+  type = bool
+  default = false
+  description = "Whether to enable backups"
+}
