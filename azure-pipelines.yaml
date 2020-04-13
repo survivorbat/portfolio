@@ -90,10 +90,6 @@ stages:
               tokenPrefix: '__'
               tokenSuffix: '__'
 
-          - template: pipeline-templates/terraform-deploy.yaml
-            parameters:
-              rootDirectory: "$(Build.SourcesDirectory)/common/terraform"
-
       - job: Infra_Configure
         displayName: Ansible
         dependsOn: Infra_Deploy
