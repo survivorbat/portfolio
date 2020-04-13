@@ -26,13 +26,13 @@ locals {
   ]
 }
 
-module "domain" {
+module "domain_mvdhdev" {
   source = "./modules/do_domain"
   domain = "maartenvanderheijden.dev"
   records = local.domain_records
 }
 
-module "domain" {
+module "domain_mdev" {
   source = "./modules/do_domain"
   domain = "maarten.dev"
   records = local.domain_records
