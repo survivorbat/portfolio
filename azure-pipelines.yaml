@@ -16,7 +16,8 @@ variables:
   sourceDirectory: "$(Build.SourcesDirectory)/src/frontend"
 
   repository: survivorbat/portfolio
-  serviceConnection: DockerHub
+  dockerServiceConnection: DockerHub
+  azureServiceConnection: ARM
   tag: nginx-$(Build.SourceBranchName)-$(Build.BuildNumber)
 
   node_version: "13.7.0"
@@ -49,13 +50,13 @@ stages:
             displayName: Login to ACR
             inputs:
               command: login
-              containerRegistry: $(serviceConnection)
+              containerRegistry: $(dockerServiceConnection)
           - task: Docker@2
             displayName: Build
             inputs:
               command: build
               repository: $(repository)
-              containerRegistry: $(serviceConnection)
+              containerRegistry: $(dockerServiceConnection)
               arguments: --build-arg node_version=$(node_version) --build-arg nginx_jinja_version=$(nginx_jinja_version)
               tags: |
                 $(tag)
@@ -65,7 +66,7 @@ stages:
             inputs:
               command: push
               repository: $(repository)
-              containerRegistry: $(serviceConnection)
+              containerRegistry: $(dockerServiceConnection)
               tags: |
                 $(tag)
                 latest
@@ -73,6 +74,15 @@ stages:
         displayName: Terraform Deploy
         dependsOn: Docker_Publish
         steps:
+          - task: AzureCLI@2
+            displayName: Azure CLI
+            inputs:
+              azureSubscription: $(azureServiceConnection)
+              scriptType: ps
+              scriptLocation: inlineScript
+              inlineScript: |
+                az --version
+
           - task: qetza.replacetokens.replacetokens-task.replacetokens@3
             displayName: 'Replace tokens in terraform/*.tf'
             inputs:
