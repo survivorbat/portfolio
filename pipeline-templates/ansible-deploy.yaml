@@ -41,4 +41,4 @@ steps:
         "
     env:
       ANSIBLE_HOST_KEY_CHECKING: false
-    displayName: Running ${{ parameters.playbookFileName }} with key ${{ parameters.privateKey }} and inventory ${{ parameters.inventoryFileName }}
+    displayName: Running ${{ parameters.playbookFileName }} with key ${{ parameters.privateKeyName }} and inventory ${{ parameters.inventoryFileName }}
