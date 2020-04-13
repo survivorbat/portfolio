@@ -19,6 +19,7 @@ variables:
   dockerServiceConnection: DockerHub
   azureServiceConnection: ARM
   tag: nginx-$(Build.SourceBranchName)-$(Build.BuildNumber)
+  privateKeyName: azure_rsa
 
   node_version: "13.7.0"
   nginx_jinja_version: "1.17.9"
@@ -111,11 +112,17 @@ stages:
         displayName: Ansible
         dependsOn: Infra_Deploy
         steps:
+          - task: DownloadSecureFile@1
+            name: privateKey
+            inputs:
+              secureFile: $(privateKeyName)
+            displayName: Download $(privateKeyName)
+
           - template: pipeline-templates/ansible-deploy.yaml
             parameters:
               rootDirectory: "$(Build.SourcesDirectory)/common/ansible"
               inventoryFileName: "inventories/prod.yaml"
-              privateKey: $(privateKey)
               ansibleEnvironment:
                 doToken: $(doToken)
                 letsencryptEmail: $(letsencryptEmail)
+                privateKey: $(privateKey.secureFilePath)

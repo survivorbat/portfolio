@@ -15,7 +15,6 @@ parameters:
     default: {}
   - name: inventoryFileName
     type: string
-  # TODO: Change to key file
   - name: privateKey
     type: string
 
@@ -25,11 +24,15 @@ steps:
     displayName: Pull ${{ parameters.ansibleDockerImage }}
 
   - bash: |
-      docker run --rm -v ${{ parameters.rootDirectory }}:/app ${{ parameters.ansibleDockerImage }} /bin/sh -c "\
-        mkdir -p ~/.ssh && \
-        echo -e \"${{ parameters.privateKey }}\" > ~/.ssh/id_rsa && \
-        ansible-galaxy install -r /app/${{ parameters.requirementsFileName }} && \
-        ansible-playbook -i /app/${{ parameters.inventoryFileName }} /app/${{ parameters.playbookFileName }}"
+      docker run \
+        --rm \
+        -v ${{ parameters.privateKey }}:/home/root/.ssh/id_rsa \
+        -v ${{ parameters.rootDirectory }}:/app \
+        ${{ parameters.ansibleDockerImage }} \
+        /bin/sh -c "\
+          ansible-galaxy install -r /app/${{ parameters.requirementsFileName }} && \
+          ansible-playbook -i /app/${{ parameters.inventoryFileName }} /app/${{ parameters.playbookFileName }}\
+        "
     env:
       ANSIBLE_HOST_KEY_CHECKING: false
     displayName: Run ansible
