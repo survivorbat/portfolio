@@ -102,8 +102,25 @@ stages:
 
           - task: TerraformCLI@0
             inputs:
+              command: 'plan'
+              backendType: 'azurerm'
+              backendServiceArm: 'ARM'
+              backendAzureRmResourceGroupName: 'Portfolio'
+              backendAzureRmStorageAccountName: $(storageAccountName)
+              backendAzureRmContainerName: $(containerName)
+              backendAzureRmKey: 'prod.terraform.tfstate'
+              commandOptions: $(Build.SourcesDirectory)/common/terraform
+            displayName: Apply $(Build.SourcesDirectory)/common/terraform
+
+          - task: TerraformCLI@0
+            inputs:
               command: 'apply'
-              environmentServiceName: 'ARM'
+              backendType: 'azurerm'
+              backendServiceArm: 'ARM'
+              backendAzureRmResourceGroupName: 'Portfolio'
+              backendAzureRmStorageAccountName: $(storageAccountName)
+              backendAzureRmContainerName: $(containerName)
+              backendAzureRmKey: 'prod.terraform.tfstate'
               commandOptions: $(Build.SourcesDirectory)/common/terraform
             displayName: Apply $(Build.SourcesDirectory)/common/terraform
 
