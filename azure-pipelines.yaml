@@ -99,18 +99,18 @@ stages:
               backendAzureRmStorageAccountName: $(storageAccountName)
               backendAzureRmContainerName: $(containerName)
               backendAzureRmKey: 'prod.terraform.tfstate'
-              commandOptions: terraform
+              commandOptions: $(Build.SourcesDirectory)/common/terraform
 
           - task: TerraformCLI@0
             inputs:
               command: 'validate'
-              commandOptions: terraform
+              commandOptions: $(Build.SourcesDirectory)/common/terraform
 
           - task: TerraformCLI@0
             inputs:
               command: 'apply'
               environmentServiceName: 'ARM'
-              commandOptions: terraform
+              commandOptions: $(Build.SourcesDirectory)/common/terraform
 
 
       - job: Infra_Configure
