@@ -1,5 +1,5 @@
 ARG node_version=13.7.0
-ARG nginx_jinja_version=1.17.0
+ARG nginx_jinja_version=1.17.9
 
 FROM node:${node_version}-alpine AS build
 
