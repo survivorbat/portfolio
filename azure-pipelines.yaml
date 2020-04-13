@@ -74,15 +74,6 @@ stages:
         displayName: Terraform Deploy
         dependsOn: Docker_Publish
         steps:
-          - task: AzureCLI@2
-            displayName: Azure CLI
-            inputs:
-              azureSubscription: $(azureServiceConnection)
-              scriptType: bash
-              scriptLocation: inlineScript
-              inlineScript: |
-                az --version
-
           - task: qetza.replacetokens.replacetokens-task.replacetokens@3
             displayName: 'Replace tokens in terraform/*.tf'
             inputs:
