@@ -11,7 +11,7 @@
   set_fact:
     domain_command: "-d {{ inventory_hostname }} -d *.{{ inventory_hostname }}"
 
-- name: "Add {{ len(domains) }} extra domains to variable"
+- name: "Add {{ domains | length }} extra domains to variable"
   set_fact:
     domain_command: "{{ domain_command }} -d {{ item }} -d *.{{ item }}"
   loop: "{{ domains }}"
@@ -45,7 +45,7 @@
 
 - name: "Ensure dhparam.pem"
   openssl_dhparam:
-    path: "/etc/letsencrypt/live/{{ domains[0] }}/dhparam.pem"
+    path: "/etc/letsencrypt/live/{{ inventory_hostname }}/dhparam.pem"
     owner: root
     group: root
     size: 2048
