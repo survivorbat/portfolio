@@ -11,7 +11,7 @@
   set_fact:
     domain_command: "-d {{ inventory_hostname }} -d *.{{ inventory_hostname }}"
 
-- name: "Add extra domains to variable"
+- name: "Add {{ len(domains) }} extra domains to variable"
   set_fact:
     domain_command: "{{ domain_command }} -d {{ item }} -d *.{{ item }}"
   loop: "{{ domains }}"
