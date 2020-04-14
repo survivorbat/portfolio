@@ -4,7 +4,7 @@
     image: "{{ nginx_image }}"
     name: "{{ nginx_name }}"
     restart_policy: always
-    state: present
+    state: started
     published_ports:
       - 80:8080
       - 443:8443
