@@ -125,4 +125,6 @@ stages:
               ansibleEnvironment:
                 doToken: $(doToken)
                 letsencryptEmail: $(letsencryptEmail)
+                personalPublicKey: $(personalPublicKey)
+                portfolioPublicKey: $(portfolioPublicKey)
               privateKeyName: $(privateKeyName)
