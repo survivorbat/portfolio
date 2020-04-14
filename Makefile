@@ -23,13 +23,10 @@ restart: ## Restart containers
 	docker-compose -f src/docker-compose.yml -p porfolio restart
 
 terraform.init: ## Init terraform
-	cd common/terraform/digitalocean && terraform init
+	cd common/terraform && terraform init
 
-terraform.plan: ## Plan the terraform configuration
-	cd common/terraform/digitalocean && terraform plan
+terraform.validate: ## Validate terraform
+	cd common/terraform && terraform validate
 
-terraform.apply: ## Apply the terraform configuration
-	cd common/terraform/digitalocean && terraform apply -auto-approve
-
-terraform.destroy: ## Destroy the terraform configuration
-	cd common/terraform/digitalocean && terraform destroy
+ansible.lint: # Run ansible-lint
+	docker run --rm -v $(CURDIR)/common/ansible:/app survivorbat/ansible:v0.4 ansible-lint /app/site.yaml
