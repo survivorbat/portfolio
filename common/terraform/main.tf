@@ -48,6 +48,8 @@ module "project" {
   source = "./modules/do_project"
   name = "Production"
   description = "Production files"
+  purpose = "Website or blog"
+  environment = "Production"
   resources = [module.droplet.droplet_urn, module.domain_mdev.domain_urn, module.domain_mvdhdev.domain_urn]
 }
 
