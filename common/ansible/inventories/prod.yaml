@@ -1,6 +1,6 @@
 portfolio:
   hosts:
-    maarten.dev: ~
-  vars:
-    domains:
-      - maartenvanderheijden.dev
+    maarten.dev:
+      vars:
+        domains:
+          - maartenvanderheijden.dev
