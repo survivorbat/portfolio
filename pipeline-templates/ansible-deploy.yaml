@@ -27,7 +27,7 @@ steps:
     displayName: Install Ansible
 
   - bash: |
-      export ANSIBLE_HOST_KEY_CHECKING: false
+      export ANSIBLE_HOST_KEY_CHECKING=false
       chmod 600 $(privateKey.secureFilePath)
       ansible-galaxy install -r ${{ parameters.requirementsFileName }}
       ansible-playbook -u root -i ${{ parameters.inventoryFileName }} ${{ parameters.playbookFileName }} --private-key $(privateKey.secureFilePath)
