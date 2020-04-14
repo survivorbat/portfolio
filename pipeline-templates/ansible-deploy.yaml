@@ -31,4 +31,5 @@ steps:
       ansible-playbook -u root -i ${{ parameters.inventoryFileName }} ${{ parameters.playbookFileName }} --private-key $(privateKey.secureFilePath)
     env:
       ANSIBLE_HOST_KEY_CHECKING: false
+    workingDirectory: ${{ paremeters.rootDirectory }}
     displayName: Running ${{ parameters.playbookFileName }} with key ${{ parameters.privateKeyName }} and inventory ${{ parameters.inventoryFileName }}
