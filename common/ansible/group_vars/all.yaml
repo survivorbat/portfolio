@@ -31,3 +31,5 @@ pip_install_packages:
   - name: certbot-dns-digitalocean
   - name: docker
   - name: docker-compose
+
+domains: []

@@ -7,13 +7,21 @@
     owner: root
     group: root
 
+- name: "Prepare extra domain names"
+  set_fact:
+    domain_command: ""
+
+- name: "Add extra domains to variable"
+  set_fact:
+    domain_command: "{{ domain_command }} -d {{ item }} -d *.{{ item }}"
+  loop: "{{ domains }}"
+
 - name: "Run certbot challenges"
   command: "certbot certonly
     --agree-tos
     --dns-digitalocean
     -m {{ nginx_host_letsencrypt_email }}
-    -d {{ inventory_hostname }}
-    -d *.{{ inventory_hostname }}
+    {{ domain_command }}
     --expand
     --dns-digitalocean-credentials=/etc/letsencrypt/credentials.ini
     -n"
@@ -37,7 +45,7 @@
 
 - name: "Ensure dhparam.pem"
   openssl_dhparam:
-    path: "/etc/letsencrypt/live/{{ inventory_hostname }}/dhparam.pem"
+    path: "/etc/letsencrypt/live/{{ domains[0] }}/dhparam.pem"
     owner: root
     group: root
     size: 2048
