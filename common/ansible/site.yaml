@@ -17,6 +17,6 @@
     - common
 
 - name: Ensure portfolio
-  hosts: all
+  hosts: portfolio
   roles:
     - portfolio
