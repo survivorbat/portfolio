@@ -1,13 +1,25 @@
 version: '3.5'
 
+volumes:
+  ssl-dev: ~
+
 services:
   nginx:
-    image: survivorbat/portfolio-nginx
     build:
-      context: ./frontend
+      context: frontend
     environment:
+      hostname: localhost
       cache_max_time: 1
       hsts_max_time: 1
     restart: always
+    volumes:
+      - ssl-dev:/etc/letsencrypt/live/localhost
     ports:
       - 80:8080
+      - 443:8443
+
+  ssl-dev:
+    build:
+      context: ssl-dev
+    volumes:
+      - ssl-dev:/ssl
