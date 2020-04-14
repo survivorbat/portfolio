@@ -22,6 +22,7 @@ default_user: runuser
 default_group: rungroup
 
 nginx_host_letsencrypt_email: "{{ lookup('env', 'letsencryptEmail') }}"
+nginx_image: "{{ lookup('env', 'nginxImage') }}"
 do_token: "{{ lookup('env', 'doToken') }}"
 
 pip_install_packages:

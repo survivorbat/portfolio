@@ -127,4 +127,5 @@ stages:
                 letsencryptEmail: $(letsencryptEmail)
                 personalPublicKey: $(personalPublicKey)
                 portfolioPublicKey: $(portfolioPublicKey)
+                nginxImage: $(repository):$(tag)
               privateKeyName: $(privateKeyName)
