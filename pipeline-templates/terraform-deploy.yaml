@@ -18,6 +18,9 @@ parameters:
   - name: apply
     type: boolean
     default: false
+  - name: extraArguments
+    type: string
+    default: ""
 
 steps:
   - task: TerraformCLI@0
@@ -42,7 +45,7 @@ steps:
     inputs:
       command: 'plan'
       environmentServiceName: ${{ parameters.environmentServiceName }}
-      commandOptions: ${{ parameters.terraformDirectory }}
+      commandOptions: ${{ parameters.terraformDirectory }} ${{ parameters.extraArguments }}
     displayName: Plan ${{ parameters.terraformDirectory }}
 
   - task: TerraformCLI@0
@@ -50,5 +53,5 @@ steps:
     inputs:
       command: 'apply'
       environmentServiceName: ${{ parameters.environmentServiceName }}
-      commandOptions: ${{ parameters.terraformDirectory }}
+      commandOptions: ${{ parameters.terraformDirectory }} ${{ parameters.extraArguments }}
     displayName: Apply ${{ parameters.terraformDirectory }}
