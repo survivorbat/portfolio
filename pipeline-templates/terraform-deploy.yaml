@@ -16,7 +16,7 @@ parameters:
   - name: environmentServiceName
     type: string
   - name: apply
-    type: bool
+    type: boolean
     default: false
 
 steps:
