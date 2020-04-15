@@ -41,6 +41,27 @@ stages:
               tags: |
                 $(tag)
                 latest
+      - job: TFValidate
+        displayName: Validate Terraform Config
+        steps:
+          - task: qetza.replacetokens.replacetokens-task.replacetokens@3
+            displayName: 'Replace tokens in terraform/*.tf'
+            inputs:
+              targetFiles: 'terraform/**/*.tf'
+              tokenPrefix: '__'
+              tokenSuffix: '__'
+
+          - template: pipeline-templates/terraform-validate.yaml@templates
+            parameters:
+              backendType: azurerm
+              backendServiceArm: $(azureServiceConnection)
+              environmentServiceName: $(azureServiceConnection)
+              backendAzureRmStorageAccountName: $(storageAccountName)
+              backendAzureRmResourceGroupName: AvansInfra
+              backendAzureRmContainerName: $(containerName)
+              backendAzureRmKey: $(azureRmKey)
+              terraformDirectory: $(terraformDirectory)
+
   - stage: Deploy
     displayName: Deploy
     condition: and(succeeded(), eq(variables['build.sourcebranchname'], 'master'))
