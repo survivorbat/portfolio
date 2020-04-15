@@ -18,6 +18,7 @@ variables:
   repository: survivorbat/portfolio
   dockerServiceConnection: DockerHub
   azureServiceConnection: ARM
+  terraformDirectory: $(Build.SourcesDirectory)/common/terraform
   tag: nginx-$(Build.SourceBranchName)-$(Build.BuildNumber)
   privateKeyName: azure_rsa
 
@@ -82,37 +83,16 @@ stages:
               tokenPrefix: '__'
               tokenSuffix: '__'
 
-          - task: TerraformCLI@0
-            inputs:
-              command: 'init'
-              backendType: 'azurerm'
-              backendServiceArm: 'ARM'
-              backendAzureRmResourceGroupName: 'Portfolio'
+          - template: pipeline-templates/ansible-deploy.yaml
+            parameters:
+              backendType: azurerm
+              backendServiceArm: $(azureServiceConnection)
+              environmentServiceName: $(azureServiceConnection)
               backendAzureRmStorageAccountName: $(storageAccountName)
+              backendAzureRmResourceGroupName: Portfolio
               backendAzureRmContainerName: $(containerName)
-              backendAzureRmKey: 'prod.terraform.tfstate'
-              commandOptions: $(Build.SourcesDirectory)/common/terraform
-            displayName: Init $(Build.SourcesDirectory)/common/terraform
-
-          - task: TerraformCLI@0
-            inputs:
-              command: 'validate'
-              commandOptions: $(Build.SourcesDirectory)/common/terraform
-            displayName: Validate $(Build.SourcesDirectory)/common/terraform
-
-          - task: TerraformCLI@0
-            inputs:
-              command: 'plan'
-              environmentServiceName: 'ARM'
-              commandOptions: $(Build.SourcesDirectory)/common/terraform
-            displayName: Plan $(Build.SourcesDirectory)/common/terraform
-
-          - task: TerraformCLI@0
-            inputs:
-              command: 'apply'
-              environmentServiceName: 'ARM'
-              commandOptions: $(Build.SourcesDirectory)/common/terraform
-            displayName: Apply $(Build.SourcesDirectory)/common/terraform
+              backendAzureRmKey: $(azureRmKey)
+              terraformDirectory: $(terraformDirectory)
 
       - job: Infra_Configure
         displayName: Ansible
