@@ -21,6 +21,7 @@ variables:
   terraformDirectory: $(Build.SourcesDirectory)/common/terraform
   tag: nginx-$(Build.SourceBranchName)-$(Build.BuildNumber)
   privateKeyName: azure_rsa
+  resourceGroupName: Portfolio
 
   node_version: "13.7.0"
   nginx_jinja_version: "1.17.9"
@@ -57,7 +58,7 @@ stages:
               backendServiceArm: $(azureServiceConnection)
               environmentServiceName: $(azureServiceConnection)
               backendAzureRmStorageAccountName: $(storageAccountName)
-              backendAzureRmResourceGroupName: Portfolio
+              backendAzureRmResourceGroupName: $(resourceGroupName)
               backendAzureRmContainerName: $(containerName)
               backendAzureRmKey: $(azureRmKey)
               terraformDirectory: $(terraformDirectory)
@@ -111,7 +112,7 @@ stages:
               backendServiceArm: $(azureServiceConnection)
               environmentServiceName: $(azureServiceConnection)
               backendAzureRmStorageAccountName: $(storageAccountName)
-              backendAzureRmResourceGroupName: Portfolio
+              backendAzureRmResourceGroupName: $(resourceGroupName)
               backendAzureRmContainerName: $(containerName)
               backendAzureRmKey: $(azureRmKey)
               terraformDirectory: $(terraformDirectory)
