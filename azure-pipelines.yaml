@@ -57,7 +57,7 @@ stages:
               backendServiceArm: $(azureServiceConnection)
               environmentServiceName: $(azureServiceConnection)
               backendAzureRmStorageAccountName: $(storageAccountName)
-              backendAzureRmResourceGroupName: AvansInfra
+              backendAzureRmResourceGroupName: Portfolio
               backendAzureRmContainerName: $(containerName)
               backendAzureRmKey: $(azureRmKey)
               terraformDirectory: $(terraformDirectory)
