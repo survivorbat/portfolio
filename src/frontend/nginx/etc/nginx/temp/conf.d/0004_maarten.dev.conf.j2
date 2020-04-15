@@ -7,5 +7,9 @@ server {
 
     location / {
     	expires {{ cache_max_time }};
+
+    	{% if env | default('prod') == "dev" %}
+		proxy_pass http://portfolio_node:3000;
+    	{% endif %}
     }
 }

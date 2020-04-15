@@ -9,14 +9,27 @@ services:
       context: frontend
     environment:
       hostname: localhost
-      cache_max_time: 1
-      hsts_max_time: 1
+      cache_max_time: "1"
+      hsts_max_time: "1"
+      env: "env"
     restart: always
     volumes:
-      - ssl-dev:/etc/letsencrypt/live/localhost
+      - ssl-dev:/etc/letsencrypt/live/localhost:delegated
+      - ./frontend/nginx/etc/nginx/temp/nginx.conf:/etc/nginx/temp/nginx.conf
+      - ./frontend/nginx/etc/nginx/temp/conf.d:/etc/nginx/temp/conf.d
     ports:
       - 80:8080
       - 443:8443
+
+  node:
+    image: "node:13.7.0-alpine"
+    working_dir: /app
+    restart: always
+    expose:
+      - 3000
+    volumes:
+      - ./frontend:/app
+    command: ["/bin/sh", "-c", "npm install && npm start"]
 
   ssl-dev:
     build:
