@@ -28,5 +28,8 @@ terraform.init: ## Init terraform
 terraform.validate: ## Validate terraform
 	cd common/terraform && terraform validate
 
+terraform.fmt: ## Format terraform code
+	cd common/terraform && terraform fmt
+
 ansible.lint: # Run ansible-lint
 	docker run --rm -v $(CURDIR)/common/ansible:/app survivorbat/ansible:v0.4 ansible-lint /app/site.yaml
