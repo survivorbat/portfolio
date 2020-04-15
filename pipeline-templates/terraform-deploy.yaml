@@ -45,7 +45,7 @@ steps:
     inputs:
       command: 'plan'
       environmentServiceName: ${{ parameters.environmentServiceName }}
-      commandOptions: ${{ parameters.terraformDirectory }} ${{ parameters.extraArguments }}
+      commandOptions: ${{ parameters.extraArguments }} ${{ parameters.terraformDirectory }}
     displayName: Plan ${{ parameters.terraformDirectory }}
 
   - task: TerraformCLI@0
@@ -53,5 +53,5 @@ steps:
     inputs:
       command: 'apply'
       environmentServiceName: ${{ parameters.environmentServiceName }}
-      commandOptions: ${{ parameters.terraformDirectory }} ${{ parameters.extraArguments }}
+      commandOptions: ${{ parameters.extraArguments }} ${{ parameters.terraformDirectory }}
     displayName: Apply ${{ parameters.terraformDirectory }}
