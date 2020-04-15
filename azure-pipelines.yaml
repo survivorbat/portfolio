@@ -51,7 +51,7 @@ stages:
               tokenPrefix: '__'
               tokenSuffix: '__'
 
-          - template: pipeline-templates/terraform-validate.yaml@templates
+          - template: pipeline-templates/terraform-validate.yaml
             parameters:
               backendType: azurerm
               backendServiceArm: $(azureServiceConnection)
@@ -106,6 +106,7 @@ stages:
 
           - template: pipeline-templates/terraform-deploy.yaml
             parameters:
+              apply: true
               backendType: azurerm
               backendServiceArm: $(azureServiceConnection)
               environmentServiceName: $(azureServiceConnection)
