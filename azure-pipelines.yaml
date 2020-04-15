@@ -83,7 +83,7 @@ stages:
               tokenPrefix: '__'
               tokenSuffix: '__'
 
-          - template: pipeline-templates/ansible-deploy.yaml
+          - template: pipeline-templates/terraform-deploy.yaml
             parameters:
               backendType: azurerm
               backendServiceArm: $(azureServiceConnection)
