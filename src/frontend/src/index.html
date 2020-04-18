@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Maarten van der Heijden</title>
+    <link rel="stylesheet" href="assets/css/pretty-print-json.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div id="container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/pretty-print-json.min.js"></script>
+    <script>
+        const data = {
+            Title: "Maarten van der Heijden's website",
+            Description: "This is my personal website where you can find links and",
+            links: {
+                LinkedIn: "https://www.linkedin.com/in/maarten-van-der-heijden-webdev/",
+                GitHub: "https://github.com/survivorbat",
+                NuGet: "https://www.nuget.org/profiles/JanFrederik"
+            }
+        };
+
+        document.querySelector('#container').innerHTML = prettyPrintJson.toHtml(data, {indent: 3});
+    </script>
+</body>
+</html>

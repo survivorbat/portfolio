@@ -1,7 +1,5 @@
 # Personal website and other projects
 
-[![Build Status](https://travis-ci.com/survivorbat/portfolio.svg?branch=master)](https://travis-ci.com/survivorbat/portfolio) 
-
 This repository contains the code that is used to display my portfolio and other projects.
 
 ## Prerequisites

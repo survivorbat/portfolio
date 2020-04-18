@@ -17,19 +17,10 @@ services:
       - ssl-dev:/etc/letsencrypt/live/localhost:delegated
       - ./frontend/nginx/etc/nginx/temp/nginx.conf:/etc/nginx/temp/nginx.conf
       - ./frontend/nginx/etc/nginx/temp/conf.d:/etc/nginx/temp/conf.d
+      - ./frontend/src:/var/www/html/maarten.dev
     ports:
       - 80:8080
       - 443:8443
-
-  node:
-    image: "node:13.7.0-alpine"
-    working_dir: /app
-    restart: always
-    expose:
-      - 3000
-    volumes:
-      - ./frontend:/app
-    command: ["/bin/sh", "-c", "npm install && npm start"]
 
   ssl-dev:
     build:
