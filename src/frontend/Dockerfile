@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 RUN npm install \
- && npm run test:nowatch --passWithNoTests \
+ && npm run test:nowatch \
  && npm run build
 
 FROM survivorbat/nginx-jinja2:${nginx_jinja_version} AS run
