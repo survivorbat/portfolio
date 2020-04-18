@@ -20,7 +20,7 @@ down: ## Stop containers
 	docker-compose -f src/docker-compose.yml -p portfolio down
 
 restart: ## Restart containers
-	docker-compose -f src/docker-compose.yml -p porfolio restart
+	docker-compose -f src/docker-compose.yml -p portfolio restart
 
 terraform.init: ## Init terraform
 	cd common/terraform && terraform init
