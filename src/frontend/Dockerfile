@@ -5,4 +5,4 @@ FROM survivorbat/nginx-jinja2:${nginx_jinja_version} AS run
 RUN mkdir -p /var/www/html/maarten.dev
 
 COPY ./nginx /
-COPY /app/build /var/www/html/maarten.dev
+COPY src/ /var/www/html/maarten.dev
