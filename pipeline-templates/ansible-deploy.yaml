@@ -10,19 +10,12 @@ parameters:
   - name: ansibleEnvironment
     type: object
     default: {}
-  - name: pythonVersion
-    type: string
-    default: 3.7
   - name: inventoryFileName
     type: string
   - name: privateKeyName
     type: string
 
 steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: ${{ parameters.pythonVersion }}
-
   - task: DownloadSecureFile@1
     name: privateKey
     inputs:
