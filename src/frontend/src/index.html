@@ -12,7 +12,8 @@
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
         crossorigin="anonymous"></script>
     <script src="assets/js/pretty-print-json.min.js"></script>
-    <script src="assets/js/urlize.js"></script>
+    <script src="assets/js/linkify.js"></script>
+    <script src="assets/js/linkify-html.js"></script>
     <script>
         const container = document.querySelector('#container');
 
@@ -21,7 +22,9 @@
         })
         .then(data => {
             htmlCode = prettyPrintJson.toHtml(data, {quoteKeys: true});
-            htmlCodeWithLinks = urlize(htmlCode);
+            htmlCodeWithLinks = linkifyHtml(htmlCode, {
+              defaultProtocol: 'https'
+            });
             container.innerHTML = htmlCodeWithLinks;
         });
     </script>

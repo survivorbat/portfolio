@@ -9,6 +9,6 @@ nginx_name: "nginx_portfolio"
 nginx_environment:
   hostname: "{{ inventory_hostname }}"
   hsts_max_time: "3600000000"
-  cache_max_time: "1y"
+  cache_max_time: "7d"
 
 domains: []

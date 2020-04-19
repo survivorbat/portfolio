@@ -1,33 +1,52 @@
 {
-  "Title": "Maarten van der Heijden's website",
-  "Author": "Maarten van der Heijden",
-  "Occupation": "DevOps/Backend developer",
-  "Description": "This is my personal website where you can find links and information about myself",
-  "Age": 21,
-  "Skills": {
+  "title": "Maarten van der Heijden's website",
+  "author": "Maarten van der Heijden",
+  "occupation": "DevOps/Backend developer",
+  "description": "This is my personal website where you can find links and information about myself",
+  "age": 21,
+  "links": {
+    "linkedIn": "https://www.linkedin.com/in/maarten-van-der-heijden-webdev/",
+    "gitHub": "https://github.com/survivorbat",
+    "dockerHub": "https://hub.docker.com/u/survivorbat",
+    "nuGet": "https://www.nuget.org/profiles/JanFrederik"
+  },
+  "skills": {
     "PHP": {
-
+      "yearsOfExperience": 5,
+      "comments": "My first 'real' programming language. Through PHP I learned about XML, INI files and JSON and other programming concepts. I also greatly enjoy PHP 7 with all its strict typing."
     },
-    "C#": {
-
+    "Symfony": {
+      "yearsOfExperience": 1.5,
+      "comments": "The PHP framework I picked up during my internship, it has become my go-to framework for PHP apps. I especially love the Doctrine ORM and the dependency injection component."
+    },
+    "C#/.NET Core": {
+      "yearsOfExperience": 2.5,
+      "comments": "A language a picked up at school and during my the Continuous Delivery minor at InfoSupport. I love the amount of shortcuts the language has and the OOP nature of it. I've also written a RabbitMQ C# framework during my minor."
     },
     "Linux": {
-
+      "yearsOfExperience": 1.5,
+      "comments": "I was introduced to Ubuntu by a classmate and since then I've moved completely from Windows to either Ubuntu or Linux Mint. I've also worked with Ubuntu and Debian servers to run applications both for personal use and for work."
     },
     "Azure DevOps": {
-
+      "yearsOfExperience": 2,
+      "comments": ""
     },
     "Javascript": {
-
+      "yearsOfExperience": 4,
+      "comments": ""
+    },
+    "Relational Databases": {
+      "yearsOfExperience": 2,
+      "comments": ""
+    },
+    "NoSQL Databases": {
+      "yearsOfExperience": 0.5,
+      "comments": ""
     },
     "HTML/CSS": {
-
-    }
-  },
-  "links": {
-    "Source": "index.json",
-    "LinkedIn": "https://www.linkedin.com/in/maarten-van-der-heijden-webdev/",
-    "GitHub": "https://github.com/survivorbat",
-    "NuGet": "https://www.nuget.org/profiles/JanFrederik"
+      "yearsOfExperience": 5,
+      "comments": ""
+    },
+    "Soon...": "More info will be added later on."
   }
 }
