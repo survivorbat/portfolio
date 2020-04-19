@@ -37,7 +37,7 @@ stages:
             inputs:
               command: build
               repository: $(repository)
-              arguments: --build-arg --build-arg nginx_jinja_version=$(nginx_jinja_version)
+              arguments: --build-arg nginx_jinja_version=$(nginx_jinja_version)
               tags: |
                 $(tag)
                 latest
