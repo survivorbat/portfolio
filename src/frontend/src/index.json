@@ -1,0 +1,33 @@
+{
+  "Title": "Maarten van der Heijden's website",
+  "Author": "Maarten van der Heijden",
+  "Occupation": "DevOps/Backend developer",
+  "Description": "This is my personal website where you can find links and information about myself",
+  "Age": 21,
+  "Skills": {
+    "PHP": {
+
+    },
+    "C#": {
+
+    },
+    "Linux": {
+
+    },
+    "Azure DevOps": {
+
+    },
+    "Javascript": {
+
+    },
+    "HTML/CSS": {
+
+    }
+  },
+  "links": {
+    "Source": "index.json",
+    "LinkedIn": "https://www.linkedin.com/in/maarten-van-der-heijden-webdev/",
+    "GitHub": "https://github.com/survivorbat",
+    "NuGet": "https://www.nuget.org/profiles/JanFrederik"
+  }
+}
