@@ -23,30 +23,44 @@
       "yearsOfExperience": 2.5,
       "comments": "A language a picked up at school and during my the Continuous Delivery minor at InfoSupport. I love the amount of shortcuts the language has and the OOP nature of it. I've also written a RabbitMQ C# framework during my minor."
     },
+    "Entity Framework .NET Core": {
+      "yearsOfExperience": 2.5
+    },
+    "RabbitMQ": {
+      "yearsOfExperience": 1,
+      "comments": "I've used this message broker software at school and during my minor, I even wrote a C# framework for it: https://github.com/survivorbat/rabbitmq-miffy-wrapper"
+    },
+    "Miffy Framework": {
+      "yearsOfExperience": 0.5,
+      "comments": "Framework created during my minor: https://github.com/survivorbat/rabbitmq-miffy-wrapper"
+    },
     "Linux": {
       "yearsOfExperience": 1.5,
       "comments": "I was introduced to Ubuntu by a classmate and since then I've moved completely from Windows to either Ubuntu or Linux Mint. I've also worked with Ubuntu and Debian servers to run applications both for personal use and for work."
     },
     "Azure DevOps": {
       "yearsOfExperience": 2,
-      "comments": ""
+      "comments": "A development environment I greatly enjoy, my public project code is still on Github but all my pipelines are housed in AzDo"
     },
     "Javascript": {
       "yearsOfExperience": 4,
-      "comments": ""
+      "comments": "When I discovered that I could make websites dynamic using JS I suddenly saw the light, since then most of my websites either use AJAX requests or utilise a frontend framework."
     },
     "Relational Databases": {
-      "yearsOfExperience": 2,
-      "comments": ""
+      "yearsOfExperience": 4,
+      "comments": "My favourite type of database, I usually utilise ORM frameworks to migrate databases for me but for a long time I've done it through simple SQL queries."
     },
     "NoSQL Databases": {
       "yearsOfExperience": 0.5,
-      "comments": ""
+      "comments": "In school we had several projects involving NoSQL projects like Neo4J, Redis and MongoDB"
     },
     "HTML/CSS": {
       "yearsOfExperience": 5,
-      "comments": ""
+      "comments": "My first websites were bare-bones HTML and CSS, nowadays I use templating engines or JSX in ReactJS"
     },
-    "Soon...": "More info will be added later on."
+    "todos": [
+      "Make backend dynamic",
+      "Calculate years dynamically"
+    ]
   }
 }
