@@ -23,6 +23,10 @@ variables:
   privateKeyName: azure_rsa
   resourceGroupName: Portfolio
 
+  #  doToken: "<secret>" <--- This secret variable is defined in the Azure DevOps UI
+  #  doAccessKey: "<secret>" <--- This secret variable is defined in the Azure DevOps UI
+  #  doSecretKey: "<secret>" <--- This secret variable is defined in the Azure DevOps UI
+
   nginx_jinja_version: "1.17.9"
 
 stages:
@@ -47,20 +51,21 @@ stages:
           - task: qetza.replacetokens.replacetokens-task.replacetokens@3
             displayName: 'Replace tokens in terraform/*.tf'
             inputs:
-              targetFiles: 'terraform/**/*.tf'
+              targetFiles: 'terraform/*.tf'
               tokenPrefix: '__'
               tokenSuffix: '__'
 
-          - template: pipeline-templates/terraform-validate.yaml
-            parameters:
-              backendType: azurerm
-              backendServiceArm: $(azureServiceConnection)
-              environmentServiceName: $(azureServiceConnection)
-              backendAzureRmStorageAccountName: $(storageAccountName)
-              backendAzureRmResourceGroupName: $(resourceGroupName)
-              backendAzureRmContainerName: $(containerName)
-              backendAzureRmKey: $(azureRmKey)
-              terraformDirectory: $(terraformDirectory)
+          - task: TerraformCLI@0
+            inputs:
+              command: 'init'
+              commandOptions: $(terraformDirectory)
+            displayName: Init $(terraformDirectory)
+
+          - task: TerraformCLI@0
+            inputs:
+              command: 'validate'
+              commandOptions: $(terraformDirectory)
+            displayName: Validate $(terraformDirectory)
 
   - stage: Deploy
     displayName: Deploy
@@ -74,6 +79,7 @@ stages:
             inputs:
               command: login
               containerRegistry: $(dockerServiceConnection)
+
           - task: Docker@2
             displayName: Build
             inputs:
@@ -84,6 +90,7 @@ stages:
               tags: |
                 $(tag)
                 latest
+
           - task: Docker@2
             displayName: Publish
             inputs:
@@ -100,21 +107,21 @@ stages:
           - task: qetza.replacetokens.replacetokens-task.replacetokens@3
             displayName: 'Replace tokens in terraform/*.tf'
             inputs:
-              targetFiles: 'common/terraform/*.tf'
+              targetFiles: 'terraform/*.tf'
               tokenPrefix: '__'
               tokenSuffix: '__'
 
-          - template: pipeline-templates/terraform-deploy.yaml
-            parameters:
-              apply: true
-              backendType: azurerm
-              backendServiceArm: $(azureServiceConnection)
-              environmentServiceName: $(azureServiceConnection)
-              backendAzureRmStorageAccountName: $(storageAccountName)
-              backendAzureRmResourceGroupName: $(resourceGroupName)
-              backendAzureRmContainerName: $(containerName)
-              backendAzureRmKey: $(azureRmKey)
-              terraformDirectory: $(terraformDirectory)
+          - task: TerraformCLI@0
+            inputs:
+              command: 'init'
+              commandOptions: $(terraformDirectory)
+            displayName: Init $(terraformDirectory)
+
+          - task: TerraformCLI@0
+            inputs:
+              command: 'apply'
+              commandOptions: $(terraformDirectory)
+            displayName: Apply $(terraformDirectory)
 
       - job: Infra_Configure
         displayName: Ansible
