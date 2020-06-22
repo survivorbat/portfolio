@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "olc-terraform-state"
+    bucket = "portfolio-terraform-state"
     key = "terraform-state.tfstate"
     access_key = "__doAccessKey__"
     secret_key = "__doSecretKey__"
