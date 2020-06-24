@@ -50,7 +50,13 @@ module "project" {
   description = "Production files"
   purpose     = "Website or blog"
   environment = "Production"
-  resources   = [module.droplet.droplet_urn, module.domain_mdev.domain_urn, module.domain_mvdhdev.domain_urn]
+  resources   = [
+    module.droplet.droplet_urn,
+    module.domain_mdev.domain_urn,
+    module.domain_mvdhdev.domain_urn,
+    # This object contains all our state
+    "do:space:portfolio-terraform-state "
+  ]
 }
 
 module "personal_ssh_key" {
