@@ -55,7 +55,7 @@ module "project" {
     module.domain_mdev.domain_urn,
     module.domain_mvdhdev.domain_urn,
     # This object contains all our state
-    "do:space:portfolio-terraform-state "
+    "do:space:portfolio-terraform-state"
   ]
 }
 
