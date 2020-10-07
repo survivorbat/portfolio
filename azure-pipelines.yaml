@@ -123,7 +123,7 @@ stages:
               commandOptions: $(terraformDirectory)
             displayName: Apply $(terraformDirectory)
 
-          - bash: ls -la $(Build.SourcesDirectory)/common/terraform
+          - bash: ls -la $(Build.SourcesDirectory)
 
           - template: pipeline-templates/ansible-deploy.yaml
             parameters:
