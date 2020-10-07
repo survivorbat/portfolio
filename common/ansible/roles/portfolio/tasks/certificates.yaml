@@ -2,9 +2,9 @@
 - name: "Copy {{ nginx_fullchain_path }} to /root/fullchain.pem"
   copy:
     content: "{{ lookup('file', nginx_fullchain_path) }}"
-    path: "/root/fullchain.pem"
+    dest: "/root/fullchain.pem"
 
 - name: "Copy {{ nginx_key_path }} to /root/key.pem"
   copy:
     content: "{{ lookup('file', nginx_key_path) }}"
-    path: "/root/key.pem"
+    dest: "/root/key.pem"
