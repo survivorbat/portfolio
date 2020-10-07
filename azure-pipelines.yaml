@@ -137,4 +137,5 @@ stages:
                 personalPublicKey: $(personalPublicKey)
                 portfolioPublicKey: $(portfolioPublicKey)
                 nginxImage: $(repository):$(tag)
+                ansible_python_interpreter: python3
               privateKeyName: $(privateKeyName)
