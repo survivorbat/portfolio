@@ -12,7 +12,6 @@
   hosts: all
   roles:
     - geerlingguy.docker
-    - geerlingguy.certbot
     - geerlingguy.pip
     - common
 

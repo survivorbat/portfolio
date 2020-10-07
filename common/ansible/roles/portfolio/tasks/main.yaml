@@ -1,4 +1,4 @@
 ---
 - import_tasks: users.yaml
-- import_tasks: letsencrypt.yaml
+- import_tasks: certificates.yaml
 - import_tasks: application.yaml

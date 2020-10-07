@@ -21,16 +21,11 @@ common_users:
 default_user: runuser
 default_group: rungroup
 
-nginx_host_letsencrypt_email: "{{ lookup('env', 'letsencryptEmail') }}"
 nginx_image: "{{ lookup('env', 'nginxImage') }}"
-do_token: "{{ lookup('env', 'doToken') }}"
 
 pip_install_packages:
-  - name: setuptools
-  - name: pyopenssl
-    version: 16.2.0
-  - name: certbot-dns-digitalocean
   - name: docker
   - name: docker-compose
 
-domains: []
+nginx_fullchain_path: ../terraform/fullchain.pem
+nginx_key_path: ../terraform/key.pem
