@@ -28,6 +28,7 @@ steps:
 
       # Run ansible-galaxy
       ansible-galaxy install -r ${{ parameters.requirementsFileName }}
+    workingDirectory: ${{ parameters.rootDirectory }}
     displayName: Run ansible-galaxy install -r ${{ parameters.requirementsFileName }}
 
   - bash: |
