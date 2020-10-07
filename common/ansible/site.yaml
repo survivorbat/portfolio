@@ -4,7 +4,7 @@
   tags: server_install
   tasks:
     - name: Ensure python
-      raw: sudo apt update && sudo apt -y purge python && sudo apt -y install python3
+      raw: sudo apt update && sudo apt -y install python3
       register: output
       changed_when: (output.stdout | length) > 0
 
