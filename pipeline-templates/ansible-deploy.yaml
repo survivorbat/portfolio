@@ -23,14 +23,36 @@ steps:
     displayName: ${{ parameters.privateKeyName }}
 
   - bash: |
+      # Echo commands and exit on error
+      set -e -x
+
+      # Remove old ansible verison
+      pip uninstall ansible
+
+      # Install new version
       pip install ansible
     displayName: Install Ansible
 
   - bash: |
-      export ANSIBLE_HOST_KEY_CHECKING=false
-      chmod 600 $(privateKey.secureFilePath)
+      # Echo commands and exit on error
+      set -e -x
+
+      # Run ansible-galaxy
       ansible-galaxy install -r ${{ parameters.requirementsFileName }}
+    displayName: Run ansible-galaxy install -r ${{ parameters.requirementsFileName }}
+
+  - bash: |
+      # Echo commands and exit on error
+      set -e -x
+
+      # Skip host checking
+      export ANSIBLE_HOST_KEY_CHECKING=false
+
+      # Set ssh key permissions
+      chmod 600 $(privateKey.secureFilePath)
+
+      # Run the playbook
       ansible-playbook -u root -i ${{ parameters.inventoryFileName }} ${{ parameters.playbookFileName }} --private-key $(privateKey.secureFilePath)
     env: ${{ parameters.ansibleEnvironment }}
     workingDirectory: ${{ parameters.rootDirectory }}
-    displayName: Running ${{ parameters.playbookFileName }} with key ${{ parameters.privateKeyName }} and inventory ${{ parameters.inventoryFileName }}
+    displayName: Run ${{ parameters.playbookFileName }} with key ${{ parameters.privateKeyName }} and inventory ${{ parameters.inventoryFileName }}
