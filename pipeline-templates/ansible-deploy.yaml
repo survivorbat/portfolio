@@ -26,17 +26,6 @@ steps:
       # Echo commands and exit on error
       set -e -x
 
-      # Remove old ansible verison
-      pip uninstall ansible
-
-      # Install new version
-      pip install ansible
-    displayName: Install Ansible
-
-  - bash: |
-      # Echo commands and exit on error
-      set -e -x
-
       # Run ansible-galaxy
       ansible-galaxy install -r ${{ parameters.requirementsFileName }}
     displayName: Run ansible-galaxy install -r ${{ parameters.requirementsFileName }}
