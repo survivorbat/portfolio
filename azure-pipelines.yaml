@@ -123,10 +123,6 @@ stages:
               commandOptions: $(terraformDirectory)
             displayName: Apply $(terraformDirectory)
 
-      - job: Infra_Configure
-        displayName: Ansible
-        dependsOn: Infra_Deploy
-        steps:
           - template: pipeline-templates/ansible-deploy.yaml
             parameters:
               rootDirectory: "$(Build.SourcesDirectory)/common/ansible"
