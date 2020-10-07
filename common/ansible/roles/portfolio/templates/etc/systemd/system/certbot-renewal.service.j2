@@ -2,4 +2,4 @@
 Description=Certbot Renewal
 
 [Service]
-ExecStart=/usr/bin/certbot renew --post-hook "docker restart $(docker ps -q --filter="name=nginx")"
+ExecStart=/usr/bin/certbot renew --post-hook "docker restart $(docker ps -q --filter=\"name=nginx\")"
