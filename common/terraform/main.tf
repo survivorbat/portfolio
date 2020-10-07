@@ -102,11 +102,11 @@ resource "acme_certificate" "acme_cert" {
 
 # Dump the key and certificate in the pipeline
 resource "local_file" "acme_fullchain" {
-  filename = "fullchain.pem"
+  filename = "${path.cwd}/fullchain.pem"
   sensitive_content = acme_certificate.acme_cert.certificate_pem
 }
 
 resource "local_file" "acme_private_key" {
-  filename = "key.pem"
+  filename = "${path.cwd}/key.pem"
   sensitive_content = acme_certificate.acme_cert.private_key_pem
 }
