@@ -41,7 +41,7 @@ module "domain_mdev" {
 module "droplet" {
   source   = "./modules/do_droplet"
   name     = "entrypoint"
-  ssh_keys = [module.do_ssh_key.id, module.personal_ssh_key.id]
+  ssh_keys = [digitalocean_ssh_key.personal_key.id, digitalocean_ssh_key.public_key.id]
 }
 
 module "project" {
@@ -59,14 +59,12 @@ module "project" {
   ]
 }
 
-module "personal_ssh_key" {
-  source     = "./modules/do_key"
-  name       = "personal_key"
+resource "digitalocean_ssh_key" "personal_key" {
+  name = "do_key"
   public_key = var.personal_public_key
 }
 
-module "do_ssh_key" {
-  source     = "./modules/do_key"
-  name       = "do_key"
+resource "digitalocean_ssh_key" "public_key" {
+  name = "portfolio_key"
   public_key = var.portfolio_public_key
 }

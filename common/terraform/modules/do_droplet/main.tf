@@ -1,4 +1,4 @@
-resource "digitalocean_droplet" "portfolio_droplet" {
+resource "digitalocean_droplet" "droplet" {
   image = var.default_image
   name = var.name
   region = var.region

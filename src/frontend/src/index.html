@@ -6,27 +6,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <pre id="container"></pre>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
-        crossorigin="anonymous"></script>
-    <script src="assets/js/pretty-print-json.min.js"></script>
-    <script src="assets/js/linkify.js"></script>
-    <script src="assets/js/linkify-html.js"></script>
-    <script>
-        const container = document.querySelector('#container');
-
-        fetch('/index.json').then(response => {
-            return response.json();
-        })
-        .then(data => {
-            htmlCode = prettyPrintJson.toHtml(data, {quoteKeys: true});
-            htmlCodeWithLinks = linkifyHtml(htmlCode, {
-              defaultProtocol: 'https'
-            });
-            container.innerHTML = htmlCodeWithLinks;
-        });
-    </script>
+    <p>Unfortunately there's nothing here.</p>
 </body>
 </html>
