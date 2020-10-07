@@ -27,5 +27,5 @@ pip_install_packages:
   - name: docker
   - name: docker-compose
 
-nginx_fullchain_path: ../terraform/fullchain.pem
-nginx_key_path: ../terraform/key.pem
+nginx_fullchain_path: "{{ playbook_dir }}/../terraform/fullchain.pem"
+nginx_key_path: "{{ playbook_dir }}/../terraform/key.pem"
