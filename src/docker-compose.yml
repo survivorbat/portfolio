@@ -14,7 +14,7 @@ services:
       env: "dev"
     restart: always
     volumes:
-      - ssl-dev:/etc/letsencrypt/live/localhost:delegated
+      - ssl-dev:/etc/ssl:delegated
       - ./frontend/nginx/etc/nginx/temp/nginx.conf:/etc/nginx/temp/nginx.conf
       - ./frontend/nginx/etc/nginx/temp/conf.d:/etc/nginx/temp/conf.d
       - ./frontend/src:/var/www/html/maarten.dev
