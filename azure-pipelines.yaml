@@ -29,6 +29,7 @@ variables:
 
   nginx_jinja_version: "1.17.9"
 
+# TODO: Cleanup this mess
 stages:
   - stage: Build_and_Test
     displayName: Build and test
@@ -134,4 +135,6 @@ stages:
                 portfolioPublicKey: $(portfolioPublicKey)
                 nginxImage: $(repository):$(tag)
                 ansible_python_interpreter: python3
+                acmeKeyPath: $(Build.SourcesDirectory)/key.pem
+                acmeFullchainPath: $(Build.SourcesDirectory)/fullchain.pem
               privateKeyName: $(privateKeyName)
