@@ -28,9 +28,3 @@ variable "backups" {
   default = false
   description = "Whether to enable backups"
 }
-
-variable "private_networking" {
-  type = bool
-  default = false
-  description = "Whether to enable private networking"
-}

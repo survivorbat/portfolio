@@ -8,5 +8,4 @@ resource "digitalocean_droplet" "droplet" {
   ipv6 = true
   monitoring = true
   backups = var.backups
-  private_networking = var.private_networking
 }
