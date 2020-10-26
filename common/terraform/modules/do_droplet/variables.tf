@@ -8,7 +8,7 @@ variable "default_image" {
   description = "Default image of a droplet"
 }
 
-variable "default_size" {
+variable "size" {
   default = "s-1vcpu-1gb"
   description = "Default size of a droplet"
 }

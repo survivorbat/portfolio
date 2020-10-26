@@ -2,7 +2,7 @@ resource "digitalocean_droplet" "droplet" {
   image = var.default_image
   name = var.name
   region = var.region
-  size = var.default_size
+  size = var.size
   ssh_keys = var.ssh_keys
 
   ipv6 = true
