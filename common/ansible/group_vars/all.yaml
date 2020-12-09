@@ -25,6 +25,8 @@ nginx_image: "{{ lookup('env', 'nginxImage') }}"
 
 pip_install_packages:
   - name: docker
+  - name: pyopenssl
+    version: 16.2.0
   - name: docker-compose
 
 nginx_fullchain_path: "{{ lookup('env', 'acmeFullchainPath') }}"
