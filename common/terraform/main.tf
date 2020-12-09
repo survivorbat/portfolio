@@ -41,7 +41,7 @@ module "domain_mdev" {
 module "droplet" {
   source   = "./modules/do_droplet"
   name     = "entrypoint"
-  size     = "s-2vcpu-4gb"
+  size     = "s-1vcpu-2gb"
   ssh_keys = [digitalocean_ssh_key.personal_key.id, digitalocean_ssh_key.public_key.id]
 }
 
