@@ -3,7 +3,7 @@ variable "region" {
   description = "Region to put infrastructure in"
 }
 
-variable "default_image" {
+variable "image" {
   default = "ubuntu-18-04-x64"
   description = "Default image of a droplet"
 }
