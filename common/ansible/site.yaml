@@ -8,11 +8,6 @@
       register: output
       changed_when: (output.stdout | length) > 0
 
-    - name: Ensure pip pyOpenSSL
-      raw: pip3 install pyOpenSSL
-      register: output
-      changed_when: (output.stdout | length) > 0
-
 - name: Ensure common roles
   hosts: all
   roles:
