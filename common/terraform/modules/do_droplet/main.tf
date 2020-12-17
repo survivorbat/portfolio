@@ -6,6 +6,7 @@ resource "digitalocean_droplet" "droplet" {
   ssh_keys = var.ssh_keys
 
   ipv6 = true
+  resize_disk = var.resize_disk
   monitoring = true
   backups = var.backups
 }
