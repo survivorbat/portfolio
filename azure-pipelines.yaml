@@ -23,10 +23,6 @@ variables:
   privateKeyName: azure_rsa
   resourceGroupName: Portfolio
 
-  #  doToken: "<secret>" <--- This secret variable is defined in the Azure DevOps UI
-  #  doAccessKey: "<secret>" <--- This secret variable is defined in the Azure DevOps UI
-  #  doSecretKey: "<secret>" <--- This secret variable is defined in the Azure DevOps UI
-
   nginx_jinja_version: "1.17.9"
 
 # TODO: Cleanup this mess
@@ -46,6 +42,7 @@ stages:
               tags: |
                 $(tag)
                 latest
+
       - job: TFValidate
         displayName: Validate Terraform Config
         steps:
@@ -61,7 +58,7 @@ stages:
             inputs:
               command: 'init'
               backendType: 'azurerm'
-              backendServiceArm: '$(backendSubscription)'
+              backendServiceArm: '$(azureServiceConnection)'
               backendAzureRmResourceGroupName: 'Terraform'
               backendAzureRmStorageAccountName: '$(backendStorageAccount)'
               backendAzureRmContainerName: 'tfstate'
@@ -124,7 +121,7 @@ stages:
             inputs:
               command: 'init'
               backendType: 'azurerm'
-              backendServiceArm: '$(backendSubscription)'
+              backendServiceArm: '$(azureServiceConnection)'
               backendAzureRmResourceGroupName: 'Terraform'
               backendAzureRmStorageAccountName: '$(backendStorageAccount)'
               backendAzureRmContainerName: 'tfstate'
