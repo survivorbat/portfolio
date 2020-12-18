@@ -57,10 +57,16 @@ stages:
               tokenSuffix: '__'
 
           - task: TerraformCLI@0
+            displayName: Init $(terraformDirectory)
             inputs:
               command: 'init'
+              backendType: 'azurerm'
+              backendServiceArm: '$(backendSubscription)'
+              backendAzureRmResourceGroupName: 'Terraform'
+              backendAzureRmStorageAccountName: '$(backendStorageAccount)'
+              backendAzureRmContainerName: 'tfstate'
+              backendAzureRmKey: 'terraform.tfstate'
               commandOptions: $(terraformDirectory)
-            displayName: Init $(terraformDirectory)
 
           - task: TerraformCLI@0
             inputs:
@@ -101,6 +107,7 @@ stages:
               tags: |
                 $(tag)
                 latest
+
       - job: Infra_Deploy
         displayName: Terraform Deploy
         dependsOn: Docker_Publish
@@ -113,6 +120,7 @@ stages:
               tokenSuffix: '__'
 
           - task: TerraformCLI@0
+            displayName: Init $(terraformDirectory)
             inputs:
               command: 'init'
               backendType: 'azurerm'
