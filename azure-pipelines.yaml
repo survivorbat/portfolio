@@ -115,8 +115,13 @@ stages:
           - task: TerraformCLI@0
             inputs:
               command: 'init'
+              backendType: 'azurerm'
+              backendServiceArm: '$(backendSubscription)'
+              backendAzureRmResourceGroupName: 'Terraform'
+              backendAzureRmStorageAccountName: '$(backendStorageAccount)'
+              backendAzureRmContainerName: 'tfstate'
+              backendAzureRmKey: 'terraform.tfstate'
               commandOptions: $(terraformDirectory)
-            displayName: Init $(terraformDirectory)
 
           - task: TerraformCLI@0
             inputs:
