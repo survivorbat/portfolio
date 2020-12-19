@@ -1,0 +1,14 @@
+- name: Ensure {{ plugin_folder }}
+  file:
+    state: directory
+    path: "{{ plugin_folder }}"
+
+- name: Ensure {{ config_folder }}
+  file:
+    state: directory
+    path: "{{ config_folder }}"
+
+- name: Ensure {{ mods_folder }}
+  file:
+    state: directory
+    path: "{{ mods_folder }}"

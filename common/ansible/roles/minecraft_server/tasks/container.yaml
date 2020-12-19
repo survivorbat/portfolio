@@ -1,0 +1,10 @@
+- name: Ensure {{ server_name }} with image {{ server_image }}
+  docker_container:
+    image: "{{ server_image }}"
+    volumes:
+      - "{{ server_folder }}:/data"
+    published_ports:  "{{ server_ports }}"
+    restart_policy: "{{ server_restart }}"
+    name: "{{ server_name }}"
+    state: started
+    env: "{{ environment }}"

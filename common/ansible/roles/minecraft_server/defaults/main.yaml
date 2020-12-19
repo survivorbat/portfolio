@@ -1,0 +1,18 @@
+server_image: nimmis/spigot
+server_name: minecraft
+server_restart: always
+server_ports:
+  - 25565:25565
+
+server_folder: "/root/minecraft"
+
+environment: {}
+
+mod_folder: "{{ server_folder }}/mods"
+mods: []
+
+plugin_folder: "{{ server_folder }}/plugins"
+plugins: []
+
+config_folder: "{{ server_folder }}/configs"
+configs: []
