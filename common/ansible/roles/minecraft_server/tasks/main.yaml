@@ -1,3 +1,3 @@
-include_tasks:
-  - directories.yaml
-  - files.yaml
+- import_tasks: directories.yaml
+- import_tasks: files.yaml
+- import_tasks: container.yaml
