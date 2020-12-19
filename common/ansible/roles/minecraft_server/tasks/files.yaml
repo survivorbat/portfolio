@@ -2,16 +2,16 @@
   copy:
     src: "{{ plugin_folder }}/{{ item.local_path }}"
     dest: "{{ plugin_folder }}/{{ item.name }}"
-  loop: plugins
+  loop: "{{ plugins }}"
 
 - name: Ensure configs
   copy:
     src: "{{ config_folder }}/{{ item.local_path }}"
     dest: "{{ config_folder }}/{{ item.name }}"
-  loop: configs
+  loop: "{{ configs }}"
 
 - name: Ensure mods
   copy:
     src: "{{ mod_folder }}/{{ item.local_path }}"
     dest: "{{ mod_folder }}/{{ item.name }}"
-  loop: mods
+  loop: "{{ mods }}"
