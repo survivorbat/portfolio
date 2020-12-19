@@ -54,7 +54,7 @@ module "droplet" {
 
 module "droplet_mc" {
   source      = "./modules/do_droplet"
-  name        = "mc"
+  name        = "mc-margo"
   size        = "s-1vcpu-2gb"
   resize_disk = false
   image       = "ubuntu-20-04-x64"
