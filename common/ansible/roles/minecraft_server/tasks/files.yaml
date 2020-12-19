@@ -18,6 +18,6 @@
 
 - name: Ensure files
   copy:
-    src: "{{ server_folder }}/{{ item.local_path }}"
+    src: "{{ item.local_path }}"
     dest: "{{ server_folder }}/{{ item.name }}"
   loop: "{{ server_files }}"
