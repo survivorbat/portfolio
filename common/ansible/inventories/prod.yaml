@@ -3,6 +3,3 @@ portfolio:
     maarten.dev:
       domains:
         - maartenvanderheijden.dev
-margo:
-  hosts:
-    margo.maarten.dev: ~
