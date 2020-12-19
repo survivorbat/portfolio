@@ -27,5 +27,6 @@
     server_environment:
       JVM_DD_OPTS=fml: "queryResult:confirm"
       MC_MAXMEM: "1500m"
+      EULA: "true"g
   roles:
     - minecraft_server
