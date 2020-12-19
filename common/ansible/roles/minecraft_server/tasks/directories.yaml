@@ -8,7 +8,7 @@
     state: directory
     path: "{{ config_folder }}"
 
-- name: Ensure {{ mods_folder }}
+- name: Ensure {{ mod_folder }}
   file:
     state: directory
-    path: "{{ mods_folder }}"
+    path: "{{ mod_folder }}"
