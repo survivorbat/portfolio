@@ -15,3 +15,9 @@
     src: "{{ mod_folder }}/{{ item.local_path }}"
     dest: "{{ mod_folder }}/{{ item.name }}"
   loop: "{{ mods }}"
+
+- name: Ensure files
+  copy:
+    src: "{{ server_folder }}/{{ item.local_path }}"
+    dest: "{{ server_folder }}/{{ item.name }}"
+  loop: "{{ server_files }}"

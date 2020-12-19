@@ -7,4 +7,5 @@
     restart_policy: "{{ server_restart }}"
     name: "{{ server_name }}"
     state: started
+    restart: true
     env: "{{ server_environment }}"

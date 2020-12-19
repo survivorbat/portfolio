@@ -5,6 +5,7 @@ server_ports:
   - 25565:25565
 
 server_folder: "/root/minecraft"
+server_files: []
 
 server_environment: {}
 
