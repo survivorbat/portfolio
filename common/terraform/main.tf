@@ -69,6 +69,7 @@ module "project" {
   environment = "Production"
   resources = [
     module.droplet.droplet_urn,
+    module.droplet_mc.droplet_urn,
     module.domain_mdev.domain_urn,
     module.domain_mvdhdev.domain_urn,
     # This object contains all our state

@@ -19,3 +19,13 @@
   hosts: portfolio
   roles:
     - portfolio
+
+- name: Ensure margo
+  hosts: margo
+  vars:
+    server_folder: /home/developer/minecraft
+    environment:
+      JVM_DD_OPTS=fml: queryResult:confirm
+      MC_MAXMEM: 1500m
+  roles:
+    - minecraft_server
