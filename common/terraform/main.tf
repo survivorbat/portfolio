@@ -23,11 +23,6 @@ locals {
       type  = "AAAA"
       value = module.droplet.ipv6
     },
-    {
-      name = "margo"
-      type = "A"
-      value = module.droplet_mc.ipv4
-    }
   ]
 }
 
@@ -52,15 +47,6 @@ module "droplet" {
   ssh_keys    = [digitalocean_ssh_key.personal_key.id, digitalocean_ssh_key.public_key.id]
 }
 
-module "droplet_mc" {
-  source      = "./modules/do_droplet"
-  name        = "mc-margo"
-  size        = "s-1vcpu-2gb"
-  resize_disk = false
-  image       = "ubuntu-20-04-x64"
-  ssh_keys    = [digitalocean_ssh_key.personal_key.id, digitalocean_ssh_key.public_key.id]
-}
-
 module "project" {
   source      = "./modules/do_project"
   name        = "Production"
@@ -69,7 +55,6 @@ module "project" {
   environment = "Production"
   resources = [
     module.droplet.droplet_urn,
-    module.droplet_mc.droplet_urn,
     module.domain_mdev.domain_urn,
     module.domain_mvdhdev.domain_urn,
     # This object contains all our state

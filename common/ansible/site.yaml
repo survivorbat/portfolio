@@ -19,17 +19,3 @@
   hosts: portfolio
   roles:
     - portfolio
-
-- name: Ensure margo
-  hosts: margo
-  vars:
-    server_folder: /home/developer/minecraft
-    server_files:
-      - name: server.properties
-        local_path: "{{ playbook_dir }}/files/margo/server.properties"
-    server_environment:
-      JVM_DD_OPTS=fml: "queryResult:confirm"
-      MC_MAXMEM: "1500m"
-      EULA: "true"
-  roles:
-    - minecraft_server
