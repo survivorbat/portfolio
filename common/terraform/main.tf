@@ -41,7 +41,7 @@ module "domain_mdev" {
 module "droplet" {
   source      = "./modules/do_droplet"
   name        = "main"
-  size        = "s-4vcpu-8gb"
+  size        = "s-1vcpu-1gb"
   resize_disk = false
   image       = "ubuntu-20-04-x64"
   ssh_keys    = [digitalocean_ssh_key.personal_key.id, digitalocean_ssh_key.public_key.id]
