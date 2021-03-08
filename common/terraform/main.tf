@@ -2,49 +2,16 @@ provider "digitalocean" {
   token = var.do_token
 }
 
-locals {
-  domain_records = [
-    {
-      name  = "@"
-      type  = "A"
-      value = module.droplet.ipv4
-    },
-    {
-      name  = "@"
-      type  = "AAAA"
-      value = module.droplet.ipv6
-    },
-    {
-      name  = "*"
-      type  = "A"
-      value = module.droplet.ipv4
-    }, {
-      name  = "*"
-      type  = "AAAA"
-      value = module.droplet.ipv6
-    },
-  ]
-}
-
 module "domain_mvdhdev" {
   source  = "./modules/do_domain"
   domain  = "maartenvanderheijden.dev"
-  records = local.domain_records
+  records = []
 }
 
 module "domain_mdev" {
   source  = "./modules/do_domain"
   domain  = "maarten.dev"
-  records = local.domain_records
-}
-
-module "droplet" {
-  source      = "./modules/do_droplet"
-  name        = "main"
-  size        = "s-4vcpu-8gb"
-  resize_disk = false
-  image       = "ubuntu-20-04-x64"
-  ssh_keys    = [digitalocean_ssh_key.personal_key.id, digitalocean_ssh_key.public_key.id]
+  records = []
 }
 
 module "project" {
@@ -54,22 +21,14 @@ module "project" {
   purpose     = "Website or blog"
   environment = "Production"
   resources = [
-    module.droplet.droplet_urn,
     module.domain_mdev.domain_urn,
-    module.domain_mvdhdev.domain_urn,
-    # This object contains all our state
-    "do:space:portfolio-terraform-state"
+    module.domain_mvdhdev.domain_urn
   ]
 }
 
 resource "digitalocean_ssh_key" "personal_key" {
   name       = "do_key"
   public_key = var.personal_public_key
-}
-
-resource "digitalocean_ssh_key" "public_key" {
-  name       = "portfolio_key"
-  public_key = var.portfolio_public_key
 }
 
 provider "acme" {

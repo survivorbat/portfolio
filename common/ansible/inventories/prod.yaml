@@ -1,5 +1,2 @@
 portfolio:
-  hosts:
-    maarten.dev:
-      domains:
-        - maartenvanderheijden.dev
+  hosts: []
