@@ -30,3 +30,7 @@ resource "digitalocean_ssh_key" "personal_key" {
   name       = "do_key"
   public_key = var.personal_public_key
 }
+
+provider "acme" {
+  server_url = "https://acme-v02.api.letsencrypt.org/directory"
+}
